@@ -387,18 +387,40 @@
           </div>
         </div>
 
-        <!-- Right Side: Carely Style Overlapping Caregiver Composition -->
+        <!-- Right Side: Carely Style Video & Overlapping Caregiver Composition -->
         <div class="about-visual-wrapper" data-aos="fade-left" data-aos-duration="850">
           <div class="about-decor-circle"></div>
           <div class="about-decor-dot"></div>
-          <div class="about-carely-composition">
-            <img 
-              src="assets/images/about-carely-collage.jpg" 
-              alt="Professional caregivers providing compassionate support to senior patients"
-              loading="lazy"
-              class="about-carely-img"
-            >
+          
+          <div class="about-composition-stack">
+            <!-- 1. Upper Element: Video (ready for user's video file with clean poster & player controls) -->
+            <div class="about-video-container">
+              <video 
+                class="about-main-video" 
+                poster="assets/images/about-senior-nurse.jpg"
+                preload="metadata"
+                controls
+                muted
+                loop
+                playsinline
+                aria-label="VRC Home Care Services overview video"
+              >
+                <source src="assets/videos/about-video.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
+
+            <!-- 2. Lower Element: Second Image in existing overlapping position -->
+            <div class="about-secondary-img-wrapper">
+              <img 
+                src="assets/images/about-walking.jpg" 
+                alt="Caregiver supporting senior during outdoor walking"
+                loading="lazy"
+                class="about-secondary-img"
+              >
+            </div>
           </div>
+
           <div class="about-decor-badge">
             <span class="badge-icon">♥</span>
             <span class="badge-text">Compassionate &amp; Certified Care</span>
@@ -525,7 +547,7 @@
 
         <!-- 6. Appointment CTA Card -->
         <article class="service-card service-card-appointment" data-open-modal data-service="Senior Care Consultation" data-aos="fade-up" data-aos-delay="600">
-          <div class="service-appointment-bg" style="background-image: url('assets/images/hero_section1.png');"></div>
+          <div class="service-appointment-bg" style="background-image: url('assets/images/hero-nurse-senior.jpg');"></div>
           <div class="service-appointment-overlay"></div>
           <div class="service-appointment-glass">
             <h3 class="service-appointment-title">Ready to start your journey to recovery</h3>
@@ -729,87 +751,169 @@
         </p>
       </div>
 
-      <div class="testimonials-cards-grid">
-        
-        <!-- Card 1 -->
-        <div class="testimonial-full-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="tfc-header">
-            <div class="testimonial-stars">
-              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+      <!-- Automatic 5-Item Responsive Carousel (3 desktop, 2 tablet, 1 mobile) -->
+      <div class="testimonial-carousel-wrapper" data-aos="fade-up" data-aos-delay="150">
+        <button class="t-nav-arrow t-prev" aria-label="Previous Testimonial">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <div class="testimonial-carousel-viewport">
+          <div class="testimonial-carousel-track">
+            
+            <!-- Slide 1: Priya Sharma -->
+            <div class="testimonial-card-slide">
+              <div class="testimonial-full-card">
+                <div class="tfc-header">
+                  <div class="testimonial-stars">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="tfc-badge">Verified Family</span>
+                </div>
+                <p class="tfc-quote">
+                  "VRC Home Care Services has been an absolute blessing for my mother. Nurse Lakshmi's patience, warmth, and attention to detail transformed her daily recovery routine into something joyous."
+                </p>
+                <div class="tfc-author">
+                  <div class="tfc-avatar">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Priya Sharma" loading="lazy">
+                  </div>
+                  <div class="tfc-info">
+                    <h4 class="tfc-name">Priya Sharma</h4>
+                    <span class="tfc-loc">Banjara Hills, Hyderabad</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <span class="tfc-badge">Verified Family</span>
-          </div>
-          <p class="tfc-quote">
-            "VRC Home Care Services has been an absolute blessing for my mother. Nurse Lakshmi's patience, warmth, and attention to detail transformed her daily recovery routine into something joyous."
-          </p>
-          <div class="tfc-author">
-            <div class="tfc-avatar">
-              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Priya Sharma" loading="lazy">
+
+            <!-- Slide 2: Vikram Malhotra -->
+            <div class="testimonial-card-slide">
+              <div class="testimonial-full-card">
+                <div class="tfc-header">
+                  <div class="testimonial-stars">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="tfc-badge">Verified Family</span>
+                </div>
+                <p class="tfc-quote">
+                  "The nursing staff handled my father's knee replacement recovery with supreme dedication and empathy. Their daily reports and genuine care kept us completely stress-free."
+                </p>
+                <div class="tfc-author">
+                  <div class="tfc-avatar">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Vikram Malhotra" loading="lazy">
+                  </div>
+                  <div class="tfc-info">
+                    <h4 class="tfc-name">Vikram Malhotra</h4>
+                    <span class="tfc-loc">Jubilee Hills, Hyderabad</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="tfc-info">
-              <h4 class="tfc-name">Priya Sharma</h4>
-              <span class="tfc-loc">Banjara Hills, Hyderabad</span>
+
+            <!-- Slide 3: Meera Reddy -->
+            <div class="testimonial-card-slide">
+              <div class="testimonial-full-card">
+                <div class="tfc-header">
+                  <div class="testimonial-stars">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="tfc-badge">Verified Family</span>
+                </div>
+                <p class="tfc-quote">
+                  "Finding trusted dementia care for my mother was challenging until we found VRC Home Care Services. The aide Anjali treats my mom with genuine family love and exceptional dignity."
+                </p>
+                <div class="tfc-author">
+                  <div class="tfc-avatar">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Meera Reddy" loading="lazy">
+                  </div>
+                  <div class="tfc-info">
+                    <h4 class="tfc-name">Meera Reddy</h4>
+                    <span class="tfc-loc">Gachibowli, Hyderabad</span>
+                  </div>
+                </div>
+              </div>
             </div>
+
+            <!-- Slide 4: Rajesh Varma -->
+            <div class="testimonial-card-slide">
+              <div class="testimonial-full-card">
+                <div class="tfc-header">
+                  <div class="testimonial-stars">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="tfc-badge">Verified Family</span>
+                </div>
+                <p class="tfc-quote">
+                  "The 24/7 post-surgery nursing care VRC provided for my father was exceptional. The nurse monitored his vitals diligently and treated him like her own family elder."
+                </p>
+                <div class="tfc-author">
+                  <div class="tfc-avatar">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Rajesh Varma" loading="lazy">
+                  </div>
+                  <div class="tfc-info">
+                    <h4 class="tfc-name">Rajesh Varma</h4>
+                    <span class="tfc-loc">Madhapur, Hyderabad</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 5: Sunita Rao -->
+            <div class="testimonial-card-slide">
+              <div class="testimonial-full-card">
+                <div class="tfc-header">
+                  <div class="testimonial-stars">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="tfc-badge">Verified Family</span>
+                </div>
+                <p class="tfc-quote">
+                  "Finding reliable infant and mother care after delivery felt overwhelming until VRC stepped in. Their certified caregiver was gentle, punctual, and wonderfully supportive."
+                </p>
+                <div class="tfc-author">
+                  <div class="tfc-avatar">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80" alt="Sunita Rao" loading="lazy">
+                  </div>
+                  <div class="tfc-info">
+                    <h4 class="tfc-name">Sunita Rao</h4>
+                    <span class="tfc-loc">Kondapur, Hyderabad</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="testimonial-full-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="tfc-header">
-            <div class="testimonial-stars">
-              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-            </div>
-            <span class="tfc-badge">Verified Family</span>
-          </div>
-          <p class="tfc-quote">
-            "The nursing staff handled my father's knee replacement recovery with supreme dedication and empathy. Their daily reports and genuine care kept us completely stress-free."
-          </p>
-          <div class="tfc-author">
-            <div class="tfc-avatar">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Vikram Malhotra" loading="lazy">
-            </div>
-            <div class="tfc-info">
-              <h4 class="tfc-name">Vikram Malhotra</h4>
-              <span class="tfc-loc">Jubilee Hills, Hyderabad</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="testimonial-full-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="tfc-header">
-            <div class="testimonial-stars">
-              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-            </div>
-            <span class="tfc-badge">Verified Family</span>
-          </div>
-          <p class="tfc-quote">
-            "Finding trusted dementia care for my mother was challenging until we found VRC Home Care Services. The aide Anjali treats my mom with genuine family love and exceptional dignity."
-          </p>
-          <div class="tfc-author">
-            <div class="tfc-avatar">
-              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Meera Reddy" loading="lazy">
-            </div>
-            <div class="tfc-info">
-              <h4 class="tfc-name">Meera Reddy</h4>
-              <span class="tfc-loc">Gachibowli, Hyderabad</span>
-            </div>
-          </div>
-        </div>
-
+        <button class="t-nav-arrow t-next" aria-label="Next Testimonial">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
       </div>
+
+      <!-- Centered Carousel Navigation Dots -->
+      <div class="testimonial-carousel-dots" aria-label="Testimonial Navigation Dots"></div>
     </div>
   </section>
 
