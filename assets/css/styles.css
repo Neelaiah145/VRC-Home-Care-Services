@@ -19,6 +19,14 @@
   --secondary-light: #FF8533;
   --secondary-glow: rgba(255, 102, 0, 0.32);
   
+  /* Complementary Brand Colors Matching Orange & Navy */
+  --accent-cyan: #0284C7;
+  --accent-cyan-bg: #F0F9FF;
+  --accent-cyan-border: #BAE6FD;
+  --accent-warm: #FFF6EF;
+  --accent-warm-border: #FFDDC4;
+  --accent-slate: #F1F5F9;
+
   --accent-blue: #0066CC;
   --accent-sky: #EAF4FD;
   --accent-blob: #FFF0E5;
@@ -1076,7 +1084,7 @@ button.btn:hover .btn-flip-label span {
 }
 
 .hero-description {
-  font-size: 1.02rem;
+  font-size: 0.98rem;
   font-weight: 400;
   line-height: 1.62;
   color: #D3E7F7;
@@ -1267,12 +1275,25 @@ button.btn:hover .btn-flip-label span {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--secondary);
-  background: rgba(18, 184, 166, 0.08);
-  border: 1px solid rgba(18, 184, 166, 0.22);
+  background: var(--accent-warm);
+  border: 1px solid var(--accent-warm-border);
   padding: 6px 16px;
   border-radius: 50px;
   margin-bottom: 14px;
+  box-shadow: 0 2px 8px rgba(255, 102, 0, 0.08);
   transition: all 0.3s ease;
+}
+
+@keyframes badgeDotBreathe {
+  0%, 100% {
+    transform: scale(0.85);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.22);
+    opacity: 1;
+    box-shadow: 0 0 7px var(--secondary-glow);
+  }
 }
 
 .section-pill-badge::before,
@@ -1289,15 +1310,29 @@ button.btn:hover .btn-flip-label span {
 .section-badge::after {
   content: "";
   display: inline-block;
-  width: 12px;
-  height: 2px;
-  background: currentColor;
-  border-radius: 2px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--secondary);
+  animation: badgeDotBreathe 2.2s ease-in-out infinite;
+  transform-origin: center;
+  flex-shrink: 0;
+}
+
+.section-pill-badge::after,
+.about-pill-label::after,
+.why-pill-badge::after,
+.how-pill-badge::after,
+.tf-subheading::after,
+.section-badge::after {
+  animation-delay: 1.1s;
 }
 
 .section-pill-badge:hover {
-  background: rgba(18, 184, 166, 0.15);
+  background: #FFE8D6;
+  border-color: var(--secondary);
   transform: translateY(-2px);
+  box-shadow: 0 4px 14px var(--secondary-glow);
 }
 
 .how-pill-badge,
@@ -1604,38 +1639,68 @@ button.btn:hover .btn-flip-label span {
   white-space: nowrap;
 }
 
-.about-carely-composition {
+.about-composition-stack {
   position: relative;
   z-index: 2;
   width: 100%;
   max-width: 580px;
-  border-radius: 28px;
-  overflow: hidden;
-  box-shadow: 0 20px 50px rgba(18, 59, 93, 0.13);
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease;
 }
 
-.about-carely-composition:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 28px 60px rgba(18, 59, 93, 0.18);
-}
-
-.about-carely-img {
+.about-video-container {
   width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-  border-radius: 28px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 18px 45px rgba(10, 37, 64, 0.14);
+  border: 1px solid var(--border-color);
+  background: var(--dark-navy);
+  aspect-ratio: 16 / 10;
+  display: flex;
+  position: relative;
 }
 
-@media (max-width: 576px) {
-  .about-carely-composition {
-    max-width: 100%;
-    border-radius: 18px;
+.about-main-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 24px;
+}
+
+.about-secondary-img-wrapper {
+  position: absolute;
+  bottom: -24px;
+  right: -20px;
+  width: 44%;
+  max-width: 240px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 18px 45px rgba(10, 37, 64, 0.22);
+  border: 4px solid var(--white);
+  z-index: 3;
+  transition: transform 0.4s ease;
+}
+
+.about-secondary-img-wrapper:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+.about-secondary-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 680px) {
+  .about-secondary-img-wrapper {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    width: 65%;
+    margin-top: -24px;
+    margin-left: auto;
   }
-  .about-carely-img {
-    border-radius: 18px;
-  }
+
   .about-decor-badge {
     left: 5px;
     bottom: -15px;
@@ -1737,34 +1802,76 @@ button.btn:hover .btn-flip-label span {
 }
 
 .service-icon-box {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: #E59866;
-  color: #FFFFFF;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 22px;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 14px rgba(229, 152, 102, 0.28);
+  background: var(--accent-warm);
+  color: var(--secondary);
+  border: 1.5px solid var(--accent-warm-border);
+  box-shadow: 0 4px 14px rgba(255, 102, 0, 0.14);
 }
 
 .service-icon-box svg {
-  width: 24px;
-  height: 24px;
-  stroke: #FFFFFF;
-  transition: transform 0.4s ease;
+  width: 25px;
+  height: 25px;
+  stroke: currentColor;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Complementary Brand Colors for Service Icons in Normal State */
+.service-icon-box.icon-azure {
+  background: #E0F2FE;
+  color: #0284C7;
+  border-color: #BAE6FD;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.18);
+}
+
+.service-icon-box.icon-orange {
+  background: #FFF0E6;
+  color: #FF6600;
+  border-color: #FFD1B3;
+  box-shadow: 0 4px 14px rgba(255, 102, 0, 0.22);
+}
+
+.service-icon-box.icon-blue {
+  background: #EEF2FF;
+  color: #2563EB;
+  border-color: #C7D2FE;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.18);
+}
+
+.service-icon-box.icon-amber {
+  background: #FEF3C7;
+  color: #D97706;
+  border-color: #FDE68A;
+  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.18);
+}
+
+.service-icon-box.icon-emerald {
+  background: #ECFDF5;
+  color: #059669;
+  border-color: #A7F3D0;
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.18);
 }
 
 .service-card:hover .service-icon-box {
-  background: rgba(255, 255, 255, 0.22);
-  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.22) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.88) !important;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  color: #FFFFFF;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  color: #FFFFFF !important;
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2) !important;
+}
+
+.service-card:hover .service-icon-box svg {
+  stroke: #FFFFFF !important;
+  transform: scale(1.08);
 }
 
 .service-card-title {
@@ -1837,28 +1944,28 @@ button.btn:hover .btn-flip-label span {
   flex-direction: column;
   justify-content: flex-end;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 20px rgba(18, 59, 93, 0.08);
+  box-shadow: 0 8px 24px rgba(10, 37, 64, 0.12);
   isolation: isolate;
-  background-color: #123B5D;
+  background-color: var(--primary);
 }
 
 .service-appointment-bg {
   position: absolute;
   inset: 0;
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 1;
 }
 
 .service-card-appointment:hover .service-appointment-bg {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
 .service-appointment-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(14, 38, 61, 0.2) 0%, rgba(14, 38, 61, 0.68) 100%);
+  background: linear-gradient(180deg, rgba(10, 37, 64, 0.2) 0%, rgba(10, 37, 64, 0.82) 100%);
   z-index: 2;
 }
 
@@ -1867,10 +1974,10 @@ button.btn:hover .btn-flip-label span {
   z-index: 3;
   margin: 18px;
   padding: 24px 20px;
-  background: rgba(255, 255, 255, 0.24);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 20px;
   text-align: center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
@@ -1878,7 +1985,7 @@ button.btn:hover .btn-flip-label span {
 }
 
 .service-card-appointment:hover .service-appointment-glass {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.24);
   transform: translateY(-2px);
 }
 
@@ -1889,6 +1996,7 @@ button.btn:hover .btn-flip-label span {
   color: #FFFFFF;
   margin-bottom: 16px;
   line-height: 1.35;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 
 .btn-appointment {
@@ -1896,7 +2004,7 @@ button.btn:hover .btn-flip-label span {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: #E59866;
+  background: var(--secondary);
   color: #FFFFFF;
   font-family: var(--font-main);
   font-size: 0.96rem;
@@ -2373,14 +2481,15 @@ button.btn:hover .btn-flip-label span {
 
 .how-it-works-background-image {
   position: absolute;
-  top: -8%;
-  left: -8%;
-  width: 116%;
-  height: 116%;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
   background-image: url("../images/hero_section1.png");
   background-size: cover;
-  background-position: center 22%;
+  background-position: center center;
   transform-origin: center center;
+  transform: scale(1.30);
   will-change: transform;
 }
 
@@ -2677,31 +2786,134 @@ button.btn:hover .btn-flip-label span {
   padding: 95px 0 100px;
 }
 
-.testimonials-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+/* Responsive Testimonials Carousel (3 desktop, 2 tablet, 1 mobile) */
+.testimonial-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 0 48px;
+  box-sizing: border-box;
 }
 
-@media (max-width: 1024px) {
-  .testimonials-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+.testimonial-carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+  border-radius: 24px;
+}
+
+.testimonial-carousel-track {
+  display: flex;
+  transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+  gap: 24px;
+  will-change: transform;
+}
+
+.testimonial-card-slide {
+  flex: 0 0 calc((100% - 48px) / 3);
+  box-sizing: border-box;
+  display: flex;
+}
+
+@media (max-width: 992px) {
+  .testimonial-carousel-wrapper {
+    padding: 0 40px;
+  }
+  .testimonial-card-slide {
+    flex: 0 0 calc((100% - 24px) / 2);
   }
 }
 
-@media (max-width: 680px) {
-  .testimonials-cards-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+@media (max-width: 640px) {
+  .testimonial-carousel-wrapper {
+    padding: 0;
   }
+  .testimonial-card-slide {
+    flex: 0 0 100%;
+  }
+}
+
+.testimonial-card-slide .testimonial-full-card {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.t-nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(10, 37, 64, 0.08);
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.t-nav-arrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+.t-nav-arrow:hover {
+  background: var(--secondary);
+  color: var(--white);
+  border-color: var(--secondary);
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 8px 22px var(--secondary-glow);
+}
+
+.t-nav-arrow.t-prev {
+  left: 0;
+}
+
+.t-nav-arrow.t-next {
+  right: 0;
+}
+
+@media (max-width: 640px) {
+  .t-nav-arrow {
+    display: none;
+  }
+}
+
+.testimonial-carousel-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 36px;
+}
+
+.t-dot-btn {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #CBD5E1;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.t-dot-btn.active {
+  width: 28px;
+  border-radius: 20px;
+  background: var(--secondary);
+  box-shadow: 0 0 12px var(--secondary-glow);
 }
 
 .testimonial-full-card {
   background: var(--soft-bg);
   border: 1px solid var(--border-color);
   border-radius: 24px;
-  padding: 34px 30px 30px;
+  padding: 30px 26px 26px;
   display: flex;
   flex-direction: column;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
@@ -2709,9 +2921,9 @@ button.btn:hover .btn-flip-label span {
 }
 
 .testimonial-full-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(18, 59, 93, 0.1);
-  border-color: rgba(18, 184, 166, 0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(10, 37, 64, 0.08);
+  border-color: var(--secondary);
   background: #FFFFFF;
 }
 
@@ -2719,7 +2931,7 @@ button.btn:hover .btn-flip-label span {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .testimonial-stars {
@@ -2735,22 +2947,23 @@ button.btn:hover .btn-flip-label span {
 }
 
 .tfc-badge {
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--secondary);
-  background: rgba(18, 184, 166, 0.1);
+  background: var(--accent-warm);
+  border: 1px solid var(--accent-warm-border);
   padding: 4px 10px;
   border-radius: 20px;
 }
 
 .tfc-quote {
   font-family: var(--font-main);
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: var(--text-dark);
-  margin-bottom: 24px;
+  font-size: 0.94rem;
+  line-height: 1.62;
+  color: var(--text-navy);
+  margin-bottom: 20px;
   flex-grow: 1;
 }
 
@@ -2758,13 +2971,13 @@ button.btn:hover .btn-flip-label span {
   display: flex;
   align-items: center;
   gap: 14px;
-  padding-top: 18px;
-  border-top: 1px solid rgba(18, 59, 93, 0.08);
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
 }
 
 .tfc-avatar {
-  width: 50px;
-  height: 50px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid var(--secondary);
@@ -2779,7 +2992,7 @@ button.btn:hover .btn-flip-label span {
 
 .tfc-name {
   font-family: var(--font-main);
-  font-size: 1.12rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--primary);
   line-height: 1.25;
@@ -2787,22 +3000,22 @@ button.btn:hover .btn-flip-label span {
 }
 
 .tfc-loc {
-  font-size: 0.86rem;
+  font-size: 0.84rem;
   color: var(--text-muted);
 }
 
 /*
-   7. FAQs Section – Dedicated Full-Width
+   7. FAQs Section – Compact, Balanced Width & Refined Typography
    -------------------------------------------------------------------------- */
 .faqs-section {
   background-color: var(--soft-bg);
   position: relative;
-  padding: 95px 0 100px;
+  padding: 85px 0 90px;
 }
 
 .faq-accordion-container {
   width: 100%;
-  max-width: 100%;
+  max-width: 860px; /* Reduced width for a more compact and balanced layout */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -2811,30 +3024,31 @@ button.btn:hover .btn-flip-label span {
 
 .accordion-item {
   border: 1px solid var(--border-color);
-  border-radius: 18px;
+  border-radius: 14px;
   background: var(--white);
   overflow: hidden;
   transition: all 0.35s ease;
-  box-shadow: 0 2px 10px rgba(18, 59, 93, 0.03);
+  box-shadow: 0 2px 10px rgba(10, 37, 64, 0.03);
 }
 
 .accordion-item.active {
-  border-color: rgba(18, 184, 166, 0.5);
-  box-shadow: 0 10px 28px rgba(18, 59, 93, 0.08);
+  border-color: rgba(255, 102, 0, 0.45);
+  background: #FFFDFC;
+  box-shadow: 0 8px 24px rgba(255, 102, 0, 0.08);
 }
 
 .accordion-header {
   width: 100%;
-  padding: 22px 28px;
+  padding: 16px 22px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   text-align: left;
   font-family: var(--font-main);
-  font-size: 1.16rem;
-  font-weight: 700;
-  line-height: 1.35;
+  font-size: 0.96rem !important;
+  font-weight: 600 !important;
+  line-height: 1.45;
   color: var(--primary);
   background: transparent;
   border: none;
@@ -2847,19 +3061,20 @@ button.btn:hover .btn-flip-label span {
 }
 
 .accordion-item.active .accordion-header {
-  color: var(--secondary-dark);
+  color: var(--secondary);
+  font-weight: 600 !important;
 }
 
 .accordion-icon {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  background: var(--accent-sky);
-  color: var(--secondary);
+  background: #F0F9FF;
+  color: #0284C7;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 600;
   line-height: 1;
   flex-shrink: 0;
@@ -3264,13 +3479,12 @@ button.btn:hover .btn-flip-label span {
   letter-spacing: -0.025em;
 }
 
-/* Shared style for card, feature, FAQ and footer subheadings. */
+/* Shared style for card, feature and footer subheadings. */
 .service-title,
 .benefit-copy strong,
 .how-step-card h3,
 .step-heading,
 .testimonial-author-name,
-.accordion-header,
 .footer-col-title,
 .modal-title {
   font-family: var(--font-main);

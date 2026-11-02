@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   initNavbar();
   initHeroSlider();
+  initAboutVideoAutoplay();
   initHowStepCards();
   initHowItWorksScrollZoom();
   initScrollAnimations();
@@ -23,6 +24,43 @@ document.addEventListener('DOMContentLoaded', () => {
   initModalAndForms();
   initBackToTop();
 });
+
+/**
+ * Autoplay engine for About Us elderly care video
+ * Ensures seamless, silent ambient playback without play buttons
+ */
+function initAboutVideoAutoplay() {
+  const video = document.querySelector('.about-main-video');
+  if (!video) return;
+
+  video.muted = true;
+  video.defaultMuted = true;
+  video.playsInline = true;
+
+  const tryPlay = () => {
+    const promise = video.play();
+    if (promise !== undefined) {
+      promise.catch(() => {
+        // Fallback on first gesture if browser security policies restrict instant auto-execution
+        const onFirstGesture = () => {
+          video.play().catch(() => {});
+          window.removeEventListener('scroll', onFirstGesture);
+          window.removeEventListener('click', onFirstGesture);
+          window.removeEventListener('touchstart', onFirstGesture);
+        };
+        window.addEventListener('scroll', onFirstGesture, { passive: true, once: true });
+        window.addEventListener('click', onFirstGesture, { passive: true, once: true });
+        window.addEventListener('touchstart', onFirstGesture, { passive: true, once: true });
+      });
+    }
+  };
+
+  if (video.readyState >= 2) {
+    tryPlay();
+  } else {
+    video.addEventListener('loadeddata', tryPlay, { once: true });
+  }
+}
 
 function initHowStepCards() {
   const section = document.querySelector('#how-it-works');
@@ -54,49 +92,54 @@ function initHowStepCards() {
 }
 
 /**
- * Continuous scroll-based background image zoom for "How It Works"
- * - Scrolls down: smoothly scales down / zooms out (1.48 -> 1.02)
- * - Scrolls up: smoothly scales up / zooms in (1.02 -> 1.48)
- * - Directly tied to scroll position via RAF for instant responsiveness
+ * Bidirectional scroll zoom for "How It Works" background image
+ * - Scrolling down: smoothly zooms out (from scale 1.30 to 1.05)
+ * - Scrolling up: smoothly zooms in (from scale 1.05 back up to 1.30)
+ * - Noticeable, fluid speed with zero empty or black background edges (140% canvas)
  */
 function initHowItWorksScrollZoom() {
   const howSection = document.querySelector('#how-it-works');
-  if (!howSection) return;
+  const bgImg = document.querySelector('.how-it-works-background-image');
+  if (!howSection || !bgImg) return;
 
-  const bgImg = howSection.querySelector('.how-it-works-background-image');
-  if (!bgImg) return;
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.fromTo(bgImg,
+      { scale: 1.30 },
+      {
+        scale: 1.05,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: howSection,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 0.45,
+          invalidateOnRefresh: true
+        }
+      }
+    );
+  } else {
+    let ticking = false;
+    const updateZoom = () => {
+      const rect = howSection.getBoundingClientRect();
+      const winH = window.innerHeight;
+      if (rect.bottom > 0 && rect.top < winH) {
+        const totalDist = winH + rect.height;
+        const currentDist = winH - rect.top;
+        const progress = Math.max(0, Math.min(1, currentDist / totalDist));
+        const scaleVal = 1.30 - (progress * 0.25);
+        bgImg.style.transform = `scale(${scaleVal.toFixed(3)})`;
+      }
+      ticking = false;
+    };
 
-  let ticking = false;
-  const startScale = 1.25; // Clean natural framing with caregiver & senior properly positioned
-  const endScale = 1.02;   // Clean zoom-out ending scale
-
-  function updateZoom() {
-    const rect = howSection.getBoundingClientRect();
-    const windowH = window.innerHeight;
-
-    // Check if the section is anywhere in viewport range
-    if (rect.bottom > 0 && rect.top < windowH) {
-      const totalDistance = windowH + rect.height;
-      const currentDistance = windowH - rect.top;
-      const progress = Math.max(0, Math.min(1, currentDistance / totalDistance));
-
-      // As user scrolls down: progress 0 -> 1 => scale decreases (zoom out)
-      // As user scrolls up: progress 1 -> 0 => scale increases (zoom in)
-      const currentScale = startScale - (progress * (startScale - endScale));
-      bgImg.style.transform = `scale3d(${currentScale.toFixed(4)}, ${currentScale.toFixed(4)}, 1)`;
-    }
-    ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateZoom);
+        ticking = true;
+      }
+    }, { passive: true });
+    updateZoom();
   }
-
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(updateZoom);
-      ticking = true;
-    }
-  }, { passive: true });
-
-  window.addEventListener('resize', updateZoom, { passive: true });
-  updateZoom();
 }
 
 /* ==========================================================================
@@ -772,68 +815,167 @@ function initCounters() {
    5. Testimonials Slider
    ========================================================================== */
 function initTestimonialSlider() {
-  const slides = document.querySelectorAll('.testimonial-slide-item');
-  const dots = document.querySelectorAll('.t-dot');
-  const prevBtn = document.querySelector('.t-arrow-btn.prev');
-  const nextBtn = document.querySelector('.t-arrow-btn.next');
+  const wrapper = document.querySelector('.testimonial-carousel-wrapper');
+  if (!wrapper) return;
 
-  if (!slides.length) return;
+  const track = wrapper.querySelector('.testimonial-carousel-track');
+  const slides = wrapper.querySelectorAll('.testimonial-card-slide');
+  const prevBtn = wrapper.querySelector('.t-nav-arrow.t-prev');
+  const nextBtn = wrapper.querySelector('.t-nav-arrow.t-next');
+  const dotsContainer = document.querySelector('.testimonial-carousel-dots');
+
+  if (!track || !slides.length) return;
 
   let currentIndex = 0;
   let autoplayTimer = null;
+  const autoPlayInterval = 2700; // 2.7s interval (2–3 seconds as requested)
 
-  function showTestimonial(idx) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === idx);
-    });
+  function getCardsPerView() {
+    const width = window.innerWidth;
+    if (width > 992) return 3; // 3 on desktop
+    if (width > 640) return 2; // 2 on tablet
+    return 1;                  // 1 on mobile
+  }
 
+  function getMaxIndex() {
+    const perView = getCardsPerView();
+    return Math.max(0, slides.length - perView);
+  }
+
+  function renderDots() {
+    if (!dotsContainer) return;
+    dotsContainer.innerHTML = '';
+    const maxIdx = getMaxIndex();
+    const count = maxIdx + 1;
+
+    for (let i = 0; i < count; i++) {
+      const dot = document.createElement('button');
+      dot.className = `t-dot-btn ${i === currentIndex ? 'active' : ''}`;
+      dot.setAttribute('aria-label', `Go to testimonial slide ${i + 1}`);
+      dot.addEventListener('click', () => {
+        goToSlide(i);
+        resetAutoplay();
+      });
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function updateDots() {
+    if (!dotsContainer) return;
+    const dots = dotsContainer.querySelectorAll('.t-dot-btn');
     dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === idx);
+      dot.classList.toggle('active', i === currentIndex);
     });
-
-    currentIndex = idx;
   }
 
-  function nextTestimonial() {
-    const nextIdx = (currentIndex + 1) % slides.length;
-    showTestimonial(nextIdx);
+  function updateSlidePosition() {
+    const perView = getCardsPerView();
+    const slideWidthPercent = 100 / perView;
+    const gapOffset = (perView > 1) ? (currentIndex * (24 / perView)) : 0;
+    const translateX = -(currentIndex * slideWidthPercent);
+    track.style.transform = `translateX(calc(${translateX}% - ${gapOffset}px))`;
+    updateDots();
   }
 
-  function prevTestimonial() {
-    const prevIdx = (currentIndex - 1 + slides.length) % slides.length;
-    showTestimonial(prevIdx);
+  function goToSlide(idx) {
+    const maxIdx = getMaxIndex();
+    if (idx > maxIdx) {
+      currentIndex = 0; // Wrap around smoothly
+    } else if (idx < 0) {
+      currentIndex = maxIdx;
+    } else {
+      currentIndex = idx;
+    }
+    updateSlidePosition();
   }
 
+  function nextSlide() {
+    const maxIdx = getMaxIndex();
+    if (currentIndex >= maxIdx) {
+      goToSlide(0);
+    } else {
+      goToSlide(currentIndex + 1);
+    }
+  }
+
+  function prevSlide() {
+    const maxIdx = getMaxIndex();
+    if (currentIndex <= 0) {
+      goToSlide(maxIdx);
+    } else {
+      goToSlide(currentIndex - 1);
+    }
+  }
+
+  // Click Listeners
   if (nextBtn) {
     nextBtn.addEventListener('click', () => {
-      nextTestimonial();
+      nextSlide();
       resetAutoplay();
     });
   }
 
   if (prevBtn) {
     prevBtn.addEventListener('click', () => {
-      prevTestimonial();
+      prevSlide();
       resetAutoplay();
     });
   }
 
-  dots.forEach((dot, idx) => {
-    dot.addEventListener('click', () => {
-      showTestimonial(idx);
+  // Hover Pause & Resume
+  wrapper.addEventListener('mouseenter', () => clearInterval(autoplayTimer));
+  wrapper.addEventListener('mouseleave', () => startAutoplay());
+
+  // Touch / Swipe Navigation for Mobile & Tablet
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  wrapper.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  wrapper.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, { passive: true });
+
+  function handleSwipe() {
+    const threshold = 45;
+    if (touchEndX < touchStartX - threshold) {
+      nextSlide(); // Swiped left -> next
       resetAutoplay();
-    });
-  });
+    } else if (touchEndX > touchStartX + threshold) {
+      prevSlide(); // Swiped right -> prev
+      resetAutoplay();
+    }
+  }
 
   function startAutoplay() {
-    autoplayTimer = setInterval(nextTestimonial, 5500);
+    stopAutoplay();
+    autoplayTimer = setInterval(nextSlide, autoPlayInterval);
+  }
+
+  function stopAutoplay() {
+    if (autoplayTimer) {
+      clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
   }
 
   function resetAutoplay() {
-    clearInterval(autoplayTimer);
+    stopAutoplay();
     startAutoplay();
   }
 
+  window.addEventListener('resize', () => {
+    const maxIdx = getMaxIndex();
+    if (currentIndex > maxIdx) currentIndex = maxIdx;
+    renderDots();
+    updateSlidePosition();
+  }, { passive: true });
+
+  renderDots();
+  updateSlidePosition();
   startAutoplay();
 }
 
