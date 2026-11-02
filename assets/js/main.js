@@ -633,6 +633,12 @@ function initScrollAnimations() {
       let ticking = false;
 
       function updateWhyPan() {
+        if (window.innerWidth <= 1024) {
+          whyPhoto.style.transform = 'none';
+          ticking = false;
+          return;
+        }
+
         const rect = whySection.getBoundingClientRect();
         const winH = window.innerHeight || document.documentElement.clientHeight;
 
