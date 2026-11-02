@@ -523,76 +523,97 @@ function initScrollAnimations() {
     });
   }
 
-  // --- Services Section Animations ---
+  // --- Services Section Animations (Prompt & Clean) ---
   const servicesSection = document.querySelector('#services');
   if (servicesSection) {
     const cards = servicesSection.querySelectorAll('.service-card');
     const header = servicesSection.querySelector('.center-header');
 
     animateOnEnter(servicesSection, () => {
-      const tlServices = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      const tlServices = gsap.timeline({ defaults: { ease: 'power2.out' } });
       animateSectionHeader(header, tlServices);
-    }, 'top 82%');
+    }, 'top 88%');
 
-    animateOnEnter(servicesSection.querySelector('.services-grid'), () => {
-      gsap.fromTo(cards,
-        { y: 45, scale: 0.94, opacity: 0 },
-        {
-          y: 0,
-          scale: 1,
-          opacity: 1,
-          duration: 0.7,
-          stagger: 0.1,
-          ease: 'power3.out',
-          immediateRender: false,
-          onComplete: () => {
-            gsap.set(cards, { clearProps: 'transform' });
-          }
-        });
-    }, 'top 82%');
+    const grid = servicesSection.querySelector('.services-grid');
+    if (grid) {
+      animateOnEnter(grid, () => {
+        gsap.fromTo(cards,
+          { y: 28, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.45,
+            stagger: 0.06,
+            ease: 'power2.out',
+            immediateRender: false,
+            onComplete: () => {
+              gsap.set(cards, { clearProps: 'transform' });
+            }
+          });
+      }, 'top 92%');
+    }
   }
 
-  // --- Why Choose Us caregiver collage ---
-  const dualSection = document.querySelector('.dual-feature-section');
-  if (dualSection) {
-    const whyCard = dualSection.querySelector('.why-feature-panel');
-    if (whyCard) {
-      const whyTextCol = whyCard.querySelector('.why-text-col');
-      const whyItems = whyCard.querySelectorAll('.benefit-item');
-      const whyMainPhoto = whyCard.querySelector('.why-main-photo');
-      const whySecondaryPhoto = whyCard.querySelector('.why-secondary-photo');
-      const whyBtn = whyCard.querySelector('.btn');
+  // --- Why Choose Us Modern 3-Column Trio Animation ---
+  const whySection = document.querySelector('#why-choose-us, .dual-feature-section');
+  if (whySection) {
+    const whyHeader = whySection.querySelector('.center-header');
+    const leftBoxes = whySection.querySelectorAll('.why-trio-left .why-feature-box');
+    const centerFrame = whySection.querySelector('.why-center-frame');
+    const rightBoxes = whySection.querySelectorAll('.why-trio-right .why-feature-box');
+    const bottomBtn = whySection.querySelector('.why-bottom-action .btn');
 
-      animateOnEnter(whyCard, () => {
-        const tlWhy = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    animateOnEnter(whySection, () => {
+      const tlWhy = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      if (whyHeader) animateSectionHeader(whyHeader, tlWhy);
 
-        animateSectionHeader(whyTextCol, tlWhy);
+      if (leftBoxes.length) {
+        tlWhy.fromTo(leftBoxes,
+          { x: -24, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.45, stagger: 0.08, ease: 'power2.out', immediateRender: false }, '-=0.2');
+      }
 
-        tlWhy
-          .fromTo(whyItems,
-            { x: -20, opacity: 0 },
-            { x: 0, opacity: 1, duration: 0.4, stagger: 0.06, ease: 'power2.out', immediateRender: false }, '-=0.25')
-          .fromTo(whyBtn,
-            { y: 16, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out', immediateRender: false }, '-=0.2')
-          .fromTo(whyMainPhoto,
-            { y: 30, scale: 0.96, opacity: 0 },
-            { y: 0, scale: 1, opacity: 1, duration: 0.85, ease: 'power3.out', immediateRender: false }, '-=0.55')
-          .fromTo(whySecondaryPhoto,
-            { y: 25, rotation: -12, scale: 0.94, opacity: 0 },
-            { y: 0, rotation: -7, scale: 1, opacity: 1, duration: 0.75, ease: 'power3.out', immediateRender: false }, '-=0.58');
+      if (centerFrame) {
+        tlWhy.fromTo(centerFrame,
+          { scale: 0.94, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.55, ease: 'power3.out', immediateRender: false }, '-=0.35');
+      }
 
-        tlWhy.eventCallback('onComplete', () => {
-          if (whyMainPhoto) {
-            gsap.set(whyMainPhoto, { clearProps: 'transform' });
-            whyMainPhoto.classList.add('floating');
-          }
-          if (whySecondaryPhoto) {
-            gsap.set(whySecondaryPhoto, { clearProps: 'transform' });
-            whySecondaryPhoto.classList.add('floating');
-          }
-        });
+      if (rightBoxes.length) {
+        tlWhy.fromTo(rightBoxes,
+          { x: 24, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.45, stagger: 0.08, ease: 'power2.out', immediateRender: false }, '-=0.35');
+      }
+
+      if (bottomBtn) {
+        tlWhy.fromTo(bottomBtn,
+          { y: 15, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out', immediateRender: false }, '-=0.2');
+      }
+
+      tlWhy.eventCallback('onComplete', () => {
+        if (centerFrame) gsap.set(centerFrame, { clearProps: 'transform' });
       });
+    }, 'top 85%');
+
+    // Interactive scroll-driven horizontal slide animation on Why Choose Us center image
+    // Scrolling down -> moves naturally towards the right; scrolling up -> moves back towards the left
+    const whyPhoto = whySection.querySelector('.why-center-photo');
+    if (whyPhoto && window.ScrollTrigger && window.gsap) {
+      gsap.fromTo(whyPhoto,
+        { x: -30 },
+        {
+          x: 30,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: whySection,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1.2,
+            invalidateOnRefresh: true
+          }
+        }
+      );
     }
   }
 
