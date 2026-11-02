@@ -60,11 +60,7 @@
       
       <!-- Official VRC Brand Logo matching Visiting Card -->
       <a href="#home" class="brand-logo" aria-label="VRC Nursing &amp; Home Care Services">
-        <img src="assets/images/vrc-logo.jpg" alt="VRC Sunrise Logo" class="brand-img-logo">
-        <div class="brand-text">
-          <span class="brand-name">VRC <span>Home Care</span></span>
-          <span class="brand-tagline">Nursing &amp; Home Care Services</span>
-        </div>
+        <img src="assets/images/vrc-logo.jpg" alt="VRC Nursing &amp; Home Care Services" class="brand-img-logo">
       </a>
 
       <!-- Desktop Navigation Menu -->
@@ -158,11 +154,7 @@
   <div class="mobile-drawer-overlay"></div>
   <aside class="mobile-drawer" aria-label="Mobile Navigation">
     <div class="brand-logo">
-      <img src="assets/images/vrc-logo.jpg" alt="VRC Sunrise Logo" class="brand-img-logo">
-      <div class="brand-text">
-        <span class="brand-name">VRC <span>Home Care</span></span>
-        <span class="brand-tagline">Nursing &amp; Home Care Services</span>
-      </div>
+      <img src="assets/images/vrc-logo.jpg" alt="VRC Nursing &amp; Home Care Services" class="brand-img-logo">
     </div>
     <div class="mobile-menu-links">
       <a href="#home" class="nav-link">Home</a>
@@ -194,14 +186,14 @@
         <div class="hero-slide-bg" style="background-image: url('assets/images/hero_section1.png');"></div>
       </div>
 
-      <!-- Slide 2: Smooth transition background slide -->
+      <!-- Slide 2: Caring Home Assistance -->
       <div class="hero-slide" data-index="1">
-        <div class="hero-slide-bg" style="background-image: url('assets/images/hero_section1.png');"></div>
+        <div class="hero-slide-bg" style="background-image: url('assets/images/hero_section2.png');"></div>
       </div>
 
-      <!-- Slide 3: Smooth transition background slide -->
+      <!-- Slide 3: Compassionate Health & Recovery Support -->
       <div class="hero-slide" data-index="2">
-        <div class="hero-slide-bg" style="background-image: url('assets/images/hero_section1.png');"></div>
+        <div class="hero-slide-bg" style="background-image: url('assets/images/hero_section3.png');"></div>
       </div>
 
     </div>
@@ -243,7 +235,7 @@
               </span>
               <span class="btn-arrow">→</span>
             </a>
-            <a href="#contact" class="btn btn-outline-hero" data-open-modal>
+            <a href="#contact" class="btn btn-outline-teal" data-open-modal>
               <span class="btn-flip-label" aria-hidden="true">
                 <span>Contact Us</span>
                 <span>Contact Us</span>
@@ -387,37 +379,29 @@
           </div>
         </div>
 
-        <!-- Right Side: Carely Style Video & Overlapping Caregiver Composition -->
+        <!-- Right Side: Clean Balanced 2-Image Home Care Composition -->
         <div class="about-visual-wrapper" data-aos="fade-left" data-aos-duration="850">
           <div class="about-decor-circle"></div>
           <div class="about-decor-dot"></div>
           
-          <div class="about-composition-stack">
-            <!-- 1. Upper Element: Video (ready for user's video file with clean poster & player controls) -->
-            <div class="about-video-container">
-              <video 
-                class="about-main-video" 
-                poster="assets/images/about-senior-nurse.jpg"
-                autoplay
-                muted
-                loop
-                playsinline
-                disablepictureinpicture
-                aria-label="VRC Home Care Services senior care video"
+          <div class="about-composition-stack about-images-duo">
+            <!-- 1. First Home Care Image: Nurse checking blood pressure of senior patient -->
+            <div class="about-img-card about-img-card-1 shine-layer-effect" data-aos="fade-up" data-aos-duration="750">
+              <img 
+                src="assets/images/about-homecare-bp.jpg" 
+                alt="Professional VRC nurse checking patient blood pressure at home"
+                loading="lazy"
+                class="about-card-img"
               >
-                <source src="assets/videos/about-video.mp4" type="video/mp4">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-nurse-helping-an-elderly-man-walk-42589-large.mp4" type="video/mp4">
-                Your browser does not support HTML5 video.
-              </video>
             </div>
 
-            <!-- 2. Lower Element: Second Image in existing overlapping position -->
-            <div class="about-secondary-img-wrapper">
+            <!-- 2. Second Home Care Image: Compassionate nurse assisting senior citizen -->
+            <div class="about-img-card about-img-card-2 shine-layer-effect" data-aos="fade-up" data-aos-duration="750" data-aos-delay="200">
               <img 
-                src="assets/images/about-walking.jpg" 
-                alt="Caregiver supporting senior during outdoor walking"
+                src="assets/images/about-homecare-nurse.jpg" 
+                alt="Compassionate VRC caregiver assisting senior patient with mobility at home"
                 loading="lazy"
-                class="about-secondary-img"
+                class="about-card-img"
               >
             </div>
           </div>
@@ -640,14 +624,14 @@
 
             <div class="why-photo-collage" aria-label="VRC Home Care Services caregivers supporting older adults" data-aos="fade-left" data-aos-duration="700">
               <div class="why-photo-backdrop"></div>
-              <div class="why-main-photo">
+              <div class="why-main-photo shine-layer-effect">
                 <img
                   src="assets/images/hero_section1.png"
                   alt="Caregiver sharing a warm moment with an older woman at home"
                   loading="lazy"
                 >
               </div>
-              <div class="why-secondary-photo">
+              <div class="why-secondary-photo shine-layer-effect">
                 <img
                   src="assets/images/about-walking.jpg"
                   alt="Caregiver walking outdoors with an older woman"
@@ -663,78 +647,99 @@
     </div>
   </section>
 
-  <section class="how-it-works-section" id="how-it-works">
+  <!-- ========================================================================
+       5. How It Works Section (Exact Carely Layout & Design)
+       ======================================================================== -->
+  <section class="how-it-work bg-section dark-section" id="how-it-works">
     <div class="how-it-works-background" aria-hidden="true">
-      <div class="how-it-works-background-image"></div>
-      <div class="how-curved-reveal-wave">
-        <svg viewBox="0 0 1440 240" fill="none" preserveAspectRatio="none">
-          <path d="M0,120 C360,20 720,200 1080,80 C1260,20 1380,60 1440,90 L1440,240 L0,240 Z" fill="rgba(14, 38, 61, 0.75)"></path>
-        </svg>
-      </div>
+      <div class="how-it-works-background-image" style="background-image: url('assets/images/how-it-work-bg.jpg');"></div>
     </div>
+    
     <div class="container how-it-works-content">
-      <header class="how-it-works-heading" data-aos="fade-up" data-aos-duration="600">
-        <div class="how-it-works-copy">
-          <span class="section-pill-badge section-pill-badge-light">HOW IT WORKS</span>
-          <h2 class="how-title">Your trusted partner in home<br><em>health and wellness</em></h2>
-        </div>
-      </header>
-
-      <div class="how-steps-grid">
-        <article class="how-step-card is-active" aria-current="step" tabindex="0" data-aos="fade-up" data-aos-delay="100">
-          <span class="how-step-icon-box">
-            <svg viewBox="0 0 40 40" aria-hidden="true">
-              <path d="m4 13 16-9 16 9-16 9-16-9Z"></path>
-              <path d="m4 20 16 9 16-9M4 27l16 9 16-9"></path>
-            </svg>
-          </span>
-          <span class="how-step-number">01</span>
-          <h3>Free Consultation &amp; Assessment</h3>
-          <p>We carefully match you with a caregiver or nurse who fits</p>
-          <a href="#contact" class="how-step-link" data-open-modal>Learn More <span aria-hidden="true">↗</span></a>
-        </article>
-        <article class="how-step-card" tabindex="0" data-aos="fade-up" data-aos-delay="200">
-          <span class="how-step-icon-box">
-            <svg viewBox="0 0 40 40" aria-hidden="true">
-              <circle cx="18" cy="20" r="12"></circle>
-              <circle cx="27" cy="13" r="7"></circle>
-              <circle cx="27" cy="27" r="7"></circle>
-            </svg>
-          </span>
-          <span class="how-step-number">02</span>
-          <h3>Caregiver Matching &amp; Introduction</h3>
-          <p>We carefully match you with a caregiver or nurse who fits</p>
-          <a href="#contact" class="how-step-link" data-open-modal>Learn More <span aria-hidden="true">↗</span></a>
-        </article>
-        <article class="how-step-card" tabindex="0" data-aos="fade-up" data-aos-delay="300">
-          <span class="how-step-icon-box">
-            <svg viewBox="0 0 40 40" aria-hidden="true">
-              <rect x="4" y="12" width="14" height="14" rx="1"></rect>
-              <rect x="22" y="12" width="14" height="14" rx="1"></rect>
-              <rect x="13" y="29" width="14" height="8" rx="1"></rect>
-            </svg>
-          </span>
-          <span class="how-step-number">03</span>
-          <h3>Ongoing Support &amp; Adjustments</h3>
-          <p>We carefully match you with a caregiver or nurse who fits</p>
-          <a href="#contact" class="how-step-link" data-open-modal>Learn More <span aria-hidden="true">↗</span></a>
-        </article>
-        <article class="how-step-card" tabindex="0" data-aos="fade-up" data-aos-delay="400">
-          <span class="how-step-icon-box">
-            <svg viewBox="0 0 40 40" aria-hidden="true">
-              <circle cx="18" cy="20" r="12"></circle>
-              <circle cx="27" cy="13" r="7"></circle>
-              <circle cx="27" cy="27" r="7"></circle>
-            </svg>
-          </span>
-          <span class="how-step-number">04</span>
-          <h3>Free Consultation &amp; Assessment</h3>
-          <p>We carefully match you with a caregiver or nurse who fits</p>
-          <a href="#contact" class="how-step-link" data-open-modal>Learn More <span aria-hidden="true">↗</span></a>
-        </article>
+      <!-- Centered Section Title -->
+      <div class="section-title section-title-center text-center" data-aos="fade-up" data-aos-duration="600">
+        <span class="section-pill-badge section-pill-badge-light">HOW IT WORKS</span>
+        <h2 class="how-title">Your trusted partner in home<br><span>health and wellness</span></h2>
       </div>
 
-      <p class="how-it-works-contact">Compassionate care to enhance daily living. <a href="#contact" data-open-modal>Contact us today! <span aria-hidden="true">→</span></a></p>
+      <!-- 4 Evenly Spaced Step Cards in a Single Row -->
+      <div class="work-steps-list">
+        
+        <!-- Step 01 -->
+        <div class="work-steps-item active" data-aos="fade-up" data-aos-delay="100">
+          <div class="icon-box">
+            <img src="assets/images/icon-work-step-1.svg" alt="Free Consultation & Assessment">
+          </div>
+          <div class="work-step-no">
+            <h3>01</h3>
+          </div>
+          <div class="work-step-content">
+            <h3>Free Consultation &amp; Assessment</h3>
+            <p>We evaluate your loved one's health status, daily routines, and medical care needs during a free personalized consultation.</p>
+          </div>
+          <div class="work-step-btn">
+            <a href="#contact" class="readmore-btn" data-open-modal>Learn More <span class="arrow-diag">↗</span></a>
+          </div>
+        </div>
+
+        <!-- Step 02 -->
+        <div class="work-steps-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="icon-box">
+            <img src="assets/images/icon-work-step-2.svg" alt="Caregiver Matching & Introduction">
+          </div>
+          <div class="work-step-no">
+            <h3>02</h3>
+          </div>
+          <div class="work-step-content">
+            <h3>Caregiver Matching &amp; Introduction</h3>
+            <p>We carefully pair your family with a certified nurse or compassionate attendant matched to their specific requirements.</p>
+          </div>
+          <div class="work-step-btn">
+            <a href="#contact" class="readmore-btn" data-open-modal>Learn More <span class="arrow-diag">↗</span></a>
+          </div>
+        </div>
+
+        <!-- Step 03 -->
+        <div class="work-steps-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="icon-box">
+            <img src="assets/images/icon-work-step-3.svg" alt="Custom Care Plan Setup">
+          </div>
+          <div class="work-step-no">
+            <h3>03</h3>
+          </div>
+          <div class="work-step-content">
+            <h3>Custom Care Plan Setup</h3>
+            <p>A personalized schedule covering medication management, nursing procedures, dietary plans, and mobility support is tailored for your home.</p>
+          </div>
+          <div class="work-step-btn">
+            <a href="#contact" class="readmore-btn" data-open-modal>Learn More <span class="arrow-diag">↗</span></a>
+          </div>
+        </div>
+
+        <!-- Step 04 -->
+        <div class="work-steps-item" data-aos="fade-up" data-aos-delay="400">
+          <div class="icon-box">
+            <img src="assets/images/icon-work-step-4.svg" alt="Ongoing Support & Monitoring">
+          </div>
+          <div class="work-step-no">
+            <h3>04</h3>
+          </div>
+          <div class="work-step-content">
+            <h3>Ongoing Support &amp; Monitoring</h3>
+            <p>Continuous quality supervision, 24/7 emergency support, and regular family check-ins ensure comfort, safety, and recovery.</p>
+          </div>
+          <div class="work-step-btn">
+            <a href="#contact" class="readmore-btn" data-open-modal>Learn More <span class="arrow-diag">↗</span></a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Section Footer Text -->
+      <div class="section-footer-text text-center" data-aos="fade-up" data-aos-delay="500">
+        <p>Compassionate care to enhance daily living. <a href="#contact" data-open-modal>Contact us today! <span class="arrow-right">→</span></a></p>
+      </div>
+
     </div>
   </section>
 

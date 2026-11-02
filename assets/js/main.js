@@ -4,6 +4,9 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+  }
   if (typeof AOS !== 'undefined') {
     AOS.init({
       duration: 800,
@@ -14,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   initNavbar();
   initHeroSlider();
-  initAboutVideoAutoplay();
   initHowStepCards();
   initHowItWorksScrollZoom();
   initScrollAnimations();
@@ -66,10 +68,11 @@ function initHowStepCards() {
   const section = document.querySelector('#how-it-works');
   if (!section) return;
 
-  const cards = section.querySelectorAll('.how-step-card');
+  const cards = section.querySelectorAll('.work-steps-item, .how-step-card');
   const setActiveCard = (activeCard) => {
     cards.forEach((card) => {
       const isActive = card === activeCard;
+      card.classList.toggle('active', isActive);
       card.classList.toggle('is-active', isActive);
       if (isActive) {
         card.setAttribute('aria-current', 'step');
@@ -79,7 +82,7 @@ function initHowStepCards() {
     });
   };
 
-  const initialActiveCard = section.querySelector('.how-step-card.is-active') || cards[0];
+  const initialActiveCard = section.querySelector('.work-steps-item.active, .how-step-card.is-active') || cards[0];
   if (initialActiveCard) {
     setActiveCard(initialActiveCard);
   }
@@ -92,53 +95,14 @@ function initHowStepCards() {
 }
 
 /**
- * Bidirectional scroll zoom for "How It Works" background image
- * - Scrolling down: smoothly zooms out (from scale 1.30 to 1.05)
- * - Scrolling up: smoothly zooms in (from scale 1.05 back up to 1.30)
- * - Noticeable, fluid speed with zero empty or black background edges (140% canvas)
+ * How It Works Background Image Handler:
+ * Keeps the background image completely fixed and stationary while content scrolls naturally over it.
+ * Zero zooming in/out, zero scaling, and zero animation.
  */
 function initHowItWorksScrollZoom() {
-  const howSection = document.querySelector('#how-it-works');
   const bgImg = document.querySelector('.how-it-works-background-image');
-  if (!howSection || !bgImg) return;
-
-  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-    gsap.fromTo(bgImg,
-      { scale: 1.30 },
-      {
-        scale: 1.05,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: howSection,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 0.45,
-          invalidateOnRefresh: true
-        }
-      }
-    );
-  } else {
-    let ticking = false;
-    const updateZoom = () => {
-      const rect = howSection.getBoundingClientRect();
-      const winH = window.innerHeight;
-      if (rect.bottom > 0 && rect.top < winH) {
-        const totalDist = winH + rect.height;
-        const currentDist = winH - rect.top;
-        const progress = Math.max(0, Math.min(1, currentDist / totalDist));
-        const scaleVal = 1.30 - (progress * 0.25);
-        bgImg.style.transform = `scale(${scaleVal.toFixed(3)})`;
-      }
-      ticking = false;
-    };
-
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(updateZoom);
-        ticking = true;
-      }
-    }, { passive: true });
-    updateZoom();
+  if (bgImg) {
+    bgImg.style.transform = 'none';
   }
 }
 
@@ -524,7 +488,7 @@ function initScrollAnimations() {
   const aboutSection = document.querySelector('#about');
   if (aboutSection) {
     const textCol = aboutSection.querySelector('.about-text-content');
-    const carelyImg = aboutSection.querySelector('.about-carely-composition');
+    const aboutImgCards = aboutSection.querySelectorAll('.about-img-card');
     const decorCircle = aboutSection.querySelector('.about-decor-circle');
     const decorDot = aboutSection.querySelector('.about-decor-dot');
     const decorBadge = aboutSection.querySelector('.about-decor-badge');
@@ -541,9 +505,9 @@ function initScrollAnimations() {
         .fromTo(highlightCards,
           { y: 22, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, immediateRender: false }, '-=0.25')
-        .fromTo(carelyImg,
-          { y: 32, scale: 0.96, opacity: 0 },
-          { y: 0, scale: 1, opacity: 1, duration: 0.85, ease: 'power3.out', immediateRender: false }, 0.2)
+        .fromTo(aboutImgCards,
+          { y: 35, scale: 0.95, opacity: 0 },
+          { y: 0, scale: 1, opacity: 1, duration: 0.8, stagger: 0.18, ease: 'power3.out', immediateRender: false }, 0.2)
         .fromTo([decorCircle, decorDot],
           { scale: 0.7, opacity: 0 },
           { scale: 1, opacity: 1, duration: 0.7, stagger: 0.1, immediateRender: false }, '-=0.5')
@@ -637,10 +601,10 @@ function initScrollAnimations() {
   if (howSection) {
     const background = howSection.querySelector('.how-it-works-background-image');
     const curvedWave = howSection.querySelector('.how-curved-reveal-wave');
-    const heading = howSection.querySelector('.how-it-works-heading');
-    const headingCopy = howSection.querySelector('.how-it-works-copy');
-    const cards = howSection.querySelectorAll('.how-step-card');
-    const contact = howSection.querySelector('.how-it-works-contact');
+    const heading = howSection.querySelector('.section-title-center, .how-it-works-heading');
+    const headingCopy = howSection.querySelector('.section-title-center, .how-it-works-copy');
+    const cards = howSection.querySelectorAll('.work-steps-item, .how-step-card');
+    const contact = howSection.querySelector('.section-footer-text, .how-it-works-contact');
 
     animateOnEnter(howSection, () => {
       const tlHow = gsap.timeline({ defaults: { ease: 'power3.out' } });
