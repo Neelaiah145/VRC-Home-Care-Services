@@ -2476,9 +2476,9 @@ button.btn:hover .btn-flip-label span {
   .why-center-frame {
     max-width: 380px;
     width: 100%;
-    aspect-ratio: 16 / 11;
-    min-height: auto;
+    aspect-ratio: 4 / 5;
     height: auto;
+    min-height: auto;
     margin: 0 auto;
   }
 
@@ -2487,18 +2487,38 @@ button.btn:hover .btn-flip-label span {
     max-width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    object-position: center !important;
+    object-position: top center !important;
     transform: none !important;
   }
 }
 
 @media (max-width: 480px) {
   .why-center-frame {
-    max-width: 100%;
+    max-width: 340px;
     width: 100%;
-    aspect-ratio: 16 / 11;
-    min-height: auto;
+    aspect-ratio: 4 / 5;
     height: auto;
+    min-height: auto;
+  }
+
+  .why-center-badge {
+    bottom: 12px;
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    max-width: 92%;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 350px) {
+  .why-center-frame {
+    max-width: 290px;
+    aspect-ratio: 4 / 5;
+  }
+
+  .why-center-badge {
+    font-size: 0.72rem;
+    padding: 5px 10px;
   }
 }
 
