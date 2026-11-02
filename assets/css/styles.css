@@ -1085,6 +1085,8 @@ button.btn:hover .btn-flip-label span {
   z-index: 5;
   display: flex;
   align-items: center;
+  padding-top: clamp(65px, 9.5vh, 105px);
+  padding-bottom: 24px;
 }
 
 .hero-grid {
@@ -1755,18 +1757,18 @@ button.btn:hover .btn-flip-label span {
 .about-photo-backdrop {
   position: absolute;
   z-index: 0;
-  top: 2%;
-  right: -12px;
-  width: 76%;
-  height: 94%;
-  border-radius: 34px;
+  top: 0;
+  right: -24px;
+  width: 74%;
+  height: 92%;
+  border-radius: 36px;
   background: #FFF2E6;
 }
 
 .about-photo-dot {
   position: absolute;
-  top: 0;
-  left: 23%;
+  top: -6px;
+  left: calc(26% + 24px);
   width: 13px;
   height: 13px;
   border-radius: 50%;
@@ -1777,22 +1779,23 @@ button.btn:hover .btn-flip-label span {
 
 .about-main-photo {
   position: absolute;
-  top: 2%;
-  right: -12px;
-  width: 76%;
-  height: 94%;
+  top: 0;
+  right: -24px;
+  width: 74%;
+  height: 92%;
   border-radius: 34px;
   overflow: hidden;
   box-shadow: 0 16px 42px rgba(10, 37, 64, 0.12);
   z-index: 1;
   background: var(--white);
+  transform: none !important;
 }
 
 .about-main-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center 20%;
   display: block;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -1803,11 +1806,11 @@ button.btn:hover .btn-flip-label span {
 
 .about-secondary-photo {
   position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%) rotate(-4deg);
-  width: 56%;
-  height: 64%;
+  top: 48%;
+  left: calc(26% + 24px);
+  transform: translate(-50%, -50%) rotate(-4deg);
+  width: 48%;
+  height: 60%;
   padding: 8px;
   border-radius: 20px;
   background: #FFFFFF;
@@ -1821,30 +1824,37 @@ button.btn:hover .btn-flip-label span {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 25% center;
+  object-position: center;
   border-radius: 14px;
   display: block;
 }
 
 .about-secondary-photo:hover {
-  transform: translateY(-52%) rotate(-2deg);
+  transform: translate(-50%, -53%) rotate(-2deg);
   box-shadow: 0 26px 56px rgba(10, 37, 64, 0.28);
 }
 
 @media (max-width: 640px) {
   .about-photo-collage {
-    min-height: 400px;
+    min-height: 440px;
     max-width: 420px;
     margin: 0 auto;
   }
+  .about-photo-backdrop,
   .about-main-photo {
-    width: 82%;
+    right: 0;
+    width: 78%;
     height: 90%;
   }
+  .about-photo-dot {
+    left: 22%;
+  }
   .about-secondary-photo {
-    width: 58%;
-    height: 54%;
-    top: 36%;
+    left: 22%;
+    width: 52%;
+    height: 58%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-4deg);
   }
 }
 
@@ -2366,13 +2376,13 @@ button.btn:hover .btn-flip-label span {
 }
 
 .why-center-photo {
-  width: 155%;
+  width: 170%;
   max-width: none;
   height: 100%;
   object-fit: cover;
   object-position: center 20%;
   display: block;
-  margin-left: -27.5%;
+  margin-left: -35%;
   will-change: transform;
 }
 
@@ -3238,30 +3248,30 @@ button.btn:hover .btn-flip-label span {
 
 .footer-top-grid {
   display: grid;
-  grid-template-columns: 1.4fr 0.8fr 1fr 1.3fr;
-  gap: clamp(24px, 3.5vw, 44px);
+  grid-template-columns: 1.3fr 0.9fr 1.05fr 1.45fr;
+  gap: clamp(24px, 3vw, 40px);
   margin-bottom: 40px;
   width: 100%;
 }
 
 @media (max-width: 1024px) {
   .footer-top-grid {
-    grid-template-columns: 1.4fr 1fr 1fr 1.4fr;
+    grid-template-columns: 1.3fr 0.95fr 1.05fr 1.4fr;
     gap: 28px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .footer-top-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 26px;
+    gap: 32px 28px;
   }
 }
 
 @media (max-width: 576px) {
   .footer-top-grid {
     grid-template-columns: 1fr;
-    gap: 22px;
+    gap: 28px;
   }
 }
 
@@ -3366,16 +3376,19 @@ button.btn:hover .btn-flip-label span {
   transform: translateX(4px);
 }
 
-/* Service names with VRC brand accents */
-.footer-services-list .footer-link {
+/* Quick Links & Service names with VRC brand accents */
+.footer-services-list .footer-link,
+.footer-quick-list .footer-link {
   color: #FFFFFF;
   font-weight: 500;
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  transition: all var(--transition-fast);
 }
 
-.footer-services-list .footer-link::before {
+.footer-services-list .footer-link::before,
+.footer-quick-list .footer-link::before {
   content: "";
   display: inline-block;
   width: 5px;
@@ -3386,12 +3399,14 @@ button.btn:hover .btn-flip-label span {
   transition: transform 0.25s ease, background-color 0.25s ease;
 }
 
-.footer-services-list .footer-link:hover {
+.footer-services-list .footer-link:hover,
+.footer-quick-list .footer-link:hover {
   color: var(--secondary-light);
   transform: translateX(4px);
 }
 
-.footer-services-list .footer-link:hover::before {
+.footer-services-list .footer-link:hover::before,
+.footer-quick-list .footer-link:hover::before {
   transform: scale(1.4);
   background-color: var(--secondary-light);
 }
@@ -3408,6 +3423,39 @@ button.btn:hover .btn-flip-label span {
   gap: 10px;
   font-size: 0.95rem;
   color: #C3DAEC;
+}
+
+.footer-phone-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.footer-phone-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  line-height: 1.35;
+}
+
+.footer-contact-name {
+  font-weight: 700;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
+.footer-phone-link {
+  color: #FFFFFF !important;
+  font-weight: 600;
+  white-space: nowrap !important;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-phone-link:hover {
+  color: var(--secondary) !important;
 }
 
 .footer-contact-item svg {
