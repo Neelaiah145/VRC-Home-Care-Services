@@ -95,7 +95,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -104,7 +104,7 @@ body {
   background-color: var(--white);
   color: var(--text-navy);
   line-height: 1.55;
-  overflow-x: hidden;
+  overflow-x: clip;
   position: relative;
   -webkit-font-smoothing: antialiased;
 }
@@ -351,14 +351,15 @@ ul, ol {
 .btn-enquiry {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
+  gap: 6px;
+  padding: 6px 16px;
+  height: 38px;
   border-radius: var(--radius-full);
   background: var(--secondary);
   color: var(--white);
   border: 1.5px solid var(--secondary);
-  box-shadow: 0 4px 14px var(--secondary-glow);
-  font-size: 0.96rem;
+  box-shadow: 0 3px 10px var(--secondary-glow);
+  font-size: 0.86rem;
   font-weight: 700;
   white-space: nowrap;
   text-decoration: none;
@@ -376,8 +377,8 @@ ul, ol {
   background: var(--primary);
   border-color: var(--primary);
   color: var(--white);
-  box-shadow: 0 10px 24px rgba(10, 37, 64, 0.35);
-  transform: translateY(-3.5px) rotate(-0.8deg);
+  box-shadow: 0 8px 20px rgba(10, 37, 64, 0.3);
+  transform: translateY(-2px);
 }
 
 /* Rolling Flip-Up Label for EVERY button across the website */
@@ -502,9 +503,15 @@ button.btn:hover .btn-flip-label span {
 .contact-social-icon svg {
   width: 14px;
   height: 14px;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.contact-social-icon:hover svg {
+  transform: rotate(360deg) scale(1.15);
 }
 
 .site-header {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   left: 0;
@@ -517,6 +524,12 @@ button.btn:hover .btn-flip-label span {
   box-shadow: 0 4px 18px rgba(18, 59, 93, 0.03);
   padding: 7px 0;
   transition: all 0.3s ease;
+}
+
+.site-header.scrolled {
+  background: rgba(255, 255, 255, 0.99);
+  border-bottom-color: rgba(18, 59, 93, 0.12);
+  box-shadow: 0 6px 24px rgba(10, 37, 64, 0.08);
 }
 
 .site-header.menu-open {
@@ -575,34 +588,45 @@ button.btn:hover .btn-flip-label span {
 }
 
 .brand-service-text {
-  font-family: var(--font-main);
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #000000;
-  line-height: 1.22;
-  max-width: 210px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   height: 50px;
-  letter-spacing: -0.015em;
-  transition: none;
+  line-height: 1.2;
+  border-left: 2px solid #E2E8F0;
+  padding-left: 12px;
 }
 
-.brand-logo:hover .brand-service-text {
-  color: #000000 !important;
+.brand-name-line1 {
+  font-family: var(--font-main);
+  font-size: 0.94rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -0.01em;
 }
 
-@media (max-width: 1200px) {
-  .brand-service-text {
-    font-size: 0.95rem;
-    max-width: 180px;
-  }
+.brand-name-line2 {
+  font-family: var(--font-main);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--secondary);
+  letter-spacing: 0.01em;
+}
+
+.brand-logo:hover .brand-name-line1 {
+  color: var(--primary);
+}
+
+.brand-logo:hover .brand-name-line2 {
+  color: var(--secondary-light);
 }
 
 @media (max-width: 992px) {
-  .brand-service-text {
-    font-size: 0.92rem;
-    max-width: 170px;
+  .brand-name-line1 {
+    font-size: 0.86rem;
+  }
+  .brand-name-line2 {
+    font-size: 0.76rem;
   }
 }
 
@@ -1520,7 +1544,7 @@ button.btn:hover .btn-flip-label span {
   width: 22px;
   height: 22px;
   stroke: var(--white);
-  transition: transform 0.3s ease;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .about-highlight-card:hover .about-hl-icon {
@@ -1533,7 +1557,7 @@ button.btn:hover .btn-flip-label span {
 
 .about-highlight-card:hover .about-hl-icon svg {
   stroke: var(--white);
-  transform: scale(1.08);
+  transform: rotate(360deg) scale(1.15);
 }
 
 .about-hl-text {
@@ -1559,20 +1583,23 @@ button.btn:hover .btn-flip-label span {
 .about-stats-row {
   display: flex;
   align-items: center;
-  gap: 26px;
+  justify-content: flex-start;
+  gap: clamp(10px, 1.6vw, 20px);
   margin-bottom: 26px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .stat-item {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 .stat-icon-box {
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   border-radius: var(--radius-md);
   background: var(--secondary);
   color: var(--white);
@@ -1586,10 +1613,10 @@ button.btn:hover .btn-flip-label span {
 }
 
 .stat-icon-box svg {
-  width: 19px;
-  height: 19px;
+  width: 18px;
+  height: 18px;
   stroke: var(--white);
-  transition: transform 0.3s ease;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .stat-item:hover .stat-icon-box {
@@ -1600,23 +1627,20 @@ button.btn:hover .btn-flip-label span {
   box-shadow: 0 6px 18px rgba(10, 37, 64, 0.28);
 }
 
-.stat-item:hover .stat-icon-box svg {
-  stroke: var(--white);
-  transform: scale(1.08);
-}
-
 .stat-number {
-  font-size: 1.7rem;
+  font-size: 1.45rem;
   font-weight: 800;
   color: var(--primary);
   line-height: 1.1;
+  white-space: nowrap;
 }
 
 .stat-label {
-  font-size: 0.86rem;
+  font-size: 0.80rem;
   font-weight: 600;
   color: var(--text-muted);
   line-height: 1.25;
+  white-space: nowrap;
 }
 
 /* Floating animations for decorative elements */
@@ -1722,7 +1746,7 @@ button.btn:hover .btn-flip-label span {
 .about-photo-collage {
   position: relative;
   width: 100%;
-  max-width: 520px;
+  max-width: 540px;
   min-height: 520px;
   margin-left: auto;
   isolation: isolate;
@@ -1731,20 +1755,20 @@ button.btn:hover .btn-flip-label span {
 .about-photo-backdrop {
   position: absolute;
   z-index: 0;
-  top: 4%;
-  right: 0%;
-  width: 78%;
-  height: 92%;
-  border-radius: 32px;
+  top: 2%;
+  right: -12px;
+  width: 76%;
+  height: 94%;
+  border-radius: 34px;
   background: #FFF2E6;
 }
 
 .about-photo-dot {
   position: absolute;
   top: 0;
-  left: 14%;
-  width: 14px;
-  height: 14px;
+  left: 23%;
+  width: 13px;
+  height: 13px;
   border-radius: 50%;
   background: var(--secondary);
   box-shadow: 0 2px 8px var(--secondary-glow);
@@ -1753,13 +1777,13 @@ button.btn:hover .btn-flip-label span {
 
 .about-main-photo {
   position: absolute;
-  top: 4%;
-  right: 0;
-  width: 78%;
-  height: 92%;
-  border-radius: 30px;
+  top: 2%;
+  right: -12px;
+  width: 76%;
+  height: 94%;
+  border-radius: 34px;
   overflow: hidden;
-  box-shadow: 0 16px 40px rgba(10, 37, 64, 0.12);
+  box-shadow: 0 16px 42px rgba(10, 37, 64, 0.12);
   z-index: 1;
   background: var(--white);
 }
@@ -1774,20 +1798,20 @@ button.btn:hover .btn-flip-label span {
 }
 
 .about-main-photo:hover img {
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
 .about-secondary-photo {
   position: absolute;
-  top: 30%;
+  top: 50%;
   left: 0;
-  width: 55%;
-  height: 58%;
+  transform: translateY(-50%) rotate(-4deg);
+  width: 56%;
+  height: 64%;
   padding: 8px;
   border-radius: 20px;
-  background: var(--white);
+  background: #FFFFFF;
   box-shadow: 0 20px 48px rgba(10, 37, 64, 0.22);
-  transform: rotate(-7deg);
   z-index: 3;
   overflow: hidden;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
@@ -1797,13 +1821,14 @@ button.btn:hover .btn-flip-label span {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 25% center;
   border-radius: 14px;
   display: block;
 }
 
 .about-secondary-photo:hover {
-  transform: rotate(-5deg) translateY(-4px);
-  box-shadow: 0 24px 54px rgba(10, 37, 64, 0.28);
+  transform: translateY(-52%) rotate(-2deg);
+  box-shadow: 0 26px 56px rgba(10, 37, 64, 0.28);
 }
 
 @media (max-width: 640px) {
@@ -2045,7 +2070,7 @@ button.btn:hover .btn-flip-label span {
 
 .service-card:hover .service-icon-box svg {
   stroke: #FFFFFF !important;
-  transform: scale(1.08);
+  transform: rotate(360deg) scale(1.14);
 }
 
 .service-card-title {
@@ -2295,7 +2320,8 @@ button.btn:hover .btn-flip-label span {
 
 .why-feature-box:hover .why-feature-icon svg {
   stroke: #FFFFFF;
-  transform: scale(1.12);
+  transform: rotate(360deg) scale(1.15);
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .why-feature-content {
@@ -2340,18 +2366,14 @@ button.btn:hover .btn-flip-label span {
 }
 
 .why-center-photo {
-  width: 122%;
+  width: 155%;
   max-width: none;
   height: 100%;
   object-fit: cover;
   object-position: center 20%;
   display: block;
-  margin-left: -11%;
+  margin-left: -27.5%;
   will-change: transform;
-}
-
-.why-center-frame:hover .why-center-photo {
-  transform: scale(1.05);
 }
 
 .why-center-badge {
@@ -3250,23 +3272,50 @@ button.btn:hover .btn-flip-label span {
 }
 
 .footer-brand-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   text-decoration: none;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .footer-brand-link:hover {
-  transform: scale(1.04);
+  transform: scale(1.03);
   opacity: 0.95;
 }
 
 .footer-logo-white {
-  height: 38px;
+  height: 42px;
   width: auto;
-  max-width: 110px;
+  max-width: 120px;
   object-fit: contain;
   display: block;
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
+}
+
+.footer-brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.2;
+  border-left: 1.5px solid rgba(255, 255, 255, 0.25);
+  padding-left: 12px;
+}
+
+.footer-brand-line1 {
+  font-family: var(--font-main);
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+}
+
+.footer-brand-line2 {
+  font-family: var(--font-main);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--secondary-light);
+  letter-spacing: 0.01em;
 }
 
 .footer-brand .brand-name {
@@ -3295,6 +3344,10 @@ button.btn:hover .btn-flip-label span {
   margin-bottom: 16px;
 }
 
+.footer-col-title.footer-services-title {
+  color: var(--secondary) !important;
+}
+
 .footer-links-list {
   display: flex;
   flex-direction: column;
@@ -3313,6 +3366,36 @@ button.btn:hover .btn-flip-label span {
   transform: translateX(4px);
 }
 
+/* Service names with VRC brand accents */
+.footer-services-list .footer-link {
+  color: #FFFFFF;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-services-list .footer-link::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--secondary);
+  flex-shrink: 0;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.footer-services-list .footer-link:hover {
+  color: var(--secondary-light);
+  transform: translateX(4px);
+}
+
+.footer-services-list .footer-link:hover::before {
+  transform: scale(1.4);
+  background-color: var(--secondary-light);
+}
+
 .footer-contact-list {
   display: flex;
   flex-direction: column;
@@ -3328,11 +3411,19 @@ button.btn:hover .btn-flip-label span {
 }
 
 .footer-contact-item svg {
-  width: 15px;
-  height: 15px;
-  color: var(--secondary-light);
+  width: 16px;
+  height: 16px;
+  color: var(--secondary);
   flex-shrink: 0;
   margin-top: 2px;
+}
+
+.footer-contact-item a {
+  transition: color var(--transition-fast);
+}
+
+.footer-contact-item a:hover {
+  color: var(--secondary) !important;
 }
 
 .footer-social-icons {
@@ -3355,9 +3446,20 @@ button.btn:hover .btn-flip-label span {
 
 .social-icon-btn:hover {
   background: var(--secondary);
+  border-color: var(--secondary);
   color: var(--white);
-  transform: translateY(-3px) scale(1.1);
+  transform: translateY(-2px);
   box-shadow: 0 4px 12px var(--secondary-glow);
+}
+
+.social-icon-btn svg {
+  width: 15px;
+  height: 15px;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.social-icon-btn:hover svg {
+  transform: rotate(360deg) scale(1.15);
 }
 
 .social-icon-btn svg {

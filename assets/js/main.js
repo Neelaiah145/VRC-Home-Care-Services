@@ -597,19 +597,19 @@ function initScrollAnimations() {
     }, 'top 85%');
 
     // Interactive scroll-driven horizontal slide animation on Why Choose Us center image
-    // Scrolling down -> moves naturally towards the right; scrolling up -> moves back towards the left
+    // Scrolling down -> smoothly moves towards the right; scrolling up -> moves back towards the left
     const whyPhoto = whySection.querySelector('.why-center-photo');
     if (whyPhoto && window.ScrollTrigger && window.gsap) {
       gsap.fromTo(whyPhoto,
-        { x: -30 },
+        { x: -75 },
         {
-          x: 30,
-          ease: 'none',
+          x: 75,
+          ease: 'power1.out',
           scrollTrigger: {
             trigger: whySection,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 1.2,
+            start: 'top 80%',
+            end: 'bottom 20%',
+            scrub: 0.4,
             invalidateOnRefresh: true
           }
         }
