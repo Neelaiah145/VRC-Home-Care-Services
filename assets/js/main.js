@@ -27,6 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
 });
 
+window.addEventListener('load', () => {
+  if (window.ScrollTrigger) {
+    ScrollTrigger.refresh();
+  }
+});
+
 /**
  * Autoplay engine for About Us elderly care video
  * Ensures seamless, silent ambient playback without play buttons
@@ -164,6 +170,13 @@ function initNavbar() {
       toggleMobileMenu(false);
     });
   });
+
+  const mobileEnquiry = document.querySelector('.mobile-enquiry');
+  if (mobileEnquiry) {
+    mobileEnquiry.addEventListener('click', () => {
+      toggleMobileMenu(false);
+    });
+  }
 
   // Active section indicator on scroll
   const observerOptions = {
@@ -488,10 +501,10 @@ function initScrollAnimations() {
   const aboutSection = document.querySelector('#about');
   if (aboutSection) {
     const textCol = aboutSection.querySelector('.about-text-content');
-    const aboutImgCards = aboutSection.querySelectorAll('.about-img-card');
-    const decorCircle = aboutSection.querySelector('.about-decor-circle');
-    const decorDot = aboutSection.querySelector('.about-decor-dot');
-    const decorBadge = aboutSection.querySelector('.about-decor-badge');
+    const mainPhoto = aboutSection.querySelector('.about-main-photo');
+    const secondaryPhoto = aboutSection.querySelector('.about-secondary-photo');
+    const photoDot = aboutSection.querySelector('.about-photo-dot');
+    const photoBackdrop = aboutSection.querySelector('.about-photo-backdrop');
     const highlightCards = aboutSection.querySelectorAll('.about-highlight-card');
     const statItems = aboutSection.querySelectorAll('.stat-item');
     const aboutButtons = textCol ? textCol.querySelectorAll('.about-action-buttons .btn') : [];
@@ -504,16 +517,30 @@ function initScrollAnimations() {
       tlAbout
         .fromTo(highlightCards,
           { y: 22, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, immediateRender: false }, '-=0.25')
-        .fromTo(aboutImgCards,
-          { y: 35, scale: 0.95, opacity: 0 },
-          { y: 0, scale: 1, opacity: 1, duration: 0.8, stagger: 0.18, ease: 'power3.out', immediateRender: false }, 0.2)
-        .fromTo([decorCircle, decorDot],
-          { scale: 0.7, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 0.7, stagger: 0.1, immediateRender: false }, '-=0.5')
-        .fromTo(decorBadge,
-          { y: 25, scale: 0.85, opacity: 0 },
-          { y: 0, scale: 1, opacity: 1, duration: 0.6, immediateRender: false }, '-=0.4')
+          { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, immediateRender: false }, '-=0.25');
+
+      if (photoBackdrop) {
+        tlAbout.fromTo(photoBackdrop,
+          { scale: 0.9, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.6, ease: 'power2.out', immediateRender: false }, '-=0.3');
+      }
+      if (mainPhoto) {
+        tlAbout.fromTo(mainPhoto,
+          { y: 30, opacity: 0, scale: 0.96 },
+          { y: 0, opacity: 1, scale: 1, duration: 0.7, ease: 'power3.out', immediateRender: false }, '-=0.4');
+      }
+      if (secondaryPhoto) {
+        tlAbout.fromTo(secondaryPhoto,
+          { y: 35, opacity: 0, scale: 0.94 },
+          { y: 0, opacity: 1, scale: 1, duration: 0.75, ease: 'power3.out', immediateRender: false }, '-=0.45');
+      }
+      if (photoDot) {
+        tlAbout.fromTo(photoDot,
+          { scale: 0, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(2)', immediateRender: false }, '-=0.3');
+      }
+
+      tlAbout
         .fromTo(statItems,
           { y: 20, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, immediateRender: false }, '-=0.4')
@@ -596,25 +623,51 @@ function initScrollAnimations() {
       });
     }, 'top 85%');
 
-    // Interactive scroll-driven horizontal slide animation on Why Choose Us center image
-    // Starts BEFORE the user reaches the section (while in previous section) and moves RIGHT as they scroll down
-    // When scrolling up, it smoothly reverses towards the LEFT and returns to original position
+    // Dedicated high-precision scroll-controlled horizontal pan on Why Choose Us center image
+    // Starts when user enters section, initially showing female caregiver clearly on left
+    // As user scrolls down through the section, smoothly pans to reveal elderly woman on right
+    // When scrolling back up, reverses smoothly to return to caregiver-focused position
     const whyPhoto = whySection.querySelector('.why-center-photo');
-    if (whyPhoto && window.ScrollTrigger && window.gsap) {
-      gsap.fromTo(whyPhoto,
-        { x: -80 },
-        {
-          x: 80,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: whySection,
-            start: 'top bottom+=300',
-            end: 'center center',
-            scrub: 0.35,
-            invalidateOnRefresh: true
-          }
+    const whyFrame = whySection.querySelector('.why-center-frame');
+    if (whyPhoto && whyFrame) {
+      let ticking = false;
+
+      function updateWhyPan() {
+        const rect = whySection.getBoundingClientRect();
+        const winH = window.innerHeight || document.documentElement.clientHeight;
+
+        // Active range: begins when top enters at 85% of screen, completes when bottom is at 15%
+        const startY = winH * 0.85;
+        const endY = -rect.height + winH * 0.15;
+        const total = startY - endY;
+
+        if (total > 0) {
+          const current = startY - rect.top;
+          const progress = Math.min(Math.max(current / total, 0), 1);
+
+          const frameW = whyFrame.offsetWidth || 380;
+          const photoW = whyPhoto.offsetWidth || (frameW * 1.75);
+          const maxShift = Math.max(photoW - frameW, frameW * 0.75);
+
+          const shiftX = -(progress * maxShift);
+          whyPhoto.style.transform = `translate3d(${shiftX.toFixed(2)}px, 0, 0)`;
         }
-      );
+        ticking = false;
+      }
+
+      function onWhyScroll() {
+        if (!ticking) {
+          window.requestAnimationFrame(updateWhyPan);
+          ticking = true;
+        }
+      }
+
+      window.addEventListener('scroll', onWhyScroll, { passive: true });
+      window.addEventListener('resize', onWhyScroll, { passive: true });
+      if (!whyPhoto.complete) {
+        whyPhoto.addEventListener('load', updateWhyPan);
+      }
+      updateWhyPan();
     }
   }
 
