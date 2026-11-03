@@ -568,24 +568,25 @@ button.btn:hover .btn-flip-label span {
 
 @media (max-width: 600px) {
   .contact-bar-inner {
-    flex-direction: column;
-    justify-content: center;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    gap: 8px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    gap: 4px 10px;
+    min-height: unset;
   }
 
   .contact-bar-details {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    gap: 6px 16px;
+    display: contents;
   }
 
-  .contact-bar-item {
-    font-size: 0.78rem;
+  .contact-bar-primary {
+    grid-column: 1 / -1;
+    justify-content: center;
+    width: 100%;
+    font-size: 0.8rem;
+    padding-bottom: 1px;
   }
 
   .contact-call-prefix {
@@ -593,11 +594,68 @@ button.btn:hover .btn-flip-label span {
   }
 
   .contact-bar-primary .phone-primary-text {
-    font-size: 0.82rem;
+    font-size: 0.84rem;
+  }
+
+  .contact-bar-email {
+    grid-column: 1;
+    justify-content: flex-start;
+    margin-right: auto;
+    font-size: 0.75rem;
+    gap: 6px;
+  }
+
+  .contact-bar-email svg {
+    width: 14px;
+    height: 14px;
   }
 
   .contact-bar-socials {
-    gap: 6px;
+    grid-column: 2;
+    justify-content: flex-end;
+    margin-left: auto;
+    gap: 5px;
+  }
+
+  .contact-social-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .contact-social-icon svg {
+    width: 11px;
+    height: 11px;
+  }
+}
+
+@media (max-width: 360px) {
+  .contact-bar-inner {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    gap: 3px 6px;
+  }
+
+  .contact-call-prefix {
+    font-size: 0.72rem;
+  }
+
+  .contact-bar-primary .phone-primary-text {
+    font-size: 0.78rem;
+  }
+
+  .contact-bar-email {
+    font-size: 0.70rem;
+    gap: 4px;
+  }
+
+  .contact-social-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .contact-social-icon svg {
+    width: 10px;
+    height: 10px;
   }
 }
 
