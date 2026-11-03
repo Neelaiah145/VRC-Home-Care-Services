@@ -1154,19 +1154,42 @@ function initModalAndForms() {
 }
 
 /* ==========================================================================
-   8. Back to Top Button
+   8. Back to Top Button with Circular Scroll Progress
    ========================================================================== */
 function initBackToTop() {
   const backToTopBtn = document.querySelector('.back-to-top');
   if (!backToTopBtn) return;
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 350) {
+  const progressBar = backToTopBtn.querySelector('.progress-ring-bar');
+  const circumference = 2 * Math.PI * 21; // ~131.95px
+
+  if (progressBar) {
+    progressBar.style.strokeDasharray = `${circumference}`;
+    progressBar.style.strokeDashoffset = `${circumference}`;
+  }
+
+  function updateProgress() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+    // Toggle button visibility
+    if (scrollTop > 200) {
       backToTopBtn.classList.add('visible');
     } else {
       backToTopBtn.classList.remove('visible');
     }
-  }, { passive: true });
+
+    // Update progress ring offset
+    if (progressBar && docHeight > 0) {
+      const scrollPercent = Math.min(Math.max(scrollTop / docHeight, 0), 1);
+      const offset = circumference - (scrollPercent * circumference);
+      progressBar.style.strokeDashoffset = offset;
+    }
+  }
+
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress, { passive: true });
+  updateProgress();
 
   backToTopBtn.addEventListener('click', () => {
     window.scrollTo({
