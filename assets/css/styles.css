@@ -3488,25 +3488,28 @@ button.btn:hover .btn-flip-label span {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  line-height: 1.25;
+  line-height: 1.15;
   border-left: none;
   padding-left: 0;
 }
 
 .footer-brand-line1 {
   font-family: var(--font-main);
-  font-size: 1.18rem;
+  font-size: 1.12rem;
   font-weight: 800;
   color: #FFFFFF;
   letter-spacing: -0.01em;
+  line-height: 1.15;
 }
 
-.footer-brand-line2 {
+.footer-brand-line2,
+.footer-brand-line3 {
   font-family: var(--font-main);
-  font-size: 1.02rem;
-  font-weight: 700;
-  color: var(--secondary-light);
-  letter-spacing: 0.01em;
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: var(--secondary);
+  letter-spacing: -0.01em;
+  line-height: 1.15;
 }
 
 .footer-brand .brand-name {
