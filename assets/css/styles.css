@@ -464,6 +464,8 @@ button.btn:hover .btn-flip-label span {
 }
 
 .contact-bar-item {
+  display: inline-flex;
+  align-items: center;
   gap: 8px;
   white-space: nowrap;
 }
@@ -471,21 +473,29 @@ button.btn:hover .btn-flip-label span {
 .contact-bar-primary {
   color: #FFFFFF !important;
   font-weight: 700;
-}
-
-.contact-bar-primary .phone-primary-badge {
   display: inline-flex;
   align-items: center;
-  background: var(--secondary);
+  gap: 7px;
+  text-decoration: none;
+}
+
+.contact-call-prefix {
+  color: #D6E4EE;
+  font-weight: 600;
+  font-size: 0.84rem;
+  letter-spacing: 0.01em;
+}
+
+.contact-bar-primary .phone-primary-text {
   color: #FFFFFF;
-  font-size: 0.65rem;
   font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 1px 6px;
-  border-radius: 4px;
-  margin-left: 2px;
-  line-height: 1.25;
+  font-size: 0.90rem;
+  letter-spacing: 0.02em;
+}
+
+.contact-bar-primary:hover .phone-primary-text,
+.contact-bar-primary:hover .contact-call-prefix {
+  color: var(--secondary-light) !important;
 }
 
 .contact-bar-item svg {
@@ -562,18 +572,28 @@ button.btn:hover .btn-flip-label span {
     justify-content: center;
     padding-top: 8px;
     padding-bottom: 8px;
+    gap: 8px;
   }
 
   .contact-bar-details {
-    display: grid;
-    grid-template-columns: repeat(2, max-content);
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     width: 100%;
-    gap: 6px 14px;
+    gap: 6px 16px;
   }
 
   .contact-bar-item {
     font-size: 0.78rem;
+  }
+
+  .contact-call-prefix {
+    font-size: 0.76rem;
+  }
+
+  .contact-bar-primary .phone-primary-text {
+    font-size: 0.82rem;
   }
 
   .contact-bar-socials {
@@ -3488,28 +3508,52 @@ button.btn:hover .btn-flip-label span {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  line-height: 1.15;
+  line-height: 1.2;
   border-left: none;
   padding-left: 0;
+  white-space: nowrap;
 }
 
 .footer-brand-line1 {
   font-family: var(--font-main);
-  font-size: 1.12rem;
+  font-size: 1.22rem;
   font-weight: 800;
   color: #FFFFFF;
   letter-spacing: -0.01em;
-  line-height: 1.15;
+  line-height: 1.2;
 }
 
-.footer-brand-line2,
-.footer-brand-line3 {
+.footer-brand-line2 {
   font-family: var(--font-main);
-  font-size: 1.12rem;
+  font-size: 1.05rem;
   font-weight: 800;
   color: var(--secondary);
-  letter-spacing: -0.01em;
-  line-height: 1.15;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+@media (max-width: 480px) {
+  .footer-logo-white {
+    height: 44px;
+  }
+  .footer-brand-line1 {
+    font-size: 1.1rem;
+  }
+  .footer-brand-line2 {
+    font-size: 0.92rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .footer-logo-white {
+    height: 38px;
+  }
+  .footer-brand-line1 {
+    font-size: 0.98rem;
+  }
+  .footer-brand-line2 {
+    font-size: 0.82rem;
+  }
 }
 
 .footer-brand .brand-name {
