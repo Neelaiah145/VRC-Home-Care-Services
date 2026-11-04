@@ -137,8 +137,7 @@ ul, ol {
 /* One common reusable container with fixed visual boundaries across the whole website */
 .container,
 .nav-container,
-.hero-content-wrapper,
-.contact-bar-inner {
+.hero-content-wrapper {
   width: 100%;
   max-width: var(--site-container-max);
   margin-left: auto;
@@ -432,114 +431,146 @@ button.btn:hover .btn-flip-label span {
 
 
 /*
-   1. Navigation Bar (Crisp White matching Reference)
+   1. Ultra-Slim Top Contact Bar (30px Height matching Reference)
    -------------------------------------------------------------------------- */
-.contact-bar {
+.top-contact-bar {
+  background: #0A2540;
+  color: #FFFFFF;
+  height: 32px;
+  line-height: 32px;
+  font-size: 0.78rem;
   position: relative;
   z-index: 1001;
-  background: var(--primary);
-  color: rgba(255, 255, 255, 0.95);
-  font-size: 0.88rem;
-  font-weight: 500;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.contact-bar-inner {
-  min-height: 44px;
+.top-contact-bar-inner {
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px 28px;
+  gap: 20px;
 }
 
-.contact-bar-details,
-.contact-bar-item,
-.contact-bar-socials {
+.top-contact-details {
   display: flex;
   align-items: center;
+  gap: clamp(14px, 1.8vw, 24px);
+  margin-right: auto;
+  transform: translateX(-16px);
 }
 
-.contact-bar-details {
-  flex-wrap: wrap;
-  gap: 8px 30px;
-}
-
-.contact-bar-item {
+.top-contact-item {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  white-space: nowrap;
-}
-
-.contact-bar-primary {
-  color: #FFFFFF !important;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
+  gap: 6px;
+  color: #FFFFFF;
   text-decoration: none;
+  font-size: 0.78rem;
+  white-space: nowrap;
+  transition: color 0.2s ease;
 }
 
-.contact-call-prefix {
-  color: #D6E4EE;
-  font-weight: 600;
-  font-size: 0.84rem;
-  letter-spacing: 0.01em;
+.top-contact-item svg {
+  width: 13px;
+  height: 13px;
+  color: var(--secondary);
+  flex-shrink: 0;
 }
 
-.contact-bar-primary .phone-primary-text {
+.top-call-label {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  font-size: 0.76rem;
+}
+
+.top-call-number {
   color: #FFFFFF;
   font-weight: 800;
-  font-size: 0.90rem;
+  font-size: 0.80rem;
   letter-spacing: 0.02em;
 }
 
-.contact-bar-primary:hover .phone-primary-text,
-.contact-bar-primary:hover .contact-call-prefix {
-  color: var(--secondary-light) !important;
-}
-
-.contact-bar-item svg {
-  width: 16px;
-  height: 16px;
-  flex: 0 0 auto;
+.top-contact-item:hover,
+.top-contact-item:hover .top-call-label {
   color: var(--secondary-light);
 }
 
-.contact-bar a:hover {
-  color: var(--white);
+.top-contact-socials {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
-.contact-bar-socials {
-  gap: 8px;
-}
-
-.contact-social-icon {
-  width: 28px;
-  height: 28px;
+.top-social-icon {
+  width: 20px;
+  height: 20px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--white);
+  color: #FFFFFF;
   background: rgba(255, 255, 255, 0.12);
   border-radius: 50%;
-  transition: background-color var(--transition-fast), transform var(--transition-fast);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.contact-social-icon:hover {
+.top-social-icon:hover {
   background: var(--secondary);
-  transform: translateY(-2px);
+  transform: scale(1.1);
 }
 
-.contact-social-icon svg {
-  width: 14px;
-  height: 14px;
-  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+.top-social-icon svg {
+  width: 10px;
+  height: 10px;
 }
 
-.contact-social-icon:hover svg {
-  transform: rotate(360deg) scale(1.15);
+@media (max-width: 768px) {
+  .top-contact-bar {
+    height: auto;
+    min-height: 28px;
+    line-height: normal;
+    padding: 3px 0;
+  }
+  .top-contact-bar-inner {
+    height: auto;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .top-contact-details {
+    margin-left: 0;
+    transform: none;
+    gap: 12px;
+  }
+  .top-contact-socials {
+    gap: 6px;
+  }
+  .top-call-label {
+    display: none;
+  }
+  .top-contact-item {
+    font-size: 0.72rem;
+  }
+  .top-social-icon {
+    width: 18px;
+    height: 18px;
+  }
+  .top-social-icon svg {
+    width: 9px;
+    height: 9px;
+  }
 }
 
+@media (max-width: 480px) {
+  .top-contact-email {
+    display: none;
+  }
+}
+
+/*
+   2. Navigation Bar & Announcement Ticker
+   -------------------------------------------------------------------------- */
 .site-header {
   position: -webkit-sticky;
   position: sticky;
@@ -547,115 +578,129 @@ button.btn:hover .btn-flip-label span {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(18, 59, 93, 0.08);
-  box-shadow: 0 4px 18px rgba(18, 59, 93, 0.03);
-  padding: 7px 0;
+  background: #FFFFFF;
+  border-bottom: 1px solid rgba(10, 37, 64, 0.08);
+  box-shadow: 0 4px 20px rgba(10, 37, 64, 0.04);
+  padding: 0;
   transition: all 0.3s ease;
 }
 
 .site-header.scrolled {
-  background: rgba(255, 255, 255, 0.99);
-  border-bottom-color: rgba(18, 59, 93, 0.12);
-  box-shadow: 0 6px 24px rgba(10, 37, 64, 0.08);
+  background: #FFFFFF;
+  border-bottom-color: rgba(10, 37, 64, 0.12);
+  box-shadow: 0 8px 24px rgba(10, 37, 64, 0.08);
 }
 
 .site-header.menu-open {
   z-index: 1060;
 }
 
-@media (max-width: 600px) {
-  .contact-bar-inner {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    gap: 4px 10px;
-    min-height: unset;
-  }
+/* ==========================================================================
+   Header Announcement Ticker Bar (Scrolling Right to Left)
+   ========================================================================== */
+.header-ticker-bar {
+  background: #0A1C2E;
+  color: #FFFFFF;
+  border-top: 1px solid rgba(10, 37, 64, 0.08);
+  border-bottom: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  user-select: none;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
 
-  .contact-bar-details {
-    display: contents;
-  }
+.ticker-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: tickerScroll 34s linear infinite;
+}
 
-  .contact-bar-primary {
-    grid-column: 1 / -1;
-    justify-content: center;
-    width: 100%;
-    font-size: 0.8rem;
-    padding-bottom: 1px;
-  }
+.header-ticker-bar:hover .ticker-track {
+  animation-play-state: paused;
+}
 
-  .contact-call-prefix {
-    font-size: 0.76rem;
-  }
+.ticker-content {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
 
-  .contact-bar-primary .phone-primary-text {
-    font-size: 0.84rem;
-  }
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 24px;
+  font-family: var(--font-main);
+  font-size: 0.81rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
 
-  .contact-bar-email {
-    grid-column: 1;
-    justify-content: flex-start;
-    margin-right: auto;
-    font-size: 0.75rem;
-    gap: 6px;
-  }
+.ticker-text {
+  color: #FFFFFF;
+  letter-spacing: 0.05em;
+}
 
-  .contact-bar-email svg {
-    width: 14px;
-    height: 14px;
-  }
+.ticker-phone-link {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 800;
+  transition: color var(--transition-fast);
+}
 
-  .contact-bar-socials {
-    grid-column: 2;
-    justify-content: flex-end;
-    margin-left: auto;
-    gap: 5px;
-  }
+.ticker-phone-link:hover {
+  color: var(--secondary-light);
+}
 
-  .contact-social-icon {
-    width: 24px;
-    height: 24px;
-  }
+.ticker-action-link {
+  color: var(--secondary);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  margin-left: 4px;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
 
-  .contact-social-icon svg {
-    width: 11px;
-    height: 11px;
+.ticker-action-link:hover {
+  color: #FFFFFF;
+}
+
+.ticker-pulse-icon {
+  width: 22px;
+  height: 22px;
+  color: var(--secondary);
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@keyframes tickerScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 
-@media (max-width: 360px) {
-  .contact-bar-inner {
-    padding-top: 4px;
-    padding-bottom: 4px;
-    gap: 3px 6px;
+@media (max-width: 768px) {
+  .ticker-item {
+    font-size: 0.74rem;
+    padding: 8px 16px;
+    gap: 10px;
   }
-
-  .contact-call-prefix {
-    font-size: 0.72rem;
+  .ticker-pulse-icon {
+    width: 18px;
+    height: 18px;
   }
-
-  .contact-bar-primary .phone-primary-text {
-    font-size: 0.78rem;
-  }
-
-  .contact-bar-email {
-    font-size: 0.70rem;
-    gap: 4px;
-  }
-
-  .contact-social-icon {
-    width: 22px;
-    height: 22px;
-  }
-
-  .contact-social-icon svg {
-    width: 10px;
-    height: 10px;
+  .ticker-track {
+    animation-duration: 26s;
   }
 }
 
@@ -664,6 +709,8 @@ button.btn:hover .btn-flip-label span {
   align-items: center;
   justify-content: space-between;
   gap: clamp(14px, 2vw, 28px);
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 /* 1. Left: Brand Logo */
@@ -682,6 +729,7 @@ button.btn:hover .btn-flip-label span {
   object-fit: contain;
   display: block;
   border-radius: 6px;
+  mix-blend-mode: multiply;
   transition: transform 0.3s ease;
 }
 
@@ -779,23 +827,24 @@ button.btn:hover .btn-flip-label span {
   letter-spacing: 0.04em;
 }
 
-/* 2. Middle: Navigation Menu (Single straight horizontal line) */
+/* 2. Middle: Navigation Menu (Placed on the right side of the logo) */
 .nav-menu {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: clamp(14px, 1.8vw, 30px);
   flex-wrap: nowrap;
   white-space: nowrap;
-  margin: 0 auto;
+  margin-left: clamp(18px, 2.5vw, 40px);
+  margin-right: auto;
 }
 
 .nav-link {
   position: relative;
-  font-size: var(--navigation-size);
-  font-weight: var(--navigation-weight);
-  color: var(--text-navy);
-  padding: 6px 6px;
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: #0A2540;
+  padding: 8px 10px;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -806,20 +855,21 @@ button.btn:hover .btn-flip-label span {
   white-space: nowrap;
 }
 
-.nav-link:hover,
-.nav-link.active {
+.nav-link:hover {
   color: var(--secondary);
+  background: transparent;
 }
 
 .nav-link.active {
-  font-weight: 700;
+  color: #0A2540;
+  font-weight: 800;
 }
 
 .nav-link::after {
   position: absolute;
-  right: 6px;
+  right: 12px;
   bottom: 0px;
-  left: 6px;
+  left: 12px;
   height: 2.5px;
   border-radius: 2px;
   content: "";
