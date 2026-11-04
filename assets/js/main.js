@@ -165,9 +165,41 @@ function initNavbar() {
     overlay.addEventListener('click', () => toggleMobileMenu(false));
   }
 
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      toggleMobileMenu(false);
+  // Clean hash from URL on page load so #home does not clutter address bar
+  if (window.location.hash === '#home' || window.location.hash === '#') {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+
+  // Smooth scroll for in-page anchors without modifying the address bar URL
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const hash = this.getAttribute('href');
+      if (!hash || hash === '#' || this.hasAttribute('data-open-modal')) return;
+
+      const targetEl = document.querySelector(hash);
+      if (targetEl) {
+        e.preventDefault();
+
+        const headerEl = document.querySelector('.site-header');
+        const headerHeight = headerEl ? headerEl.offsetHeight : 70;
+
+        let targetY = 0;
+        if (hash !== '#home') {
+          targetY = targetEl.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        }
+
+        window.scrollTo({
+          top: targetY,
+          behavior: 'smooth'
+        });
+
+        // Keep address bar clean without #hash
+        if (window.location.hash) {
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+
+        toggleMobileMenu(false);
+      }
     });
   });
 
@@ -201,6 +233,21 @@ function initNavbar() {
   }, observerOptions);
 
   sections.forEach(sec => sectionObserver.observe(sec));
+
+  // Ensure "Home" is active when viewing top of page
+  const updateHomeActive = () => {
+    if (window.scrollY < 180) {
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === '#home') {
+          link.classList.add('active');
+        } else if (link.getAttribute('href')?.startsWith('#')) {
+          link.classList.remove('active');
+        }
+      });
+    }
+  };
+  window.addEventListener('scroll', updateHomeActive, { passive: true });
+  updateHomeActive();
 }
 
 /* ==========================================================================

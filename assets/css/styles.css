@@ -709,8 +709,8 @@ button.btn:hover .btn-flip-label span {
   align-items: center;
   justify-content: space-between;
   gap: clamp(14px, 2vw, 28px);
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 /* 1. Left: Brand Logo */
@@ -723,9 +723,9 @@ button.btn:hover .btn-flip-label span {
 }
 
 .brand-img-logo {
-  height: 52px;
+  height: 72px;
   width: auto;
-  max-width: 150px;
+  max-width: 200px;
   object-fit: contain;
   display: block;
   border-radius: 6px;
@@ -779,6 +779,27 @@ button.btn:hover .btn-flip-label span {
 @media (max-width: 480px) {
   .brand-service-text {
     display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .brand-img-logo {
+    height: 64px;
+    max-width: 175px;
+  }
+}
+
+@media (max-width: 768px) {
+  .brand-img-logo {
+    height: 52px;
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-img-logo {
+    height: 46px;
+    max-width: 135px;
   }
 }
 
