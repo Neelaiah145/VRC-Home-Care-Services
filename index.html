@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=6.0">
+  <link rel="stylesheet" href="assets/css/styles.css?v=6.2">
   <style>
    /* about section mage style i write here */
     .about-photo-collage {
@@ -135,9 +135,12 @@
   <header class="site-header" id="navbar">
     <div class="container nav-container">
       
-      <!-- Official VRC Brand Logo -->
+      <!-- Official VRC Brand Logo (Desktop: Full Horizontal Logo, Mobile: Compact VRC Emblem Icon) -->
       <a href="#home" class="brand-logo" aria-label="VRC Nursing and Home Care Services">
-        <img src="assets/images/vrc-logo.png" alt="VRC Nursing and Home Care Services" class="brand-img-logo">
+        <picture>
+          <source media="(max-width: 768px)" srcset="assets/images/vrc-logo-mobile.png">
+          <img src="assets/images/vrc-logo.png" alt="VRC Nursing and Home Care Services" class="brand-img-logo">
+        </picture>
       </a>
 
       <!-- Desktop Navigation Menu -->
