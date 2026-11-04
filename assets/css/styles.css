@@ -593,6 +593,20 @@ button.btn:hover .btn-flip-label span {
 
 .site-header.menu-open {
   z-index: 1060;
+  background: transparent !important;
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.site-header.menu-open .brand-logo {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.site-header.menu-open .nav-actions .btn-enquiry {
+  display: none !important;
 }
 
 /* ==========================================================================
@@ -1068,20 +1082,9 @@ button.btn:hover .btn-flip-label span {
   flex-shrink: 0;
 }
 
-@media (max-width: 480px) {
-  .nav-actions {
-    gap: 8px;
-  }
+@media (max-width: 768px) {
   .nav-actions .btn-enquiry {
-    padding: 5px 11px;
-    height: 33px;
-    font-size: 0.78rem;
-  }
-}
-
-@media (max-width: 370px) {
-  .nav-actions .btn-enquiry {
-    display: none;
+    display: none !important;
   }
 }
 
