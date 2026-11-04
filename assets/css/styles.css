@@ -708,9 +708,9 @@ button.btn:hover .btn-flip-label span {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: clamp(14px, 2vw, 28px);
-  padding-top: 6px;
-  padding-bottom: 6px;
+  gap: clamp(10px, 1.5vw, 20px);
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 /* 1. Left: Brand Logo */
@@ -723,9 +723,9 @@ button.btn:hover .btn-flip-label span {
 }
 
 .brand-img-logo {
-  height: 72px;
+  height: 52px;
   width: auto;
-  max-width: 200px;
+  max-width: 280px;
   object-fit: contain;
   display: block;
   transition: transform 0.3s ease;
@@ -765,6 +765,13 @@ button.btn:hover .btn-flip-label span {
   color: var(--secondary-light);
 }
 
+@media (max-width: 1200px) {
+  .brand-img-logo {
+    height: 48px;
+    max-width: 250px;
+  }
+}
+
 @media (max-width: 992px) {
   .brand-name-line1 {
     font-size: 0.98rem;
@@ -772,37 +779,31 @@ button.btn:hover .btn-flip-label span {
   .brand-name-line2 {
     font-size: 0.86rem;
   }
+  .brand-img-logo {
+    height: 44px;
+    max-width: 230px;
+  }
+}
+
+@media (max-width: 768px) {
+  .brand-img-logo {
+    height: 40px;
+    max-width: 210px;
+  }
 }
 
 @media (max-width: 480px) {
   .brand-service-text {
     display: none;
   }
-}
-
-@media (max-width: 992px) {
   .brand-img-logo {
-    height: 64px;
-    max-width: 175px;
-  }
-}
-
-@media (max-width: 768px) {
-  .brand-img-logo {
-    height: 52px;
-    max-width: 150px;
-  }
-}
-
-@media (max-width: 480px) {
-  .brand-img-logo {
-    height: 46px;
-    max-width: 135px;
+    height: 36px;
+    max-width: 190px;
   }
 }
 
 .brand-logo:hover .brand-img-logo {
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
 .brand-icon {
@@ -846,15 +847,15 @@ button.btn:hover .btn-flip-label span {
   letter-spacing: 0.04em;
 }
 
-/* 2. Middle: Navigation Menu (Placed on the right side of the logo) */
+/* 2. Middle: Navigation Menu (Placed immediately next to the brand logo) */
 .nav-menu {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: clamp(14px, 1.8vw, 30px);
+  gap: clamp(10px, 1.4vw, 24px);
   flex-wrap: nowrap;
   white-space: nowrap;
-  margin-left: clamp(18px, 2.5vw, 40px);
+  margin-left: clamp(8px, 1.2vw, 18px);
   margin-right: auto;
 }
 
