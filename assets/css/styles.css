@@ -592,10 +592,19 @@ button.btn:hover .btn-flip-label span {
 }
 
 .site-header.menu-open {
-  z-index: 1060;
+  z-index: 1065;
   background: transparent !important;
   border-bottom-color: transparent !important;
   box-shadow: none !important;
+  pointer-events: none;
+}
+
+.site-header.menu-open .nav-container {
+  pointer-events: none;
+}
+
+.site-header.menu-open .mobile-toggle {
+  pointer-events: auto;
 }
 
 .site-header.menu-open .brand-logo {
@@ -798,14 +807,6 @@ button.btn:hover .btn-flip-label span {
   .brand-name-line2 {
     font-size: 0.86rem;
   }
-  .brand-img-logo {
-    height: 44px;
-    max-width: 230px;
-  }
-}
-
-/* On mobile screens: use stacked VRC logo (aspect ratio 2:1) */
-@media (max-width: 768px) {
   .brand-img-logo {
     height: 48px;
     max-width: 105px;
@@ -1078,11 +1079,11 @@ button.btn:hover .btn-flip-label span {
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 1100;
+  z-index: 1080;
   flex-shrink: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .nav-actions .btn-enquiry {
     display: none !important;
   }
@@ -1114,17 +1115,20 @@ button.btn:hover .btn-flip-label span {
   position: fixed;
   top: 0;
   right: -100%;
-  width: 80%;
+  width: 82%;
   max-width: 320px;
   height: 100vh;
+  height: 100dvh;
   background: var(--white);
-  box-shadow: -8px 0 32px rgba(18, 59, 93, 0.15);
-  z-index: 1050;
-  padding: 75px 24px 30px;
+  box-shadow: -8px 0 32px rgba(18, 59, 93, 0.18);
+  z-index: 1070;
+  padding: 70px 24px 30px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  transition: right 0.38s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .mobile-drawer.open {
@@ -1134,9 +1138,10 @@ button.btn:hover .btn-flip-label span {
 .mobile-drawer-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(18, 59, 93, 0.5);
+  background: rgba(18, 59, 93, 0.55);
   backdrop-filter: blur(4px);
-  z-index: 1040;
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1060;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
@@ -1157,6 +1162,15 @@ button.btn:hover .btn-flip-label span {
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--primary);
+  padding: 6px 0;
+}
+
+.mobile-menu-links .nav-link::after {
+  display: none !important;
+}
+
+.mobile-menu-links .nav-link.active {
+  color: var(--secondary) !important;
 }
 
 @media (max-width: 992px) {
@@ -1185,16 +1199,17 @@ button.btn:hover .btn-flip-label span {
 
 @media (max-width: 768px) {
   .hero-section {
-    height: max(440px, calc(100svh - 97px));
-    min-height: 440px;
+    height: auto;
+    min-height: calc(100svh - 97px);
     padding: 32px 0;
   }
-
 }
 
 @media (max-width: 600px) {
   .hero-section {
-    height: max(440px, calc(100svh - 164px));
+    height: auto;
+    min-height: calc(100svh - 90px);
+    padding: 24px 0 32px;
   }
 }
 
@@ -1461,50 +1476,6 @@ button.btn:hover .btn-flip-label span {
 .hero-buttons .btn-outline-hero:hover .btn-flip-label span {
   color: #FFFFFF !important;
   transform: translateY(-100%) !important;
-}
-
-.hero-booking-note {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.86rem;
-  line-height: 1.45;
-  color: rgba(255, 255, 255, 0.92);
-  background: rgba(10, 37, 64, 0.45);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 6px 14px;
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  margin-top: -12px;
-  margin-bottom: 20px;
-  max-width: fit-content;
-}
-
-.hero-booking-note strong {
-  color: #FFFFFF;
-  font-weight: 700;
-}
-
-.hero-booking-icon {
-  width: 15px;
-  height: 15px;
-  color: var(--secondary);
-  flex-shrink: 0;
-}
-
-@media (max-width: 580px) {
-  .hero-booking-note {
-    font-size: 0.78rem;
-    padding: 6px 12px;
-    margin-top: -4px;
-    margin-bottom: 18px;
-    border-radius: 12px;
-    align-items: flex-start;
-  }
-  .hero-booking-icon {
-    margin-top: 2px;
-  }
 }
 
 .hero-pagination {
