@@ -1463,6 +1463,50 @@ button.btn:hover .btn-flip-label span {
   transform: translateY(-100%) !important;
 }
 
+.hero-booking-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(10, 37, 64, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  margin-top: -12px;
+  margin-bottom: 20px;
+  max-width: fit-content;
+}
+
+.hero-booking-note strong {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.hero-booking-icon {
+  width: 15px;
+  height: 15px;
+  color: var(--secondary);
+  flex-shrink: 0;
+}
+
+@media (max-width: 580px) {
+  .hero-booking-note {
+    font-size: 0.78rem;
+    padding: 6px 12px;
+    margin-top: -4px;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    align-items: flex-start;
+  }
+  .hero-booking-icon {
+    margin-top: 2px;
+  }
+}
+
 .hero-pagination {
   display: flex;
   align-items: center;
