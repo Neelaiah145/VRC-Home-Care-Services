@@ -728,8 +728,6 @@ button.btn:hover .btn-flip-label span {
   max-width: 200px;
   object-fit: contain;
   display: block;
-  border-radius: 6px;
-  mix-blend-mode: multiply;
   transition: transform 0.3s ease;
 }
 
