@@ -12,13 +12,13 @@
   --primary-rgb: 10, 37, 64;
   --primary-dark: #06182B;
   --primary-light: #103B64;
-  
+
   --secondary: #FF6600;
   --secondary-rgb: 255, 102, 0;
   --secondary-dark: #E65500;
   --secondary-light: #FF8533;
   --secondary-glow: rgba(255, 102, 0, 0.32);
-  
+
   /* Complementary Brand Colors Matching Orange & Navy */
   --accent-cyan: #0284C7;
   --accent-cyan-bg: #F0F9FF;
@@ -35,14 +35,14 @@
   --soft-bg-alt: #FFF8F3;
   --card-bg: #FFFFFF;
   --text-navy: #0A2540;
-  --text-muted: #52667A;
+  --text-muted: #111;
   --text-light: #8BA2B5;
   --border-color: #E2ECF3;
   --border-light: #EEF4F8;
   --white: #FFFFFF;
   --dark-navy: #06182B;
   --footer-bg: #071D33;
-  
+
   --shadow-sm: 0 4px 14px rgba(10, 37, 64, 0.05);
   --shadow-md: 0 8px 24px rgba(10, 37, 64, 0.08);
   --shadow-lg: 0 16px 36px rgba(10, 37, 64, 0.12);
@@ -61,7 +61,7 @@
   --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-handwriting: var(--font-main);
   --heading-size: clamp(1.75rem, 2.3vw, 2.15rem);
-  --heading-weight: 700;
+  --heading-weight: 600;
   --heading-line-height: 1.28;
   --subheading-size: 1.18rem;
   --subheading-weight: 600;
@@ -86,7 +86,9 @@
 /*
    Reset & Base Styles
    -------------------------------------------------------------------------- */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -101,12 +103,29 @@ html {
 
 body {
   font-family: var(--font-main);
+  font-weight: 400;
   background-color: var(--white);
-  color: var(--text-navy);
+  color: #111;
   line-height: 1.55;
   overflow-x: clip;
   position: relative;
   -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: var(--font-main);
+  font-weight: 600;
 }
 
 img {
@@ -130,7 +149,8 @@ button {
   outline: none;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -249,10 +269,10 @@ ul, ol {
   padding: 11px 24px;
   border-radius: var(--radius-full);
   transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
-              box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
-              background-color 0.3s ease,
-              border-color 0.3s ease,
-              color 0.3s ease;
+    box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
   position: relative;
   white-space: nowrap;
   text-decoration: none;
@@ -332,8 +352,8 @@ ul, ol {
   gap: 6px;
   white-space: nowrap;
   transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
-              box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
-              background-color 0.3s ease;
+    box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background-color 0.3s ease;
 }
 
 .btn-phone:hover {
@@ -365,9 +385,9 @@ ul, ol {
   cursor: pointer;
   flex-shrink: 0;
   transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
-              box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
-              background-color 0.3s ease,
-              border-color 0.3s ease;
+    box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background-color 0.3s ease,
+    border-color 0.3s ease;
   will-change: transform;
 }
 
@@ -533,29 +553,36 @@ button.btn:hover .btn-flip-label span {
     line-height: normal;
     padding: 3px 0;
   }
+
   .top-contact-bar-inner {
     height: auto;
     justify-content: space-between;
     gap: 8px;
   }
+
   .top-contact-details {
     margin-left: 0;
     transform: none;
     gap: 12px;
   }
+
   .top-contact-socials {
     gap: 6px;
   }
+
   .top-call-label {
     display: none;
   }
+
   .top-contact-item {
     font-size: 0.72rem;
   }
+
   .top-social-icon {
     width: 18px;
     height: 18px;
   }
+
   .top-social-icon svg {
     width: 9px;
     height: 9px;
@@ -707,6 +734,7 @@ button.btn:hover .btn-flip-label span {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -718,10 +746,12 @@ button.btn:hover .btn-flip-label span {
     padding: 8px 16px;
     gap: 10px;
   }
+
   .ticker-pulse-icon {
     width: 18px;
     height: 18px;
   }
+
   .ticker-track {
     animation-duration: 26s;
   }
@@ -804,13 +834,16 @@ button.btn:hover .btn-flip-label span {
   .brand-name-line1 {
     font-size: 0.98rem;
   }
+
   .brand-name-line2 {
     font-size: 0.86rem;
   }
+
   .brand-img-logo {
     height: 48px;
     max-width: 105px;
   }
+
   .mobile-drawer .brand-img-logo {
     height: 48px;
     max-width: 240px;
@@ -821,6 +854,7 @@ button.btn:hover .btn-flip-label span {
   .brand-service-text {
     display: none;
   }
+
   .brand-img-logo {
     height: 44px;
     max-width: 95px;
@@ -976,8 +1010,8 @@ button.btn:hover .btn-flip-label span {
   visibility: hidden;
   pointer-events: none;
   transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              visibility 0.3s ease;
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.3s ease;
   z-index: 1050;
   display: flex;
   flex-direction: column;
@@ -1177,6 +1211,7 @@ button.btn:hover .btn-flip-label span {
   .nav-menu {
     display: none;
   }
+
   .mobile-toggle {
     display: flex;
   }
@@ -1268,9 +1303,11 @@ button.btn:hover .btn-flip-label span {
   0% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.08);
   }
+
   100% {
     transform: scale(1);
   }
@@ -1286,24 +1323,21 @@ button.btn:hover .btn-flip-label span {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(6, 24, 43, 0.82) 0%,
-    rgba(10, 37, 64, 0.70) 42%,
-    rgba(10, 37, 64, 0.38) 72%,
-    rgba(6, 24, 43, 0.22) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(6, 24, 43, 0.82) 0%,
+      rgba(10, 37, 64, 0.70) 42%,
+      rgba(10, 37, 64, 0.38) 72%,
+      rgba(6, 24, 43, 0.22) 100%);
   z-index: 3;
   pointer-events: none;
 }
+
 @media (max-width: 992px) {
   .hero-overlay {
-    background: linear-gradient(
-      180deg,
-      rgba(6, 24, 43, 0.88) 0%,
-      rgba(10, 37, 64, 0.76) 55%,
-      rgba(10, 37, 64, 0.52) 100%
-    );
+    background: linear-gradient(180deg,
+        rgba(6, 24, 43, 0.88) 0%,
+        rgba(10, 37, 64, 0.76) 55%,
+        rgba(10, 37, 64, 0.52) 100%);
   }
 }
 
@@ -1363,7 +1397,7 @@ button.btn:hover .btn-flip-label span {
 
 .hero-title {
   font-size: clamp(1.95rem, 3.2vw, 2.75rem);
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.025em;
   color: var(--white);
@@ -1383,7 +1417,7 @@ button.btn:hover .btn-flip-label span {
 .hero-title .highlight-orange {
   color: var(--secondary);
   font-style: italic;
-  font-weight: 700;
+  font-weight: 600;
   display: inline-block;
   text-shadow: 0 0 24px var(--secondary-glow);
 }
@@ -1419,6 +1453,7 @@ button.btn:hover .btn-flip-label span {
     gap: 12px;
     width: 100%;
   }
+
   .hero-buttons .btn {
     width: 100%;
     justify-content: center;
@@ -1621,10 +1656,13 @@ button.btn:hover .btn-flip-label span {
 }
 
 @keyframes badgeDotBreathe {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(0.85);
     opacity: 0.75;
   }
+
   50% {
     transform: scale(1.22);
     opacity: 1;
@@ -1821,7 +1859,7 @@ button.btn:hover .btn-flip-label span {
 .about-hl-title {
   font-family: var(--font-main);
   font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--primary);
   margin-bottom: 4px;
   line-height: 1.3;
@@ -1912,27 +1950,36 @@ button.btn:hover .btn-flip-label span {
 
 /* Floating animations for decorative elements */
 @keyframes floatSoft {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0) rotate(0deg);
   }
+
   50% {
     transform: translateY(-8px) rotate(2deg);
   }
 }
 
 @keyframes floatGentle {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0) scale(1);
   }
+
   50% {
     transform: translateY(-6px) scale(1.03);
   }
 }
 
 @keyframes floatSway {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0) rotate(-6deg);
   }
+
   50% {
     transform: translateY(-7px) rotate(-4deg);
   }
@@ -2105,28 +2152,34 @@ button.btn:hover .btn-flip-label span {
     margin-bottom: 24px;
     flex-wrap: nowrap !important;
   }
+
   .stat-item {
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
     gap: 6px !important;
   }
+
   .stat-icon-box {
     width: 36px !important;
     height: 36px !important;
   }
+
   .stat-icon-box svg {
     width: 16px !important;
     height: 16px !important;
   }
+
   .stat-number {
     font-size: 1.22rem !important;
   }
+
   .stat-label {
     font-size: 0.72rem !important;
     white-space: normal !important;
     line-height: 1.2 !important;
   }
+
   .about-action-buttons {
     display: flex;
     flex-direction: column;
@@ -2134,19 +2187,23 @@ button.btn:hover .btn-flip-label span {
     gap: 12px;
     width: 100%;
   }
+
   .about-action-buttons .btn {
     width: 100%;
     justify-content: center;
     text-align: center;
   }
+
   .about-photo-collage {
     max-width: 380px;
     margin: 28px auto 0 auto;
   }
+
   .about-photo-back,
   .about-photo-front {
     border-radius: 20px;
   }
+
   .about-photo-front {
     border-width: 4px;
   }
@@ -2156,10 +2213,12 @@ button.btn:hover .btn-flip-label span {
   .about-photo-collage {
     max-width: 330px;
   }
+
   .about-photo-back,
   .about-photo-front {
     border-radius: 18px;
   }
+
   .about-photo-front {
     border-width: 3.5px;
   }
@@ -2169,16 +2228,20 @@ button.btn:hover .btn-flip-label span {
   .about-photo-collage {
     max-width: 285px;
   }
+
   .about-photo-back,
   .about-photo-front {
     border-radius: 16px;
   }
+
   .about-photo-front {
     border-width: 3px;
   }
+
   .stat-label {
     font-size: 0.65rem !important;
   }
+
   .stat-number {
     font-size: 1.1rem !important;
   }
@@ -2197,12 +2260,10 @@ button.btn:hover .btn-flip-label span {
   left: -140%;
   width: 55%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.48) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.48) 50%,
+      rgba(255, 255, 255, 0) 100%);
   transform: skewX(-20deg);
   pointer-events: none;
   z-index: 10;
@@ -2217,6 +2278,7 @@ button.btn:hover .btn-flip-label span {
   .about-img-card-1 {
     width: 82%;
   }
+
   .about-img-card-2 {
     width: 76%;
     margin-top: -34%;
@@ -2412,7 +2474,7 @@ button.btn:hover .btn-flip-label span {
 .service-card-title {
   font-family: var(--font-main);
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--primary);
   margin-bottom: 12px;
   line-height: 1.3;
@@ -2527,7 +2589,7 @@ button.btn:hover .btn-flip-label span {
 .service-appointment-title {
   font-family: var(--font-main);
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 600;
   color: #FFFFFF;
   margin-bottom: 16px;
   line-height: 1.35;
@@ -2548,9 +2610,9 @@ button.btn:hover .btn-flip-label span {
   border-radius: var(--radius-full);
   text-decoration: none;
   transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
-              box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
-              background-color 0.3s ease,
-              border-color 0.3s ease;
+    box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background-color 0.3s ease,
+    border-color 0.3s ease;
   box-shadow: 0 4px 14px var(--secondary-glow);
   cursor: pointer;
   border: 1.5px solid var(--secondary);
@@ -2667,7 +2729,7 @@ button.btn:hover .btn-flip-label span {
 .why-feature-title {
   font-family: var(--font-main);
   font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--primary);
   margin-bottom: 6px;
   line-height: 1.3;
@@ -2904,7 +2966,7 @@ button.btn:hover .btn-flip-label span {
 
 .step-heading {
   font-size: 0.88rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--primary);
   margin-bottom: 3px;
 }
@@ -2990,7 +3052,7 @@ button.btn:hover .btn-flip-label span {
 .section-title-center .how-title {
   color: var(--white);
   font-size: clamp(2rem, 3.2vw, 2.65rem);
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.25;
   margin-top: 14px;
   letter-spacing: -0.02em;
@@ -3116,7 +3178,7 @@ button.btn:hover .btn-flip-label span {
 .work-step-no h3 {
   font-family: var(--font-main);
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--white);
   margin: 0;
   line-height: 1;
@@ -3139,7 +3201,7 @@ button.btn:hover .btn-flip-label span {
 .work-step-content h3 {
   font-family: var(--font-main);
   font-size: 1.15rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.4;
   color: var(--white);
   border-bottom: 1px solid rgba(255, 255, 255, 0.18);
@@ -3212,7 +3274,8 @@ button.btn:hover .btn-flip-label span {
 .section-footer-text a:hover {
   color: var(--white);
 }
-  text-align: center;
+
+text-align: center;
 }
 
 .how-it-works-contact a {
@@ -3314,6 +3377,7 @@ button.btn:hover .btn-flip-label span {
   .testimonial-carousel-wrapper {
     padding: 0 40px;
   }
+
   .testimonial-card-slide {
     flex: 0 0 calc((100% - 24px) / 2);
   }
@@ -3323,6 +3387,7 @@ button.btn:hover .btn-flip-label span {
   .testimonial-carousel-wrapper {
     padding: 0;
   }
+
   .testimonial-card-slide {
     flex: 0 0 100%;
   }
@@ -3490,7 +3555,7 @@ button.btn:hover .btn-flip-label span {
 .tfc-name {
   font-family: var(--font-main);
   font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--primary);
   line-height: 1.25;
   margin-bottom: 2px;
@@ -3512,7 +3577,8 @@ button.btn:hover .btn-flip-label span {
 
 .faq-accordion-container {
   width: 100%;
-  max-width: 860px; /* Reduced width for a more compact and balanced layout */
+  max-width: 860px;
+  /* Reduced width for a more compact and balanced layout */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -3705,9 +3771,11 @@ button.btn:hover .btn-flip-label span {
   .footer-logo-white {
     height: 44px;
   }
+
   .footer-brand-line1 {
     font-size: 1.1rem;
   }
+
   .footer-brand-line2 {
     font-size: 0.92rem;
   }
@@ -3717,9 +3785,11 @@ button.btn:hover .btn-flip-label span {
   .footer-logo-white {
     height: 38px;
   }
+
   .footer-brand-line1 {
     font-size: 0.98rem;
   }
+
   .footer-brand-line2 {
     font-size: 0.82rem;
   }
@@ -3746,7 +3816,7 @@ button.btn:hover .btn-flip-label span {
 .footer-col-title {
   position: relative;
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: var(--subheading-line-height);
   color: var(--secondary) !important;
   margin-bottom: 22px;
@@ -3767,22 +3837,25 @@ button.btn:hover .btn-flip-label span {
   animation: footerUnderlinePulse 3s ease-in-out infinite;
 }
 
-.footer-top-grid > div:nth-child(2) .footer-col-title::after {
+.footer-top-grid>div:nth-child(2) .footer-col-title::after {
   animation-delay: 0s;
 }
 
-.footer-top-grid > div:nth-child(3) .footer-col-title::after {
+.footer-top-grid>div:nth-child(3) .footer-col-title::after {
   animation-delay: 0.5s;
 }
 
-.footer-top-grid > div:nth-child(4) .footer-col-title::after {
+.footer-top-grid>div:nth-child(4) .footer-col-title::after {
   animation-delay: 1s;
 }
 
 @keyframes footerUnderlinePulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scaleX(0.35);
   }
+
   50% {
     transform: scaleX(1);
   }
@@ -4041,7 +4114,8 @@ button.btn:hover .btn-flip-label span {
 
 .back-to-top .progress-ring-bar {
   fill: none;
-  stroke: var(--primary); /* Dark Navy #0A2540 */
+  stroke: var(--primary);
+  /* Dark Navy #0A2540 */
   stroke-width: 3.5;
   stroke-linecap: round;
   stroke-dasharray: 132;
@@ -4080,10 +4154,12 @@ button.btn:hover .btn-flip-label span {
     width: 44px;
     height: 44px;
   }
+
   .back-to-top-inner {
     width: 33px;
     height: 33px;
   }
+
   .back-to-top .back-to-top-arrow {
     width: 15px;
     height: 15px;
@@ -4314,9 +4390,9 @@ p,
 .about-description,
 .service-card-desc,
 .service-desc,
-.benefit-copy > span,
-.how-step-card > p,
-.how-it-works-heading .how-it-works-copy > p,
+.benefit-copy>span,
+.how-step-card>p,
+.how-it-works-heading .how-it-works-copy>p,
 .how-it-works-contact,
 .tfc-quote,
 .testimonial-quote,
@@ -4343,14 +4419,17 @@ p,
 .section-desc,
 .service-desc,
 .service-card-desc,
-.benefit-copy > span,
+.benefit-copy>span,
 .accordion-inner-text,
 .modal-desc {
   color: var(--text-muted);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
