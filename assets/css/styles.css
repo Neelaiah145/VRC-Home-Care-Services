@@ -4181,6 +4181,11 @@ text-align: center;
     gap: 12px;
   }
 
+  .cta-banner-dark .cta-banner-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
   .cta-action-pill {
     width: 100%;
     justify-content: flex-start;
