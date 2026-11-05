@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=29.0">
+  <link rel="stylesheet" href="assets/css/styles.css?v=30.0">
 </head>
 
 <body>
@@ -877,22 +877,18 @@
   </footer>
 
   <!-- ========================================================================
-       Booking Request Modal
+       Booking Modal (Matching Index Exactly)
        ======================================================================== -->
-  <div class="booking-modal-overlay" id="bookingModal" aria-hidden="true" role="dialog" aria-modal="true"
-    aria-labelledby="modalTitle">
-    <div class="booking-modal-card">
-      <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Close dialog">&times;</button>
-      <div class="modal-header">
-        <h3 class="modal-title" id="modalTitle">Request Home Care Consultation</h3>
-        <p class="modal-desc">Fill in the details below. Our healthcare supervisor will contact you within 20 minutes to
-          assess and confirm.</p>
-      </div>
+  <div class="modal-backdrop" aria-hidden="true" role="dialog">
+    <div class="modal-box">
+      <button class="modal-close-btn" aria-label="Close dialog">×</button>
+      <h3 class="modal-title">Book a Free Assessment</h3>
+      <p class="modal-desc">Speak with our registered senior care coordinators today.</p>
 
-      <form class="modal-form" id="bookingForm" novalidate>
+      <form class="modal-form" id="bookingForm">
         <div class="form-group">
-          <label class="form-label" for="clientName">Full Name</label>
-          <input class="form-input" type="text" id="clientName" name="name" placeholder="e.g. Ramesh Kumar" required>
+          <label class="form-label" for="clientName">Your Full Name</label>
+          <input class="form-input" type="text" id="clientName" name="name" placeholder="e.g. Rahul Sharma" required>
         </div>
 
         <div class="form-group">
@@ -931,15 +927,26 @@
     </div>
   </div>
 
-  <!-- Back to Top Button -->
-  <button class="back-to-top" aria-label="Back to top">
-    <svg class="progress-ring" viewBox="0 0 44 44">
-      <circle class="progress-ring-circle" cx="22" cy="22" r="19"></circle>
+  <!-- Toast Notification -->
+  <div class="toast-notice" role="alert">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="20 6 9 17 4 12"></polyline>
     </svg>
-    <svg class="arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-      stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="18 15 12 9 6 15"></polyline>
+    <span class="toast-message">Care request received! We'll call you shortly.</span>
+  </div>
+
+  <!-- Back to Top Button with Circular Scroll Progress -->
+  <button class="back-to-top" aria-label="Scroll to top of page" title="Scroll to top">
+    <svg class="progress-ring" viewBox="0 0 48 48" aria-hidden="true">
+      <circle class="progress-ring-track" cx="24" cy="24" r="21"></circle>
+      <circle class="progress-ring-bar" cx="24" cy="24" r="21"></circle>
     </svg>
+    <span class="back-to-top-inner">
+      <svg class="back-to-top-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </span>
   </button>
 
   <!-- External JavaScript Libraries -->
@@ -950,3 +957,4 @@
 </body>
 
 </html>
+
