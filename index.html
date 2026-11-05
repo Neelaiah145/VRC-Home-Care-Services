@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=31.0">
+  <link rel="stylesheet" href="assets/css/styles.css?v=47.0">
   <style>
     /* about section mage style i write here */
     .about-photo-collage {
@@ -222,7 +222,7 @@
         <a href="about.html" class="nav-link">About</a>
 
         <div class="nav-item-dropdown">
-          <a href="#services" class="nav-link nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+          <a href="services.html" class="nav-link nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
             <span>Services</span>
             <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -230,34 +230,19 @@
             </svg>
           </a>
           <div class="nav-dropdown-menu" role="menu" aria-label="Services Submenu">
-            <a href="#services" class="dropdown-item" role="menuitem" data-open-modal data-service="Baby Care">
+            <a href="services.html?cat=caregiver" class="dropdown-item" role="menuitem">
               <span class="dropdown-item-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M8 14s1.5 2 4 2 4-2 4-2" />
-                  <line x1="9" y1="9" x2="9.01" y2="9" />
-                  <line x1="15" y1="9" x2="15.01" y2="9" />
+                  <path d="M12 2a5 5 0 0 1 5 5v1a5 5 0 0 1-10 0V7a5 5 0 0 1 5-5z" />
+                  <path d="M4 22a8 8 0 0 1 16 0" />
                 </svg>
               </span>
               <div class="dropdown-item-text">
-                <span class="dropdown-item-title">Baby Care</span>
-                <span class="dropdown-item-desc">Infant handling, gentle feeding &amp; mother support</span>
+                <span class="dropdown-item-title">Caregiver Services</span>
+                <span class="dropdown-item-desc">Caretaker, Baby Care &amp; Elder Care</span>
               </div>
             </a>
-            <a href="#services" class="dropdown-item" role="menuitem" data-open-modal data-service="Elder Care">
-              <span class="dropdown-item-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="3" />
-                  <path
-                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
-                </svg>
-              </span>
-              <div class="dropdown-item-text">
-                <span class="dropdown-item-title">Elder Care</span>
-                <span class="dropdown-item-desc">Assisted living, mobility &amp; dedicated companionship</span>
-              </div>
-            </a>
-            <a href="#services" class="dropdown-item" role="menuitem" data-open-modal data-service="Nursing Care">
+            <a href="services.html?cat=nursing" class="dropdown-item" role="menuitem">
               <span class="dropdown-item-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
@@ -268,7 +253,42 @@
                 <span class="dropdown-item-desc">Clinical medication, vitals tracking &amp; post-op care</span>
               </div>
             </a>
-            <a href="#services" class="dropdown-item" role="menuitem" data-open-modal data-service="Cooking">
+            <a href="services.html?cat=physiotherapy" class="dropdown-item" role="menuitem">
+              <span class="dropdown-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+              </span>
+              <div class="dropdown-item-text">
+                <span class="dropdown-item-title">Physiotherapy</span>
+                <span class="dropdown-item-desc">Post-stroke, ortho recovery &amp; mobility rehab</span>
+              </div>
+            </a>
+            <a href="services.html?cat=palliative" class="dropdown-item" role="menuitem">
+              <span class="dropdown-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </span>
+              <div class="dropdown-item-text">
+                <span class="dropdown-item-title">Palliative Care</span>
+                <span class="dropdown-item-desc">Dignified comfort, bed sore prevention &amp; relief</span>
+              </div>
+            </a>
+            <a href="services.html?cat=equipment" class="dropdown-item" role="menuitem">
+              <span class="dropdown-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+              </span>
+              <div class="dropdown-item-text">
+                <span class="dropdown-item-title">Medical Equipment</span>
+                <span class="dropdown-item-desc">Oxygen, hospital beds, BiPAP rentals &amp; sale</span>
+              </div>
+            </a>
+            <a href="services.html?cat=homesupport" class="dropdown-item" role="menuitem">
               <span class="dropdown-item-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
@@ -279,26 +299,14 @@
                 </svg>
               </span>
               <div class="dropdown-item-text">
-                <span class="dropdown-item-title">Cooking Services</span>
-                <span class="dropdown-item-desc">Nutritious, customized meals tailored to dietary health</span>
-              </div>
-            </a>
-            <a href="#services" class="dropdown-item" role="menuitem" data-open-modal data-service="House Keeping">
-              <span class="dropdown-item-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path
-                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                </svg>
-              </span>
-              <div class="dropdown-item-text">
-                <span class="dropdown-item-title">House Keeping</span>
-                <span class="dropdown-item-desc">Sanitized, organized &amp; comfortable living spaces</span>
+                <span class="dropdown-item-title">Home Support Services</span>
+                <span class="dropdown-item-desc">Nutritious patient cooking &amp; housekeeping</span>
               </div>
             </a>
           </div>
         </div>
 
-        <a href="#contact" class="nav-link">Contact</a>
+        <a href="contact.html" class="nav-link">Contact</a>
       </nav>
 
       <!-- Make an Enquiry Button with Rolling Text Animation -->
@@ -392,10 +400,8 @@
     <div class="mobile-menu-links">
       <a href="#home" class="nav-link">Home</a>
       <a href="about.html" class="nav-link">About</a>
-      <a href="#services" class="nav-link">Services</a>
-      <a href="#contact" class="nav-link">Contact</a>
-
-
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="contact.html" class="nav-link">Contact</a>
     </div>
     <a href="#contact" class="btn btn-primary mobile-enquiry" style="margin-top: auto;" data-open-modal>
       <span class="btn-flip-label" aria-hidden="true">
@@ -1281,7 +1287,7 @@
         <h2 class="section-title">What Our Families <em>Say About Us</em></h2>
         <p class="section-desc">
           Hear firsthand how our compassionate caregivers bring comfort, dignity, and peace of mind to seniors and
-          families across Hyderabad.
+          families across Hyderabad, Telangana, and Andhra Pradesh.
         </p>
       </div>
 
@@ -1756,9 +1762,12 @@
         <div data-aos="fade-up" data-aos-delay="200">
           <h4 class="footer-col-title">Services</h4>
           <ul class="footer-links-list footer-quick-list">
-            <li><a href="#services" class="footer-link">All services</a></li>
-            <li><a href="#services" class="footer-link">Pricing</a></li>
-            <li><a href="#contact" class="footer-link" data-open-modal>Book a service</a></li>
+            <li><a href="services.html" class="footer-link">All Services</a></li>
+            <li><a href="services.html?cat=caregiver" class="footer-link">Caregiver Services</a></li>
+            <li><a href="services.html?cat=nursing" class="footer-link">Nursing Services</a></li>
+            <li><a href="services.html?cat=physiotherapy" class="footer-link">Physiotherapy</a></li>
+            <li><a href="services.html?cat=palliative" class="footer-link">Palliative Care</a></li>
+            <li><a href="services.html?cat=equipment" class="footer-link">Medical Equipment</a></li>
           </ul>
         </div>
 
@@ -1778,7 +1787,7 @@
           <h4 class="footer-col-title">Support</h4>
           <ul class="footer-links-list footer-quick-list">
             <li><a href="#faqs" class="footer-link">FAQ</a></li>
-            <li><a href="#contact" class="footer-link">Contact</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
             <li><a href="#home" class="footer-link">Blog</a></li>
           </ul>
         </div>
@@ -1892,9 +1901,15 @@
             <option value="Caretaker Service">Caretaker Service</option>
             <option value="Baby Care">Baby Care</option>
             <option value="Elderly Care">Elderly Care</option>
-            <option value="Care Manager">Care Manager</option>
             <option value="Basic Nursing Care">Basic Nursing Care</option>
             <option value="General Nursing Care">General Nursing Care</option>
+            <option value="Critical Care / ICU at Home">Critical Care / ICU at Home</option>
+            <option value="Injection & IV Infusion">Injection &amp; IV Infusion</option>
+            <option value="Wound Dressing & Suture Care">Wound Dressing &amp; Suture Care</option>
+            <option value="Care Manager">Care Manager / Health Supervisor</option>
+            <option value="Physiotherapy at Home">Physiotherapy at Home</option>
+            <option value="Palliative Care">Palliative &amp; Bedridden Care</option>
+            <option value="Medical Equipment Rental">Medical Equipment &mdash; Rent &amp; Sale</option>
             <option value="Cook">Cook / Cooking Services</option>
             <option value="Maid">Maid / House Keeping</option>
           </select>
@@ -1943,7 +1958,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="assets/js/main.js?v=5.0"></script>
+  <script src="assets/js/main.js?v=43.0"></script>
 </body>
 
 </html>

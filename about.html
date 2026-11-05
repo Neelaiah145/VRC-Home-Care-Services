@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=31.0">
+  <link rel="stylesheet" href="assets/css/styles.css?v=47.0">
 </head>
 
 <body>
@@ -96,7 +96,7 @@
         <a href="about.html" class="nav-link active">About</a>
 
         <div class="nav-item-dropdown">
-          <a href="index.html#services" class="nav-link nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+          <a href="services.html" class="nav-link nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
             <span>Services</span>
             <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -104,34 +104,19 @@
             </svg>
           </a>
           <div class="nav-dropdown-menu" role="menu" aria-label="Services Submenu">
-            <a href="index.html#services" class="dropdown-item" role="menuitem" data-open-modal data-service="Baby Care">
+            <a href="services.html?cat=caregiver" class="dropdown-item" role="menuitem">
               <span class="dropdown-item-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M8 14s1.5 2 4 2 4-2 4-2" />
-                  <line x1="9" y1="9" x2="9.01" y2="9" />
-                  <line x1="15" y1="9" x2="15.01" y2="9" />
+                  <path d="M12 2a5 5 0 0 1 5 5v1a5 5 0 0 1-10 0V7a5 5 0 0 1 5-5z" />
+                  <path d="M4 22a8 8 0 0 1 16 0" />
                 </svg>
               </span>
               <div class="dropdown-item-text">
-                <span class="dropdown-item-title">Baby Care</span>
-                <span class="dropdown-item-desc">Infant handling, gentle feeding &amp; mother support</span>
+                <span class="dropdown-item-title">Caregiver Services</span>
+                <span class="dropdown-item-desc">Caretaker, Baby Care &amp; Elder Care</span>
               </div>
             </a>
-            <a href="index.html#services" class="dropdown-item" role="menuitem" data-open-modal data-service="Elder Care">
-              <span class="dropdown-item-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="3" />
-                  <path
-                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
-                </svg>
-              </span>
-              <div class="dropdown-item-text">
-                <span class="dropdown-item-title">Elder Care</span>
-                <span class="dropdown-item-desc">Assisted living, mobility &amp; dedicated companionship</span>
-              </div>
-            </a>
-            <a href="index.html#services" class="dropdown-item" role="menuitem" data-open-modal data-service="Nursing Care">
+            <a href="services.html?cat=nursing" class="dropdown-item" role="menuitem">
               <span class="dropdown-item-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
@@ -139,10 +124,45 @@
               </span>
               <div class="dropdown-item-text">
                 <span class="dropdown-item-title">24/7 Nursing Care</span>
-                <span class="dropdown-item-desc">Clinical medication, vitals tracking &amp; post-op care</span>
+                <span class="dropdown-item-desc">Clinical medication, vitals &amp; post-op care</span>
               </div>
             </a>
-            <a href="index.html#services" class="dropdown-item" role="menuitem" data-open-modal data-service="Cooking">
+            <a href="services.html?cat=physiotherapy" class="dropdown-item" role="menuitem">
+              <span class="dropdown-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+              </span>
+              <div class="dropdown-item-text">
+                <span class="dropdown-item-title">Physiotherapy</span>
+                <span class="dropdown-item-desc">Post-stroke, ortho recovery &amp; mobility rehab</span>
+              </div>
+            </a>
+            <a href="services.html?cat=palliative" class="dropdown-item" role="menuitem">
+              <span class="dropdown-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </span>
+              <div class="dropdown-item-text">
+                <span class="dropdown-item-title">Palliative Care</span>
+                <span class="dropdown-item-desc">Dignified comfort, bed sore prevention &amp; relief</span>
+              </div>
+            </a>
+            <a href="services.html?cat=equipment" class="dropdown-item" role="menuitem">
+              <span class="dropdown-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+              </span>
+              <div class="dropdown-item-text">
+                <span class="dropdown-item-title">Medical Equipment</span>
+                <span class="dropdown-item-desc">Oxygen, hospital beds, BiPAP rentals &amp; sale</span>
+              </div>
+            </a>
+            <a href="services.html?cat=homesupport" class="dropdown-item" role="menuitem">
               <span class="dropdown-item-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
@@ -153,26 +173,14 @@
                 </svg>
               </span>
               <div class="dropdown-item-text">
-                <span class="dropdown-item-title">Cooking Services</span>
-                <span class="dropdown-item-desc">Nutritious, customized meals tailored to dietary health</span>
-              </div>
-            </a>
-            <a href="index.html#services" class="dropdown-item" role="menuitem" data-open-modal data-service="House Keeping">
-              <span class="dropdown-item-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path
-                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                </svg>
-              </span>
-              <div class="dropdown-item-text">
-                <span class="dropdown-item-title">House Keeping</span>
-                <span class="dropdown-item-desc">Sanitized, organized &amp; comfortable living spaces</span>
+                <span class="dropdown-item-title">Home Support Services</span>
+                <span class="dropdown-item-desc">Nutritious patient cooking &amp; housekeeping</span>
               </div>
             </a>
           </div>
         </div>
 
-        <a href="index.html#contact" class="nav-link">Contact</a>
+        <a href="contact.html" class="nav-link">Contact</a>
       </nav>
 
       <!-- Make an Enquiry Button -->
@@ -196,6 +204,66 @@
     </div>
   </header>
 
+  <!-- Announcement Ticker Bar (Scrolling Right to Left, scrolls with page so it escapes from sticky navbar) -->
+  <div class="header-ticker-bar" role="region" aria-label="Announcements">
+    <div class="ticker-track">
+      <div class="ticker-content">
+        <div class="ticker-item">
+          <span class="ticker-text">NOW SERVING FAMILIES ACROSS TELANGANA AND ANDHRA PRADESH</span>
+          <a href="services.html" class="ticker-action-link">SEE SERVICES</a>
+        </div>
+        <svg class="ticker-pulse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="2 12 5 12 7 6 11 18 13 10 15 14 17 12 22 12"></polyline>
+        </svg>
+        <div class="ticker-item">
+          <span class="ticker-text">24×7 EMERGENCY NURSING SUPPORT &mdash; CALL <a href="tel:+919052613446"
+              class="ticker-phone-link">+91 90526 13446</a></span>
+          <a href="#contact" class="ticker-action-link" data-open-modal>CONTACT</a>
+        </div>
+        <svg class="ticker-pulse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="2 12 5 12 7 6 11 18 13 10 15 14 17 12 22 12"></polyline>
+        </svg>
+        <div class="ticker-item">
+          <span class="ticker-text">FREE HOME ASSESSMENT ON ALL CARE PACKAGES THIS MONTH</span>
+          <a href="#contact" class="ticker-action-link" data-open-modal>BOOK NOW</a>
+        </div>
+        <svg class="ticker-pulse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="2 12 5 12 7 6 11 18 13 10 15 14 17 12 22 12"></polyline>
+        </svg>
+      </div>
+      <div class="ticker-content" aria-hidden="true">
+        <div class="ticker-item">
+          <span class="ticker-text">NOW SERVING FAMILIES ACROSS TELANGANA AND ANDHRA PRADESH</span>
+          <a href="services.html" class="ticker-action-link">SEE SERVICES</a>
+        </div>
+        <svg class="ticker-pulse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="2 12 5 12 7 6 11 18 13 10 15 14 17 12 22 12"></polyline>
+        </svg>
+        <div class="ticker-item">
+          <span class="ticker-text">24×7 EMERGENCY NURSING SUPPORT &mdash; CALL <a href="tel:+919052613446"
+              class="ticker-phone-link">+91 90526 13446</a></span>
+          <a href="#contact" class="ticker-action-link" data-open-modal>CONTACT</a>
+        </div>
+        <svg class="ticker-pulse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="2 12 5 12 7 6 11 18 13 10 15 14 17 12 22 12"></polyline>
+        </svg>
+        <div class="ticker-item">
+          <span class="ticker-text">FREE HOME ASSESSMENT ON ALL CARE PACKAGES THIS MONTH</span>
+          <a href="#contact" class="ticker-action-link" data-open-modal>BOOK NOW</a>
+        </div>
+        <svg class="ticker-pulse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="2 12 5 12 7 6 11 18 13 10 15 14 17 12 22 12"></polyline>
+        </svg>
+      </div>
+    </div>
+  </div>
+
   <!-- Mobile Slide Drawer -->
   <div class="mobile-drawer-overlay"></div>
   <aside class="mobile-drawer" aria-label="Mobile Navigation">
@@ -205,8 +273,8 @@
     <div class="mobile-menu-links">
       <a href="index.html#home" class="nav-link">Home</a>
       <a href="about.html" class="nav-link active">About</a>
-      <a href="index.html#services" class="nav-link">Services</a>
-      <a href="index.html#contact" class="nav-link">Contact</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="contact.html" class="nav-link">Contact</a>
     </div>
     <a href="#contact" class="btn btn-primary mobile-enquiry" style="margin-top: auto;" data-open-modal>
       <span class="btn-flip-label" aria-hidden="true">
@@ -218,153 +286,69 @@
   </aside>
 
   <!-- ========================================================================
-       Breadcrumb Hero Header (About Page Banner)
+       1. About Intro Header - "Care That Belongs at Home" (Reference Style)
        ======================================================================== -->
-  <section class="about-page-hero">
-    <div class="container" data-aos="fade-up" data-aos-duration="600">
-      <nav class="about-breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html">Home</a>
-        <span>/</span>
-        <span>About Us</span>
-      </nav>
-      <span class="section-pill-badge" style="background: rgba(255,102,0,0.18); border-color: rgba(255,102,0,0.4); color: #FFB380;">WHO WE ARE</span>
-      <h1 class="about-hero-title">Empowering Families with <em>Compassionate Home Care</em></h1>
-      <p class="about-hero-subtitle">
-        Dedicated to clinical excellence, personal safety, and uncompromised dignity in the comfort of your home across Hyderabad.
-      </p>
-    </div>
-  </section>
-
-  <!-- ========================================================================
-       1. Core About Section (Matching Index Exactly as Requested)
-       ======================================================================== -->
-  <section class="about-section" id="about">
-    <div class="about-bg-crescent-left"></div>
-
+  <section class="about-intro-section" id="about-intro">
     <div class="container">
-      <div class="about-grid">
+      <div class="about-intro-grid">
 
-        <!-- Left Side: Content, Highlights & Stats -->
-        <div class="about-text-content" data-aos="fade-right" data-aos-duration="700">
+        <!-- Left Column: Content & Actions -->
+        <div class="about-intro-content" data-aos="fade-right" data-aos-duration="700">
           <span class="section-pill-badge">ABOUT US</span>
-          <h2 class="about-title">Care That <em>Belongs at Home</em></h2>
-          <p class="about-description">
-            Every aspect of our care is built around compassion, safety, and dignity. We ensure trusted nursing support and personalized care for every individual.
+          <h1 class="section-title about-intro-title">Care That <em>Belongs at Home</em></h1>
+
+          <!-- Pulse Wave Accent -->
+          <div class="about-intro-heartbeat">
+            <svg class="heartbeat-svg" viewBox="0 0 64 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2 12h14l4-8 6 16 6-12 4 4h28" />
+            </svg>
+            <span class="heartbeat-line"></span>
+          </div>
+
+          <p class="about-intro-lead">
+            We bring hospital-grade healthcare into the comfort and dignity of the patient's own home, ensuring
+            compassionate support, personalized attention, and quality care at every stage of their recovery and
+            well-being.
           </p>
 
-          <!-- 2 Key Highlight Feature Cards -->
-          <div class="about-highlights-grid">
-            <div class="about-highlight-card">
-              <div class="about-hl-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="11" cy="7" r="4"></circle>
-                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                </svg>
-              </div>
-              <div class="about-hl-text">
-                <h4 class="about-hl-title">Verified &amp; Certified Caregivers</h4>
-                <p class="about-hl-desc">Background-screened nursing staff dedicated to patient dignity and health.</p>
-              </div>
-            </div>
-
-            <div class="about-highlight-card">
-              <div class="about-hl-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12 6 12 12 16 14"></polyline>
-                </svg>
-              </div>
-              <div class="about-hl-text">
-                <h4 class="about-hl-title">24/7 Dedicated Home Support</h4>
-                <p class="about-hl-desc">Custom daily routines from meals and medication to active companionship.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- 3 Stats Row -->
-          <div class="about-stats-row">
-
-            <div class="stat-item">
-              <div class="stat-icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                  <line x1="16" y1="2" x2="16" y2="6"></line>
-                  <line x1="8" y1="2" x2="8" y2="6"></line>
-                  <line x1="3" y1="10" x2="21" y2="10"></line>
-                </svg>
-              </div>
-              <div>
-                <div class="stat-number">5+</div>
-                <div class="stat-label">Years Experience</div>
-              </div>
-            </div>
-
-            <div class="stat-item">
-              <div class="stat-icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <path
-                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                  </path>
-                </svg>
-              </div>
-              <div>
-                <div class="stat-number">500+</div>
-                <div class="stat-label">Happy Families</div>
-              </div>
-            </div>
-
-            <div class="stat-item">
-              <div class="stat-icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-                  <path
-                    d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z">
-                  </path>
-                </svg>
-              </div>
-              <div>
-                <div class="stat-number">24/7</div>
-                <div class="stat-label">Support Available</div>
-              </div>
-            </div>
-
-          </div>
-
           <!-- Action Buttons -->
-          <div class="about-action-buttons">
+          <div class="about-intro-actions">
             <a href="#contact" class="btn btn-primary" data-open-modal>
               <span class="btn-flip-label" aria-hidden="true">
-                <span>Book a Consultation</span>
-                <span>Book a Consultation</span>
+                <span>Book a Service</span>
+                <span>Book a Service</span>
               </span>
-              <span class="btn-arrow">→</span>
+              <span class="btn-arrow">↗</span>
             </a>
-            <a href="#our-story" class="btn btn-outline-teal">
-              <span class="btn-flip-label" aria-hidden="true">
-                <span>Read Our Story</span>
-                <span>Read Our Story</span>
-              </span>
+            <a href="tel:+919052613446" class="btn about-talk-btn">
+              <span>Talk to Us</span>
+              <span class="btn-arrow" aria-hidden="true">&rarr;</span>
             </a>
           </div>
         </div>
 
-        <!-- Right Side: Overlapping Photo Collage -->
-        <div class="about-photo-collage" data-aos="fade-left" data-aos-duration="850">
-          <div class="about-overlap-canvas">
-            <div class="about-photo-back shine-layer-effect">
-              <img src="assets/images/about/Caring Nurse Assisting Elderly Man.png"
-                alt="Compassionate male caregiver assisting smiling elderly grandfather at home" loading="eager">
+        <!-- Right Column: Modern Reference Feature Card -->
+        <div class="about-intro-visual" data-aos="fade-left" data-aos-duration="700">
+          <div class="about-intro-feature-card shine-layer-effect">
+            <!-- Background Watermark -->
+            <div class="about-card-watermark" aria-hidden="true"></div>
+
+            <!-- Floating Served Badge (Top Right) -->
+            <div class="about-card-served-badge">
+              <span class="served-check-icon">✓</span>
+              <div class="served-text-wrap">
+                <span class="served-number">500+</span>
+                <span class="served-label">Families Served</span>
+              </div>
             </div>
-            <div class="about-photo-front shine-layer-effect">
-              <img src="assets/images/about/Warm Caregiving in a Bright Clinic.png"
-                alt="Dedicated female nurse holding hands with smiling senior lady at home" loading="eager">
+
+            <!-- Bottom Quote Block -->
+            <div class="about-card-bottom-quote">
+              <div class="card-quote-icon" aria-hidden="true">“</div>
+              <p class="card-quote-text">
+                Recovery is gentler at home.<br>Our job is to make it just as safe.
+              </p>
             </div>
           </div>
         </div>
@@ -374,30 +358,34 @@
   </section>
 
   <!-- ========================================================================
-       2. Our Story Section - Modern Redesigned Layout
+       2. Our Story Section
        ======================================================================== -->
   <section class="about-story-section" id="our-story">
     <div class="container">
 
-      <!-- Story Narrative & Visual Showcase (Balanced 2-Column Grid) -->
+      <!-- Story Narrative & Visual Showcase (Balanced 2-Column Responsive Layout) -->
       <div class="about-story-grid">
 
         <!-- Left: Story Narrative -->
         <div class="about-story-text" data-aos="fade-right" data-aos-duration="700">
           <span class="section-pill-badge">OUR STORY</span>
-          <h2 class="section-title">Founded on Family Need, <em>Built on Lasting Trust</em></h2>
+          <h2 class="section-title">Hospital-quality care, <em>in the place people heal best</em></h2>
           <p class="about-story-lead">
-            VRC Nursing &amp; Home Care Services was born from a fundamental truth: <strong>true healing and recovery happen best when surrounded by the comfort, warmth, and dignity of home.</strong>
+            VRC Nursing &amp; Home Care Services was born from a fundamental truth: <strong>true healing and recovery
+              happen best when surrounded by the comfort, warmth, and dignity of home.</strong>
           </p>
           <p>
-            When hospital discharges happen or a family elder requires specialized daily attention, families often find themselves overwhelmed between impersonal institutional facilities and the anxiety of managing care alone. We started VRC in Hyderabad to eliminate that worry completely.
+            When hospital discharges happen or a family elder requires specialized daily attention, families often find
+            themselves overwhelmed between impersonal institutional facilities and the anxiety of managing care alone.
+            We started VRC in Hyderabad to eliminate that worry completely.
           </p>
 
           <!-- Quote Callout Card -->
           <div class="story-quote-card">
             <div class="quote-icon">“</div>
             <p class="quote-text">
-              We treat every patient like our own family member — combining certified medical rigor with heartfelt human empathy.
+              We treat every patient like our own family member — combining certified medical rigor with heartfelt human
+              empathy.
             </p>
           </div>
 
@@ -418,290 +406,187 @@
           </div>
         </div>
 
-        <!-- Right: Modern Layered Visual Composition -->
-        <div class="about-story-visual-wrap" data-aos="fade-left" data-aos-duration="700">
-          <div class="story-image-canvas">
-            <!-- Main Photo (4:3 aspect ratio, elegant border & shadow) -->
-            <div class="story-main-img-box shine-layer-effect">
-              <img src="assets/images/about/story-senior-care.jpg"
-                alt="Compassionate VRC caregiver assisting smiling senior grandfather at home in Hyderabad" loading="lazy">
-            </div>
-
-            <!-- Floating Experience Card (Top-Right) -->
-            <div class="story-float-card story-float-experience" data-aos="fade-down" data-aos-delay="200">
-              <div class="float-icon-star">★</div>
-              <div>
-                <div class="float-num">4.9 / 5</div>
-                <div class="float-lbl">Top Rated Home Care</div>
-              </div>
-            </div>
-
-            <!-- Floating Trust Badge (Bottom-Left) -->
-            <div class="story-float-card story-float-trust" data-aos="fade-up" data-aos-delay="300">
-              <div class="float-icon-shield">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                  <polyline points="9 12 11 14 15 10"></polyline>
-                </svg>
-              </div>
-              <div>
-                <div class="float-num">500+ Homes</div>
-                <div class="float-lbl">Across Hyderabad &amp; Secunderabad</div>
-              </div>
-            </div>
-
-            <!-- Background Decorative Accent -->
-            <div class="story-decorative-circle"></div>
+        <!-- Right: Clean Responsive Image Showcase -->
+        <div class="about-story-media" data-aos="fade-left" data-aos-duration="700">
+          <div class="story-media-card shine-layer-effect">
+            <img src="assets/images/about/story-senior-care.jpg"
+              alt="Compassionate VRC caregiver assisting senior patient at home" class="story-media-img" loading="lazy">
           </div>
         </div>
 
-      </div>
-
-      <!-- Horizontal Journey Milestones (Modern 4-Step Roadmap) -->
-      <div class="story-journey-wrap" data-aos="fade-up" data-aos-duration="750">
-        <div class="story-journey-header text-center">
-          <span class="section-pill-badge">OUR JOURNEY</span>
-          <h3 class="story-journey-title">Milestones of <em>Compassionate Growth</em></h3>
-          <p class="story-journey-desc">From our first residential care placement to Hyderabad's trusted home healthcare network.</p>
-        </div>
-
-        <div class="story-journey-grid">
-          <!-- Step 1 -->
-          <div class="journey-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="journey-card-top">
-              <div class="journey-badge-year">2019</div>
-              <div class="journey-step-circle">01</div>
-            </div>
-            <h4 class="journey-card-title">Founded in Hyderabad</h4>
-            <p class="journey-card-desc">Started with dedicated bedside nursing &amp; senior care attendants across residential hubs.</p>
-          </div>
-
-          <!-- Step 2 -->
-          <div class="journey-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="journey-card-top">
-              <div class="journey-badge-year">2021</div>
-              <div class="journey-step-circle">02</div>
-            </div>
-            <h4 class="journey-card-title">Clinical Expansion</h4>
-            <p class="journey-card-desc">Added post-operative recovery, catheter care, IV infusion, and doctor-coordinated care plans.</p>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="journey-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="journey-card-top">
-              <div class="journey-badge-year">2024</div>
-              <div class="journey-step-circle">03</div>
-            </div>
-            <h4 class="journey-card-title">Care Managers &amp; Oversight</h4>
-            <p class="journey-card-desc">Introduced dedicated clinical supervisor visits, digital daily logs, and 24/7 family emergency backup.</p>
-          </div>
-
-          <!-- Step 4 -->
-          <div class="journey-card" data-aos="fade-up" data-aos-delay="400">
-            <div class="journey-card-top">
-              <div class="journey-badge-year">Today</div>
-              <div class="journey-step-circle">04</div>
-            </div>
-            <h4 class="journey-card-title">500+ Homes Supported</h4>
-            <p class="journey-card-desc">A trusted household name across Telangana, maintaining an industry-leading 98% satisfaction rate.</p>
-          </div>
-        </div>
       </div>
 
     </div>
   </section>
 
   <!-- ========================================================================
-       3. Mission & Vision Section
+       2. Mission & Vision Section (Reference Dual-Card Style)
        ======================================================================== -->
   <section class="about-mv-section" id="mission-vision">
     <div class="container">
 
-      <div class="center-header text-center" data-aos="fade-up">
-        <span class="section-pill-badge">OUR PURPOSE</span>
-        <h2 class="section-title">Guided by a Clear Mission, <em>Inspired by a Bold Vision</em></h2>
-        <p class="section-desc">
-          Everything we do is anchored in preserving health, restoring comfort, and bringing unwavering peace of mind to Hyderabad households.
-        </p>
-      </div>
-
       <div class="about-mv-grid">
 
-        <!-- Mission Card -->
-        <div class="about-mv-card mv-card-mission" data-aos="fade-up" data-aos-delay="150">
-          <div class="mv-card-header">
-            <div class="mv-icon-box">
+        <!-- Card 1: 01 · OUR VISION (Dark Card) -->
+        <div class="about-mv-card mv-card-vision" data-aos="fade-up" data-aos-delay="150">
+          <div class="mv-card-top-row">
+            <span class="mv-card-top-bar">01 &middot; OUR VISION</span>
+            <div class="mv-card-top-icon" aria-label="Vision">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round">
-                <path
-                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                </path>
-                <path d="M12 9v6"></path>
-                <path d="M9 12h6"></path>
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                <circle cx="12" cy="12" r="3" />
               </svg>
             </div>
-            <div>
-              <span class="mv-card-badge">OUR MISSION</span>
-              <h3 class="mv-card-title">Bringing Hospital-Grade Dignity Home</h3>
-            </div>
           </div>
-          <p class="mv-card-desc">
-            To provide accessible, compassionate, and clinically supervised home healthcare within the comfort of home — enabling seniors, infants, and recovering individuals to thrive with safety, independence, and heartfelt empathy.
-          </p>
-          <ul class="mv-points-list">
-            <li>
-              <span class="mv-check-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </span>
-              <span>Delivering clinical care strictly aligned with your treating doctor's instructions.</span>
-            </li>
-            <li>
-              <span class="mv-check-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </span>
-              <span>Fostering genuine companionship and assisted mobility respecting senior dignity.</span>
-            </li>
-            <li>
-              <span class="mv-check-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </span>
-              <span>Providing complete operational transparency and real-time care updates to families.</span>
-            </li>
-          </ul>
-        </div>
 
-        <!-- Vision Card -->
-        <div class="about-mv-card mv-card-vision" data-aos="fade-up" data-aos-delay="250">
-          <div class="mv-card-header">
-            <div class="mv-icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="2" y1="12" x2="22" y2="12"></line>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-              </svg>
-            </div>
-            <div>
-              <span class="mv-card-badge">OUR VISION</span>
-              <h3 class="mv-card-title">Hyderabad's Most Trusted Home Care Network</h3>
-            </div>
-          </div>
-          <p class="mv-card-desc">
-            To set the benchmark in community-centered healthcare across Telangana by uniting modern clinical practices with familial compassion, ensuring every home receives immediate, verified, and uncompromised care support.
-          </p>
+          <h3 class="mv-statement-text">
+            To build India's most advanced digital home healthcare platform &mdash; empowering patients, families and
+            clinicians through technology-driven, patient-centric care.
+          </h3>
+
           <ul class="mv-points-list">
             <li>
-              <span class="mv-check-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </span>
+              <span class="mv-check-icon">&#10003;</span>
               <span>Pioneering standardized, certified caregiver training for all home health disciplines.</span>
             </li>
             <li>
-              <span class="mv-check-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </span>
+              <span class="mv-check-icon">&#10003;</span>
               <span>Empowering families with proactive health assessments and quick 24-hour caregiver deployment.</span>
             </li>
             <li>
-              <span class="mv-check-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </span>
+              <span class="mv-check-icon">&#10003;</span>
               <span>Building a future where dignified, stress-free recovery at home is accessible to all.</span>
             </li>
           </ul>
         </div>
 
+        <!-- Card 2: 02 · OUR MISSION (Light Sage Green Card) -->
+        <div class="about-mv-card mv-card-mission" data-aos="fade-up" data-aos-delay="250">
+          <div class="mv-card-top-row">
+            <span class="mv-card-top-bar">02 &middot; OUR MISSION</span>
+            <div class="mv-card-top-icon" aria-label="Mission">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="12" cy="12" r="6" />
+                <circle cx="12" cy="12" r="2" />
+              </svg>
+            </div>
+          </div>
+
+          <h3 class="mv-statement-text">
+            To deliver hospital-quality healthcare at home with safety, convenience, affordability and compassion
+            &mdash; for people of every age and background.
+          </h3>
+
+          <ul class="mv-points-list">
+            <li>
+              <span class="mv-check-icon">&#10003;</span>
+              <span>Delivering clinical care strictly aligned with your treating doctor's instructions.</span>
+            </li>
+            <li>
+              <span class="mv-check-icon">&#10003;</span>
+              <span>Fostering genuine companionship and assisted mobility respecting senior dignity.</span>
+            </li>
+            <li>
+              <span class="mv-check-icon">&#10003;</span>
+              <span>Providing complete operational transparency and real-time care updates to families.</span>
+            </li>
+          </ul>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- ========================================================================
-       4. Core Values Section
+       3. Core Values Section - "What We Stand For"
        ======================================================================== -->
   <section class="about-values-section" id="values">
     <div class="container">
 
       <div class="center-header text-center" data-aos="fade-up">
         <span class="section-pill-badge">OUR VALUES</span>
-        <h2 class="section-title">The Principles That <em>Guide Every Interaction</em></h2>
+        <h2 class="section-title">What We <em>Stand For</em></h2>
         <p class="section-desc">
-          Our core values are not slogans — they are daily commitments practiced by every caregiver, nurse, and care manager we assign.
+          The daily commitments practiced by every nurse, caregiver, and care manager we assign.
         </p>
       </div>
 
       <div class="about-values-grid">
 
-        <!-- Value 1 -->
+        <!-- Value 1: Compassion -->
         <div class="about-value-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="value-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path
-                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-              </path>
-            </svg>
+          <div class="value-card-top">
+            <div class="value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                </path>
+              </svg>
+            </div>
+            <span class="value-step-num">01</span>
           </div>
-          <h3 class="value-title">Compassion &amp; Dignity</h3>
+          <h3 class="value-title">Compassion</h3>
           <p class="value-desc">
-            We treat every patient like our own family elder or child, preserving their privacy, independence, and personal self-respect at all times.
+            We treat every patient as we would our own family.
           </p>
         </div>
 
-        <!-- Value 2 -->
+        <!-- Value 2: Safety -->
         <div class="about-value-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="value-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              <path d="M9 12l2 2 4-4"></path>
-            </svg>
+          <div class="value-card-top">
+            <div class="value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="M9 12l2 2 4-4"></path>
+              </svg>
+            </div>
+            <span class="value-step-num">02</span>
           </div>
-          <h3 class="value-title">Clinical Rigor &amp; Safety</h3>
+          <h3 class="value-title">Safety</h3>
           <p class="value-desc">
-            Stringent background screening, verified credentials, and systematic supervisor audits ensure unwavering medical safety at home.
+            Verified professionals, clinical oversight and strict protocols.
           </p>
         </div>
 
-        <!-- Value 3 -->
+        <!-- Value 3: Accountability -->
         <div class="about-value-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="value-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="12" y1="8" x2="12" y2="12"></line>
-              <line x1="12" y1="16" x2="12.01" y2="16"></line>
-            </svg>
+          <div class="value-card-top">
+            <div class="value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="6"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
+              </svg>
+            </div>
+            <span class="value-step-num">03</span>
           </div>
-          <h3 class="value-title">100% Transparency</h3>
+          <h3 class="value-title">Accountability</h3>
           <p class="value-desc">
-            Clear, itemized pricing established after in-home assessment. Zero hidden fees, unexpected retainers, or vague charges ever.
+            Every visit, vital and payment is documented and traceable.
           </p>
         </div>
 
-        <!-- Value 4 -->
+        <!-- Value 4: Transparency -->
         <div class="about-value-card" data-aos="fade-up" data-aos-delay="400">
-          <div class="value-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <polyline points="12 6 12 12 16 14"></polyline>
-            </svg>
+          <div class="value-card-top">
+            <div class="value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+              </svg>
+            </div>
+            <span class="value-step-num">04</span>
           </div>
-          <h3 class="value-title">Reliability &amp; 24×7 Support</h3>
+          <h3 class="value-title">Transparency</h3>
           <p class="value-desc">
-            Round-the-clock emergency assistance, timely caregiver arrival, and immediate replacement support keeping family routines uninterrupted.
+            Clear pricing after assessment — never a hidden charge.
           </p>
         </div>
 
@@ -710,63 +595,46 @@
   </section>
 
   <!-- ========================================================================
-       5. Our Approach Section
+       4. Our Approach Section - "How We Care" (Website Card Style, 3 Cards)
        ======================================================================== -->
   <section class="about-approach-section" id="approach">
     <div class="container">
 
       <div class="center-header text-center" data-aos="fade-up">
         <span class="section-pill-badge">OUR APPROACH</span>
-        <h2 class="section-title">A Structured Framework for <em>Seamless Recovery</em></h2>
+        <h2 class="section-title">How We <em>Care</em></h2>
         <p class="section-desc">
-          From first inquiry to continuous daily health monitoring, our five-step method ensures personalized, accountable home care.
+          The same four steps for every family, so you always know what happens next.
         </p>
       </div>
 
+      <!-- 3-Column Website Card Grid -->
       <div class="about-approach-grid">
 
-        <!-- Step 1 -->
+        <!-- Step 1: Assess at home -->
         <div class="approach-step-card" data-aos="fade-up" data-aos-delay="100">
           <div class="approach-step-num">01</div>
-          <h3 class="approach-step-title">Initial Consultation</h3>
+          <h3 class="approach-step-title">Assess at home</h3>
           <p class="approach-step-desc">
-            Understanding the patient's medical condition, mobility requirements, and family preferences with no upfront fee.
+            A supervisor visits first to understand the patient, the home and the care needed.
           </p>
         </div>
 
-        <!-- Step 2 -->
+        <!-- Step 2: Plan the care -->
         <div class="approach-step-card" data-aos="fade-up" data-aos-delay="200">
           <div class="approach-step-num">02</div>
-          <h3 class="approach-step-title">In-Home Assessment</h3>
+          <h3 class="approach-step-title">Plan the care</h3>
           <p class="approach-step-desc">
-            A qualified clinical supervisor visits to evaluate vital needs, home environment safety, and daily living routines.
+            You receive an itemised care plan and quotation. Care starts only when you approve it.
           </p>
         </div>
 
-        <!-- Step 3 -->
+        <!-- Step 3: Review and adapt -->
         <div class="approach-step-card" data-aos="fade-up" data-aos-delay="300">
           <div class="approach-step-num">03</div>
-          <h3 class="approach-step-title">Custom Care Blueprint</h3>
+          <h3 class="approach-step-title">Review and adapt</h3>
           <p class="approach-step-desc">
-            Tailoring an itemized plan covering medications, hygiene assistance, mobility support, and specialized diets.
-          </p>
-        </div>
-
-        <!-- Step 4 -->
-        <div class="approach-step-card" data-aos="fade-up" data-aos-delay="400">
-          <div class="approach-step-num">04</div>
-          <h3 class="approach-step-title">Caregiver Matching</h3>
-          <p class="approach-step-desc">
-            Carefully assigning verified nurses, caretakers, cooks, or maids matching the patient's language, temperament, and care level.
-          </p>
-        </div>
-
-        <!-- Step 5 -->
-        <div class="approach-step-card" data-aos="fade-up" data-aos-delay="500">
-          <div class="approach-step-num">05</div>
-          <h3 class="approach-step-title">Active Oversight</h3>
-          <p class="approach-step-desc">
-            Care Managers monitor daily logs, verify vital recordings, and conduct periodic home audits with family coordination.
+            Regular check-ins, so the plan changes as the patient recovers.
           </p>
         </div>
 
@@ -781,9 +649,9 @@
     <div class="container" data-aos="zoom-in" data-aos-duration="600">
       <div class="about-cta-banner-box">
         <div>
-          <h2 class="about-cta-title">Ready to Arrange Trusted Care for Your Loved One?</h2>
+          <h2 class="about-cta-title">Let's talk about the care your family needs</h2>
           <p class="about-cta-desc">
-            Speak with our care management team today. We'll listen to your family's situation and recommend the right home care support with zero obligation.
+            Tell us what's needed &mdash; our care team calls you to confirm the details, usually the same day.
           </p>
         </div>
         <div class="about-cta-actions">
@@ -834,9 +702,12 @@
         <div data-aos="fade-up" data-aos-delay="200">
           <h4 class="footer-col-title">Services</h4>
           <ul class="footer-links-list footer-quick-list">
-            <li><a href="index.html#services" class="footer-link">All services</a></li>
-            <li><a href="index.html#services" class="footer-link">Pricing</a></li>
-            <li><a href="#contact" class="footer-link" data-open-modal>Book a service</a></li>
+            <li><a href="services.html" class="footer-link">All Services</a></li>
+            <li><a href="services.html?cat=caregiver" class="footer-link">Caregiver Services</a></li>
+            <li><a href="services.html?cat=nursing" class="footer-link">Nursing Services</a></li>
+            <li><a href="services.html?cat=physiotherapy" class="footer-link">Physiotherapy</a></li>
+            <li><a href="services.html?cat=palliative" class="footer-link">Palliative Care</a></li>
+            <li><a href="services.html?cat=equipment" class="footer-link">Medical Equipment</a></li>
           </ul>
         </div>
 
@@ -856,7 +727,7 @@
           <h4 class="footer-col-title">Support</h4>
           <ul class="footer-links-list footer-quick-list">
             <li><a href="index.html#faqs" class="footer-link">FAQ</a></li>
-            <li><a href="index.html#contact" class="footer-link">Contact</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
             <li><a href="index.html#home" class="footer-link">Blog</a></li>
           </ul>
         </div>
@@ -967,12 +838,18 @@
         <div class="form-group">
           <label class="form-label" for="serviceSelect">Service Needed</label>
           <select class="form-select" id="serviceSelect" name="service">
-            <option value="Care Manager">Care Manager</option>
             <option value="Caretaker Service">Caretaker Service</option>
             <option value="Baby Care">Baby Care</option>
             <option value="Elderly Care">Elderly Care</option>
             <option value="Basic Nursing Care">Basic Nursing Care</option>
             <option value="General Nursing Care">General Nursing Care</option>
+            <option value="Critical Care / ICU at Home">Critical Care / ICU at Home</option>
+            <option value="Injection & IV Infusion">Injection &amp; IV Infusion</option>
+            <option value="Wound Dressing & Suture Care">Wound Dressing &amp; Suture Care</option>
+            <option value="Care Manager">Care Manager / Health Supervisor</option>
+            <option value="Physiotherapy at Home">Physiotherapy at Home</option>
+            <option value="Palliative Care">Palliative &amp; Bedridden Care</option>
+            <option value="Medical Equipment Rental">Medical Equipment &mdash; Rent &amp; Sale</option>
             <option value="Cook">Cook / Cooking Services</option>
             <option value="Maid">Maid / House Keeping</option>
           </select>
@@ -1021,8 +898,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="assets/js/main.js?v=5.0"></script>
+  <script src="assets/js/main.js?v=43.0"></script>
 </body>
 
 </html>
-
