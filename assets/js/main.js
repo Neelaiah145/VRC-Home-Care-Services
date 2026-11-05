@@ -961,11 +961,13 @@ function initTestimonialSlider() {
   }
 
   function updateSlidePosition() {
-    const perView = getCardsPerView();
-    const slideWidthPercent = 100 / perView;
-    const gapOffset = (perView > 1) ? (currentIndex * (24 / perView)) : 0;
-    const translateX = -(currentIndex * slideWidthPercent);
-    track.style.transform = `translateX(calc(${translateX}% - ${gapOffset}px))`;
+    if (!slides.length) return;
+    const slideRect = slides[0].getBoundingClientRect();
+    const slideWidth = slideRect.width;
+    const trackStyle = window.getComputedStyle(track);
+    const gap = parseFloat(trackStyle.gap) || 24;
+    const moveAmount = currentIndex * (slideWidth + gap);
+    track.style.transform = `translateX(-${moveAmount}px)`;
     updateDots();
   }
 
