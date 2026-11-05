@@ -4133,11 +4133,11 @@ text-align: center;
 
 .btn-banner-talk:hover,
 .btn-banner-talk:focus-visible {
-  background: #F8FAFC !important;
-  color: var(--secondary) !important;
-  border-color: #F8FAFC;
+  background: var(--secondary) !important;
+  color: #0A2540 !important;
+  border-color: var(--secondary) !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.14);
+  box-shadow: 0 8px 24px var(--secondary-glow);
 }
 
 /* Responsiveness */
