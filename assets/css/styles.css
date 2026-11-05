@@ -5166,18 +5166,20 @@ p,
 
 .about-intro-title {
   font-family: var(--font-main);
-  font-size: var(--heading-size);
-  font-weight: var(--heading-weight);
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 800;
   color: var(--primary);
-  line-height: var(--heading-line-height);
+  line-height: 1.15;
   letter-spacing: -0.025em;
-  margin-top: 14px;
+  margin-top: 0;
   margin-bottom: 14px;
 }
 
-.about-intro-title em {
-  font-style: italic !important;
-  font-weight: 600 !important;
+.about-intro-title em,
+.about-intro-title span {
+  font-style: normal !important;
+  font-family: var(--font-main) !important;
+  font-weight: 800 !important;
   color: var(--secondary) !important;
   letter-spacing: normal !important;
 }
@@ -6564,17 +6566,20 @@ p,
 
 .contact-page-title {
   font-family: var(--font-main);
-  font-size: clamp(2.2rem, 3.8vw, 3rem);
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
   font-weight: 800;
   color: var(--primary);
   line-height: 1.15;
-  margin: 12px 0 8px;
+  letter-spacing: -0.025em;
+  margin: 0 0 10px;
 }
 
-.contact-page-title em {
-  font-style: italic;
-  font-family: var(--font-accent);
-  color: var(--secondary);
+.contact-page-title em,
+.contact-page-title span {
+  font-style: normal !important;
+  font-family: var(--font-main) !important;
+  font-weight: 800 !important;
+  color: var(--secondary) !important;
 }
 
 .contact-hero-lead {
