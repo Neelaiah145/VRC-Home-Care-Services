@@ -2490,10 +2490,106 @@ button.btn:hover .btn-flip-label span {
   color: rgba(255, 255, 255, 0.92) !important;
 }
 
+.service-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.service-card-top .service-icon-box {
+  margin-bottom: 0;
+}
+
+.service-rate-badge {
+  font-family: var(--font-main);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748B;
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  transition: all 0.35s ease;
+}
+
+.service-card:hover .service-rate-badge {
+  background: rgba(255, 255, 255, 0.22);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
 .service-card-footer {
-  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
   margin-top: auto;
-  border: none;
+  border-top: 1px solid var(--border-light);
+  transition: border-color 0.35s ease;
+}
+
+.service-card:hover .service-card-footer {
+  border-top-color: rgba(255, 255, 255, 0.2);
+}
+
+.service-price-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.service-price-label {
+  font-family: var(--font-main);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8A9CAE;
+  transition: color 0.35s ease;
+}
+
+.service-card:hover .service-price-label {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.service-price-val {
+  font-family: var(--font-main);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1.1;
+  transition: color 0.35s ease;
+}
+
+.service-card:hover .service-price-val {
+  color: #FFFFFF;
+}
+
+.service-arrow-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--border-color);
+  background: var(--white);
+  color: var(--primary);
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.35s ease;
+}
+
+.service-card:hover .service-arrow-circle {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  color: #FFFFFF;
+  transform: translate(2px, -2px);
+  box-shadow: 0 4px 12px var(--secondary-glow);
 }
 
 .service-learn-more {
@@ -2520,6 +2616,7 @@ button.btn:hover .btn-flip-label span {
 .service-card:hover .arrow-diag {
   transform: translate(3px, -3px);
 }
+
 
 /* 6th Card - Appointment CTA Card Matching Carely Ref */
 .service-card-appointment {
@@ -2990,9 +3087,14 @@ button.btn:hover .btn-flip-label span {
 .how-it-work,
 .how-it-works-section {
   position: relative;
-  padding: 50px 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 0 100px;
   overflow: hidden;
   background: var(--primary-dark);
+  box-sizing: border-box;
 }
 
 .how-it-work::before,
@@ -3053,6 +3155,14 @@ button.btn:hover .btn-flip-label span {
   font-style: italic;
 }
 
+.section-title-center .how-desc {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  margin: 14px auto 0;
+  max-width: 650px;
+}
+
 /* 4 Step Cards Grid */
 .work-steps-list {
   display: grid;
@@ -3060,20 +3170,6 @@ button.btn:hover .btn-flip-label span {
   gap: 24px;
   margin-bottom: 40px;
   width: 100%;
-}
-
-@media (max-width: 1024px) {
-  .work-steps-list {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-}
-
-@media (max-width: 640px) {
-  .work-steps-list {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
 }
 
 /* Carely Work Steps Item Card */
@@ -3084,12 +3180,13 @@ button.btn:hover .btn-flip-label span {
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 20px;
-  padding: 38px 28px;
+  padding: 28px 24px 26px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
-  min-height: 350px;
+  min-height: 230px;
+  cursor: pointer;
 }
 
 .work-steps-item:hover,
@@ -3129,8 +3226,8 @@ button.btn:hover .btn-flip-label span {
 }
 
 .work-steps-item .icon-box img {
-  width: 58px;
-  height: 58px;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
   transition: transform 0.4s ease-in-out, filter 0.4s ease-in-out;
   filter: brightness(0) invert(1);
@@ -3145,14 +3242,14 @@ button.btn:hover .btn-flip-label span {
 
 /* Step Number Circle */
 .work-step-no {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   display: flex;
   justify-content: center;
   align-items: center;
   background: var(--secondary);
   border-radius: 50%;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
   transition: all 0.4s ease-in-out;
   position: relative;
   z-index: 1;
@@ -3182,7 +3279,7 @@ button.btn:hover .btn-flip-label span {
 
 /* Step Card Content */
 .work-step-content {
-  margin-bottom: 20px;
+  margin-bottom: 0;
   position: relative;
   z-index: 1;
   flex-grow: 1;
@@ -3192,54 +3289,68 @@ button.btn:hover .btn-flip-label span {
   font-family: var(--font-main);
   font-size: 1.15rem;
   font-weight: 600;
-  line-height: 1.4;
+  line-height: 1.35;
   color: var(--white);
   border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-  margin-bottom: 16px;
-  padding-bottom: 16px;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
   transition: all 0.4s ease-in-out;
 }
 
 .work-step-content p {
   color: rgba(255, 255, 255, 0.88);
   font-size: 0.90rem;
-  line-height: 1.6;
+  line-height: 1.55;
   margin-bottom: 0;
   transition: all 0.4s ease-in-out;
 }
 
-/* Step Card Button / Link */
-.work-step-btn {
-  position: relative;
-  z-index: 1;
-  margin-top: auto;
+/* Responsive adjustments across all devices */
+@media (max-width: 1024px) {
+  .work-steps-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .work-steps-item {
+    min-height: 210px;
+    padding: 24px 20px;
+  }
 }
 
-.work-step-btn .readmore-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 600;
-  font-size: 0.92rem;
-  color: var(--secondary-light);
-  text-transform: capitalize;
-  transition: all 0.4s ease-in-out;
-  text-decoration: none;
-}
+@media (max-width: 640px) {
+  .work-steps-list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 
-.work-step-btn .readmore-btn .arrow-diag {
-  font-size: 1.1rem;
-  transition: transform 0.3s ease;
-}
+  .work-steps-item {
+    min-height: auto;
+    padding: 22px 18px;
+    border-radius: 16px;
+  }
 
-.work-step-btn .readmore-btn:hover .arrow-diag,
-.work-steps-item:hover .work-step-btn .readmore-btn .arrow-diag {
-  transform: translate(3px, -3px);
-}
+  .work-steps-item .icon-box img {
+    width: 40px;
+    height: 40px;
+  }
 
-.work-steps-item.active .work-step-btn .readmore-btn,
-.work-steps-item:hover .work-step-btn .readmore-btn {
-  color: var(--white);
+  .work-step-no {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 14px;
+  }
+
+  .work-step-content h3 {
+    font-size: 1.08rem;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+
+  .work-step-content p {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
 }
 
 /* Section Footer Text */
@@ -3275,8 +3386,10 @@ text-align: center;
 }
 
 @media (max-width: 900px) {
-  .how-it-works-section {
-    min-height: 0;
+  .how-it-works-section,
+  .how-it-work {
+    min-height: auto;
+    padding: 85px 0;
   }
 
   .how-steps-grid {
@@ -3292,9 +3405,10 @@ text-align: center;
 }
 
 @media (max-width: 560px) {
-  .how-it-works-section {
+  .how-it-works-section,
+  .how-it-work {
     margin: 0;
-    padding: 50px 0;
+    padding: 70px 0;
   }
 
   .how-it-works-heading {
@@ -3657,6 +3771,305 @@ text-align: center;
   font-weight: 400;
   color: var(--text-muted);
   line-height: 1.7;
+}
+
+/* ==========================================================================
+   CTA Help & Ready Banners Section (Below FAQs)
+   ========================================================================== */
+.cta-banners-section {
+  background-color: var(--soft-bg);
+  position: relative;
+  padding: 10px 0 80px 0;
+}
+
+.cta-banners-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+/* 1. Light Card */
+.cta-banner-light {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 38px 46px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  box-shadow: 0 4px 20px rgba(10, 37, 64, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-banner-light:hover {
+  box-shadow: 0 8px 28px rgba(10, 37, 64, 0.08);
+}
+
+.cta-banner-light .cta-banner-title {
+  font-family: var(--font-main);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+  margin: 0 0 10px 0;
+  line-height: 1.25;
+}
+
+.cta-banner-light .cta-banner-desc {
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #556987;
+  margin: 0;
+  line-height: 1.55;
+  max-width: 520px;
+}
+
+.cta-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.cta-action-pill {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 12px 22px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.cta-action-pill:hover {
+  border-color: var(--secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255, 102, 0, 0.15);
+}
+
+.cta-pill-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.cta-action-pill:hover .cta-pill-icon {
+  transform: scale(1.05);
+}
+
+.cta-pill-icon-dark {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.cta-pill-icon-green {
+  background: #25D366;
+  color: #ffffff;
+}
+
+.cta-pill-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.cta-pill-heading {
+  font-family: var(--font-main);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.25;
+}
+
+.cta-pill-sub {
+  font-family: var(--font-main);
+  font-size: 0.80rem;
+  font-weight: 500;
+  color: #64748B;
+  margin-top: 3px;
+  line-height: 1.2;
+}
+
+/* 2. Dark Card */
+.cta-banner-dark {
+  background: var(--primary-dark);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 42px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  box-shadow: 0 10px 30px rgba(6, 24, 43, 0.28);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-banner-dark:hover {
+  box-shadow: 0 14px 40px rgba(6, 24, 43, 0.35);
+}
+
+.cta-banner-dark .cta-banner-title {
+  font-family: var(--font-main);
+  font-size: 1.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px 0;
+  line-height: 1.2;
+}
+
+.cta-banner-dark .cta-banner-desc {
+  font-family: var(--font-main);
+  font-size: 0.96rem;
+  font-weight: 400;
+  color: #CBD5E1;
+  margin: 0;
+  line-height: 1.55;
+  max-width: 540px;
+}
+
+.cta-banner-dark .cta-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.btn-banner-service {
+  background: var(--secondary);
+  color: var(--white);
+  font-family: var(--font-main);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 12px 26px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+  border: 1.5px solid var(--secondary);
+  box-shadow: 0 4px 14px var(--secondary-glow);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-banner-service:hover,
+.btn-banner-service:focus-visible {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+  transform: translateY(-2.5px);
+  box-shadow: 0 8px 22px rgba(10, 37, 64, 0.4);
+}
+
+.btn-banner-service:hover .btn-flip-label span,
+.btn-banner-service:focus-visible .btn-flip-label span {
+  transform: translateY(-100%);
+}
+
+.btn-banner-service .btn-enquiry-arrow {
+  display: inline-block;
+  font-size: 1.05rem;
+  line-height: 1;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-banner-service:hover .btn-enquiry-arrow,
+.btn-banner-service:focus-visible .btn-enquiry-arrow {
+  transform: translateX(4px);
+}
+
+.btn-banner-talk {
+  color: #FFFFFF !important;
+  font-family: var(--font-main);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.25s ease, transform 0.25s ease;
+  white-space: nowrap;
+  padding: 6px 2px;
+}
+
+.btn-banner-talk:hover,
+.btn-banner-talk:focus-visible {
+  color: var(--secondary) !important;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  transform: translateY(-1px);
+}
+
+/* Responsiveness */
+@media (max-width: 991px) {
+  .cta-banner-light,
+  .cta-banner-dark {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 28px;
+    gap: 22px;
+  }
+
+  .cta-banner-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 640px) {
+  .cta-banners-section {
+    padding: 0 0 50px 0;
+  }
+
+  .cta-banner-light,
+  .cta-banner-dark {
+    padding: 24px 20px;
+  }
+
+  .cta-banner-light .cta-banner-title {
+    font-size: 1.35rem;
+  }
+
+  .cta-banner-dark .cta-banner-title {
+    font-size: 1.45rem;
+  }
+
+  .cta-banner-light .cta-banner-actions,
+  .cta-banner-dark .cta-banner-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .cta-action-pill {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .btn-banner-service {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn-banner-talk {
+    text-align: center;
+    padding: 8px 0;
+  }
 }
 
 
