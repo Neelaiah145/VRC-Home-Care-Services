@@ -5069,138 +5069,351 @@ p,
   margin: 0 auto;
 }
 
-/* Section 2: Our Story */
+/* Section 2: Our Story (Modern Redesigned Layout) */
 .about-story-section {
   background: var(--white);
-  padding: 90px 0;
+  padding: 100px 0 90px;
   position: relative;
+  overflow: hidden;
 }
 
 .about-story-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: clamp(36px, 5vw, 64px);
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(40px, 5.5vw, 72px);
   align-items: center;
+  margin-bottom: 70px;
 }
 
 .about-story-lead {
-  font-size: 1.12rem;
-  font-weight: 600;
+  font-size: 1.15rem;
+  font-weight: 500;
   color: var(--primary);
-  line-height: 1.65;
-  margin-bottom: 16px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.about-story-lead strong {
+  font-weight: 700;
+  color: var(--primary);
 }
 
 .about-story-text p {
   font-size: 0.98rem;
   color: var(--text-muted);
   line-height: 1.72;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
-.about-story-milestones {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-top: 28px;
-}
-
-.story-milestone-card {
+/* Quote Callout Card */
+.story-quote-card {
   background: var(--soft-bg);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: 20px 18px;
-  transition: all 0.35s ease;
+  border-left: 4px solid var(--secondary);
+  border-radius: 0 16px 16px 0;
+  padding: 18px 22px;
+  margin: 22px 0 24px;
+  position: relative;
 }
 
-.story-milestone-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--secondary);
-  background: #FFFFFF;
-  box-shadow: 0 10px 24px rgba(10, 37, 64, 0.08);
-}
-
-.milestone-year {
-  font-family: var(--font-main);
-  font-size: 1.35rem;
-  font-weight: 800;
+.quote-icon {
+  font-family: Georgia, serif;
+  font-size: 2.8rem;
+  line-height: 1;
   color: var(--secondary);
-  margin-bottom: 4px;
-}
-
-.milestone-title {
-  font-size: 0.96rem;
-  font-weight: 700;
-  color: var(--primary);
-  margin-bottom: 4px;
-}
-
-.milestone-desc {
-  font-size: 0.84rem;
-  color: var(--text-muted);
-  line-height: 1.45;
-  margin: 0;
-}
-
-.about-story-visual {
-  position: relative;
-}
-
-.story-visual-frame {
-  position: relative;
-  border-radius: 28px;
-  overflow: hidden;
-  box-shadow: 0 20px 50px rgba(10, 37, 64, 0.14);
-  border: 6px solid #FFFFFF;
-  background: var(--primary);
-}
-
-.story-visual-frame img {
-  width: 100%;
-  height: 100%;
-  max-height: 480px;
-  object-fit: cover;
-  display: block;
-}
-
-.story-visual-badge {
+  opacity: 0.35;
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  background: rgba(10, 37, 64, 0.92);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color: #FFFFFF;
-  padding: 16px 20px;
-  border-radius: 18px;
+  top: 10px;
+  right: 18px;
+  user-select: none;
+}
+
+.quote-text {
+  font-size: 0.98rem !important;
+  font-weight: 600;
+  color: var(--primary) !important;
+  line-height: 1.6;
+  margin: 0 !important;
+  font-style: italic;
+}
+
+/* Story Highlights List */
+.story-highlights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.story-hl-item {
   display: flex;
   align-items: center;
-  gap: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  gap: 12px;
+  font-size: 0.93rem;
+  color: var(--text-muted);
 }
 
-.story-badge-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: var(--secondary);
+.story-hl-item strong {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.story-hl-bullet {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255, 102, 0, 0.12);
+  color: var(--secondary);
+  font-weight: 800;
+  font-size: 0.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-.story-badge-icon svg {
-  width: 22px;
-  height: 22px;
-  stroke: #FFFFFF;
+/* Right Column: Layered Visual Canvas */
+.about-story-visual-wrap {
+  position: relative;
+  width: 100%;
 }
 
-.story-badge-text {
-  font-size: 0.88rem;
+.story-image-canvas {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.story-main-img-box {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 24px 50px rgba(10, 37, 64, 0.16);
+  border: 6px solid #FFFFFF;
+  background: #EAEFF5;
+  position: relative;
+  z-index: 2;
+}
+
+.story-main-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
+/* Floating Cards */
+.story-float-card {
+  position: absolute;
+  z-index: 3;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 12px 18px;
+  box-shadow: 0 16px 36px rgba(10, 37, 64, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.3s ease;
+}
+
+.story-float-card:hover {
+  transform: translateY(-4px);
+}
+
+.story-float-experience {
+  top: -20px;
+  right: -14px;
+}
+
+.float-icon-star {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #FF6600;
+  color: #FFFFFF;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.story-float-trust {
+  bottom: -24px;
+  left: -16px;
+}
+
+.float-icon-shield {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--primary);
+  color: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.float-icon-shield svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--secondary);
+}
+
+.float-num {
+  font-family: var(--font-main);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1.2;
+}
+
+.float-lbl {
+  font-size: 0.76rem;
   font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Background Decorative Circle */
+.story-decorative-circle {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 102, 0, 0.12), rgba(10, 37, 64, 0.05));
+  bottom: -40px;
+  right: -30px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Horizontal Journey Milestones (Modern 4-Step Roadmap) */
+.story-journey-wrap {
+  margin-top: 30px;
+  padding-top: 50px;
+  border-top: 1px solid var(--border-color);
+}
+
+.story-journey-header {
+  max-width: 650px;
+  margin: 0 auto 40px auto;
+}
+
+.story-journey-title {
+  font-family: var(--font-main);
+  font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+  font-weight: 800;
+  color: var(--primary);
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+.story-journey-title em {
+  font-style: italic;
+  color: var(--secondary);
+}
+
+.story-journey-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.story-journey-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  position: relative;
+}
+
+.journey-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 28px 22px;
+  position: relative;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(10, 37, 64, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+.journey-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  height: 4px;
+  border-radius: 0 0 4px 4px;
+  background: var(--secondary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.journey-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 102, 0, 0.35);
+  box-shadow: 0 16px 36px rgba(10, 37, 64, 0.1);
+}
+
+.journey-card:hover::before {
+  opacity: 1;
+}
+
+.journey-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.journey-badge-year {
+  display: inline-block;
+  background: rgba(255, 102, 0, 0.12);
+  color: var(--secondary);
+  font-family: var(--font-main);
+  font-size: 1.15rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 8px;
+  letter-spacing: -0.01em;
+}
+
+.journey-step-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--soft-bg);
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-color);
+}
+
+.journey-card-title {
+  font-family: var(--font-main);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 8px;
   line-height: 1.35;
+}
+
+.journey-card-desc {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin: 0;
 }
 
 /* Section 3: Mission & Vision */
