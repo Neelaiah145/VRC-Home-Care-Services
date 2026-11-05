@@ -2753,7 +2753,7 @@ button.btn:hover .btn-flip-label span {
 .why-trio-col {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
 .why-feature-box {
@@ -2763,7 +2763,9 @@ button.btn:hover .btn-flip-label span {
   background: var(--white);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  padding: 22px 20px;
+  padding: 18px 20px;
+  min-height: 98px;
+  box-sizing: border-box;
   box-shadow: 0 4px 18px rgba(10, 37, 64, 0.05);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
 }
