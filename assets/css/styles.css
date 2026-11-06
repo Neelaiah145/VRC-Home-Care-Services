@@ -2494,6 +2494,27 @@ button.btn:hover .btn-flip-label span {
   box-shadow: 0 4px 14px rgba(5, 150, 105, 0.18);
 }
 
+.service-icon-box.icon-teal {
+  background: #CCFBF1;
+  color: #0D9488;
+  border-color: #99F6E4;
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.18);
+}
+
+.service-icon-box.icon-purple {
+  background: #F3E8FF;
+  color: #7C3AED;
+  border-color: #DDD6FE;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.18);
+}
+
+.service-icon-box.icon-rose {
+  background: #FFE4E6;
+  color: #E11D48;
+  border-color: #FECDD3;
+  box-shadow: 0 4px 14px rgba(225, 29, 72, 0.18);
+}
+
 .service-icon-box.icon-navy {
   background: #0A2540;
   color: #FFFFFF;
@@ -6431,32 +6452,32 @@ p,
 }
 
 .service-cat-btn:hover .cat-icon-badge {
-  background: var(--secondary) !important;
+  background: #0A2540 !important;
   color: #FFFFFF !important;
-  box-shadow: 0 4px 14px var(--secondary-glow);
+  box-shadow: 0 4px 14px rgba(10, 37, 64, 0.28);
 }
 
 .service-cat-btn:hover .cat-title {
-  color: var(--secondary);
+  color: #0A2540;
 }
 
 .service-cat-btn:hover .cat-chevron {
-  color: var(--secondary);
+  color: #0A2540;
   transform: translateX(4px);
 }
 
 .service-cat-btn.active .cat-icon-badge {
-  background: var(--secondary) !important;
+  background: #0A2540 !important;
   color: #FFFFFF !important;
-  box-shadow: 0 4px 14px var(--secondary-glow);
+  box-shadow: 0 4px 14px rgba(10, 37, 64, 0.28);
 }
 
 .service-cat-btn.active .cat-title {
-  color: var(--primary);
+  color: #0A2540;
 }
 
 .service-cat-btn.active .cat-chevron {
-  color: var(--secondary);
+  color: #0A2540;
 }
 
 .cat-text-block {
@@ -6800,10 +6821,10 @@ p,
 }
 
 .contact-info-item:hover .contact-info-icon {
-  background: var(--secondary) !important;
+  background: #0A2540 !important;
   color: #FFFFFF !important;
   transform: scale(1.06);
-  box-shadow: 0 6px 18px rgba(255, 102, 0, 0.28);
+  box-shadow: 0 6px 18px rgba(10, 37, 64, 0.28) !important;
 }
 
 .contact-info-icon svg {
