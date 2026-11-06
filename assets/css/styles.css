@@ -2494,6 +2494,13 @@ button.btn:hover .btn-flip-label span {
   box-shadow: 0 4px 14px rgba(5, 150, 105, 0.18);
 }
 
+.service-icon-box.icon-navy {
+  background: #0A2540;
+  color: #FFFFFF;
+  border-color: #123B5D;
+  box-shadow: 0 4px 14px rgba(10, 37, 64, 0.22);
+}
+
 .service-card:hover .service-icon-box {
   background: rgba(255, 255, 255, 0.22) !important;
   border: 1.5px solid rgba(255, 255, 255, 0.88) !important;
