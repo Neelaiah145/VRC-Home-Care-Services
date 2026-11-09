@@ -1134,7 +1134,20 @@ function initModalAndForms() {
       const serviceName = btn.getAttribute('data-service');
       if (serviceName && bookingForm) {
         const select = bookingForm.querySelector('select[name="service"]');
-        if (select) select.value = serviceName;
+        if (select) {
+          const cleanName = serviceName.replace(/[–—]/g, '-').trim().toLowerCase();
+          let matched = false;
+          for (let i = 0; i < select.options.length; i++) {
+            const optVal = select.options[i].value.replace(/[–—]/g, '-').trim().toLowerCase();
+            const optText = select.options[i].textContent.replace(/[–—]/g, '-').trim().toLowerCase();
+            if (optVal === cleanName || optText === cleanName || optVal.includes(cleanName) || cleanName.includes(optVal)) {
+              select.selectedIndex = i;
+              matched = true;
+              break;
+            }
+          }
+          if (!matched) select.value = serviceName;
+        }
       }
       openModal();
     });

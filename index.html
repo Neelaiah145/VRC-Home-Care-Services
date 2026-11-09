@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=61.0">
+  <link rel="stylesheet" href="assets/css/styles.css?v=79.0">
   <style>
     /* about section mage style i write here */
     .about-photo-collage {
@@ -655,8 +655,8 @@
       <div class="services-grid">
 
         <!-- 1. Caretaker Service -->
-        <article class="service-card" data-open-modal data-service="Caretaker Service" data-aos="fade-up"
-          data-aos-duration="400">
+        <a href="caretaker-service.html" class="service-card" data-service="Caretaker Service" data-aos="fade-up"
+          data-aos-duration="400" style="text-decoration: none; color: inherit;">
           <div class="service-card-bg-img"
             style="background-image: url('assets/images/services/caretaker-service.jpg');">
           </div>
@@ -684,10 +684,10 @@
               <span class="service-arrow-circle"><span class="arrow-diag">↗</span></span>
             </div>
           </div>
-        </article>
+        </a>
 
         <!-- 2. Baby Care -->
-        <article class="service-card" data-open-modal data-service="Baby Care" data-aos="fade-up"
+        <a href="baby-care.html" class="service-card" data-aos="fade-up"
           data-aos-duration="400" data-aos-delay="50">
           <div class="service-card-bg-img"
             style="background-image: url('assets/images/services/baby-care-nurse.jpg');">
@@ -716,10 +716,10 @@
               <span class="service-arrow-circle"><span class="arrow-diag">↗</span></span>
             </div>
           </div>
-        </article>
+        </a>
 
         <!-- 3. Elderly Care -->
-        <article class="service-card" data-open-modal data-service="Elderly Care" data-aos="fade-up"
+        <a href="elderly-care.html" class="service-card" data-aos="fade-up"
           data-aos-duration="400" data-aos-delay="100">
           <div class="service-card-bg-img"
             style="background-image: url('assets/images/services/elder-care-nurse.jpg');">
@@ -748,11 +748,10 @@
               <span class="service-arrow-circle"><span class="arrow-diag">↗</span></span>
             </div>
           </div>
-        </article>
+        </a>
 
         <!-- 4. Care Manager -->
-        <article class="service-card" data-open-modal data-service="Care Manager" data-aos="fade-up"
-          data-aos-duration="400" data-aos-delay="150">
+        <a href="caretaker-service.html" class="service-card" style="text-decoration: none; color: inherit;">
           <div class="service-card-bg-img"
             style="background-image: url('assets/images/services/care-manager-service.jpg');">
           </div>
@@ -780,11 +779,10 @@
               <span class="service-arrow-circle"><span class="arrow-diag">↗</span></span>
             </div>
           </div>
-        </article>
+        </a>
 
         <!-- 5. Basic Nursing Care -->
-        <article class="service-card" data-open-modal data-service="Basic Nursing Care" data-aos="fade-up"
-          data-aos-duration="400" data-aos-delay="200">
+        <a href="basic-nursing-care.html" class="service-card" style="text-decoration: none; color: inherit;">
           <div class="service-card-bg-img"
             style="background-image: url('assets/images/services/basic-nursing-care.jpg');">
           </div>
@@ -813,11 +811,10 @@
               <span class="service-arrow-circle"><span class="arrow-diag">↗</span></span>
             </div>
           </div>
-        </article>
+        </a>
 
         <!-- 6. General Nursing Care -->
-        <article class="service-card" data-open-modal data-service="General Nursing Care" data-aos="fade-up"
-          data-aos-duration="400" data-aos-delay="250">
+        <a href="general-nursing-care.html" class="service-card" style="text-decoration: none; color: inherit;">
           <div class="service-card-bg-img"
             style="background-image: url('assets/images/services/general-nursing-care.jpg');">
           </div>
@@ -846,11 +843,10 @@
               <span class="service-arrow-circle"><span class="arrow-diag">↗</span></span>
             </div>
           </div>
-        </article>
+        </a>
 
         <!-- 7. Cook -->
-        <article class="service-card" data-open-modal data-service="Cook" data-aos="fade-up"
-          data-aos-duration="400" data-aos-delay="100">
+        <a href="cook-service.html" class="service-card" style="text-decoration: none; color: inherit;">
           <div class="service-card-bg-img"
             style="background-image: url('assets/images/services/cook-service.jpg');">
           </div>
@@ -878,11 +874,10 @@
               <span class="service-arrow-circle"><span class="arrow-diag">↗</span></span>
             </div>
           </div>
-        </article>
+        </a>
 
         <!-- 8. Maid -->
-        <article class="service-card" data-open-modal data-service="Maid" data-aos="fade-up"
-          data-aos-duration="400" data-aos-delay="150">
+        <a href="maid-service.html" class="service-card" style="text-decoration: none; color: inherit;">
           <div class="service-card-bg-img"
             style="background-image: url('assets/images/services/maid-service.jpg');">
           </div>
@@ -909,7 +904,7 @@
               <span class="service-arrow-circle"><span class="arrow-diag">↗</span></span>
             </div>
           </div>
-        </article>
+        </a>
 
         <!-- 9. View All Services CTA Card -->
         <article class="service-card service-card-appointment"
@@ -1863,55 +1858,100 @@
   <!-- ========================================================================
        Booking Modal
        ======================================================================== -->
-  <div class="modal-backdrop" aria-hidden="true" role="dialog">
-    <div class="modal-box">
-      <button class="modal-close-btn" aria-label="Close dialog">×</button>
-      <h3 class="modal-title">Book a Free Assessment</h3>
-      <p class="modal-desc">Speak with our registered senior care coordinators today.</p>
-
-      <form class="modal-form" id="bookingForm">
+  <!-- Consultation / Booking Enquiry Modal -->
+  <div class="modal-backdrop" id="bookingModal" aria-hidden="true" role="dialog" aria-modal="true"
+    aria-labelledby="modalTitle">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" aria-label="Close modal">&times;</button>
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">Request Home Care Consultation</h3>
+        <p class="modal-subtitle">Leave your details and a nursing supervisor will call within 15 minutes.</p>
+      </div>
+      <form class="booking-form" id="bookingForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <div class="form-group">
-          <label class="form-label" for="clientName">Your Full Name</label>
-          <input class="form-input" type="text" id="clientName" name="name" placeholder="e.g. Rahul Sharma" required>
+          <label class="form-label" for="clientName">Full Name *</label>
+          <input type="text" class="form-control" id="clientName" name="name" required
+            placeholder="e.g. Rahul Sharma">
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="clientPhone">Phone Number</label>
-          <input class="form-input" type="tel" id="clientPhone" name="phone" placeholder="+91 98765 43210" required>
+          <label class="form-label" for="clientPhone">Phone Number *</label>
+          <input type="tel" class="form-control" id="clientPhone" name="phone" required
+            placeholder="+91 98765 43210">
         </div>
 
         <div class="form-group">
           <label class="form-label" for="serviceSelect">Service Needed</label>
           <select class="form-select" id="serviceSelect" name="service">
-            <option value="Caretaker Service">Caretaker Service</option>
+<option value="Caretaker Service">Caretaker Service</option>
             <option value="Baby Care">Baby Care</option>
             <option value="Elderly Care">Elderly Care</option>
             <option value="Basic Nursing Care">Basic Nursing Care</option>
             <option value="General Nursing Care">General Nursing Care</option>
-            <option value="Critical Care / ICU at Home">Critical Care / ICU at Home</option>
-            <option value="Injection & IV Infusion">Injection &amp; IV Infusion</option>
-            <option value="Wound Dressing & Suture Care">Wound Dressing &amp; Suture Care</option>
-            <option value="Care Manager">Care Manager / Health Supervisor</option>
-            <option value="Physiotherapy at Home">Physiotherapy at Home</option>
-            <option value="Palliative Care">Palliative &amp; Bedridden Care</option>
-            <option value="Medical Equipment Rental">Medical Equipment &mdash; Rent &amp; Sale</option>
-            <option value="Cook">Cook / Cooking Services</option>
-            <option value="Maid">Maid / House Keeping</option>
+            <option value="Skilled Nursing Care">Skilled Nursing Care</option>
+            <option value="Post-Operative Care">Post-Operative Care</option>
+            <option value="Chronic Disease Management">Chronic Disease Management</option>
+            <option value="Critical Care Nursing">Critical Care Nursing</option>
+            <option value="Home ICU Care">Home ICU Care</option>
+            <option value="Ventilator Care">Ventilator Care</option>
+            <option value="Tracheostomy Care">Tracheostomy Care</option>
+            <option value="CPAP & BiPAP Support">CPAP &amp; BiPAP Support</option>
+            <option value="PEG Feeding Care">PEG Feeding Care</option>
+            <option value="Catheter Care">Catheter Care</option>
+            <option value="Oxygen Therapy Support">Oxygen Therapy Support</option>
+            <option value="Wound Dressing & Medication">Wound Dressing &amp; Medication</option>
+            <option value="Physio Assessment & Consultation">Physio Assessment &amp; Consultation</option>
+            <option value="Home Physiotherapy Session">Home Physiotherapy Session</option>
+            <option value="Sports Injury Rehabilitation">Sports Injury Rehabilitation</option>
+            <option value="Post-Operative Rehabilitation">Post-Operative Rehabilitation</option>
+            <option value="Neuro Rehabilitation">Neuro Rehabilitation</option>
+            <option value="Physiotherapy at Home">Physiotherapy at Home (General)</option>
+            <option value="Palliative Care">Palliative Care</option>
+            <option value="Medical Equipment Rental">Medical Equipment &mdash; Rent &amp; Sale (General)</option>
+            <option value="AirSep VisionAire Oxygen Concentrator – 5 LPM">AirSep VisionAire Oxygen Concentrator &ndash; 5 LPM</option>
+            <option value="AirSep NewLife Elite Oxygen Concentrator – 5 LPM">AirSep NewLife Elite Oxygen Concentrator &ndash; 5 LPM</option>
+            <option value="AirSep Intensity Oxygen Concentrator – 10 LPM">AirSep Intensity Oxygen Concentrator &ndash; 10 LPM</option>
+            <option value="DeVilbiss Drive Oxygen Concentrator – 5 LPM">DeVilbiss Drive Oxygen Concentrator &ndash; 5 LPM</option>
+            <option value="DeVilbiss Drive Oxygen Concentrator – 10 LPM">DeVilbiss Drive Oxygen Concentrator &ndash; 10 LPM</option>
+            <option value="Philips Oxygen Concentrator – 5 & 10 LPM">Philips Oxygen Concentrator &ndash; 5 &amp; 10 LPM</option>
+            <option value="Oxymed Oxygen Concentrator – 5 & 10 LPM">Oxymed Oxygen Concentrator &ndash; 5 &amp; 10 LPM</option>
+            <option value="Evox Oxygen Concentrator – 5 LPM">Evox Oxygen Concentrator &ndash; 5 LPM</option>
+            <option value="Evox Oxygen Concentrator – 10 LPM">Evox Oxygen Concentrator &ndash; 10 LPM</option>
+            <option value="Oxymed Oxygen Cylinders">Oxymed Oxygen Cylinders</option>
+            <option value="Oxygen Accessories — Cannula, Masks & Humidifiers">Oxygen Accessories &mdash; Cannula, Masks &amp; Humidifiers</option>
+            <option value="Philips CPAP — DreamStation & Auto CPAP">Philips CPAP &mdash; DreamStation &amp; Auto CPAP</option>
+            <option value="ResMed CPAP — AirSense & Auto CPAP">ResMed CPAP &mdash; AirSense &amp; Auto CPAP</option>
+            <option value="Nidek CPAP & Auto CPAP">Nidek CPAP &amp; Auto CPAP</option>
+            <option value="Oxymed CPAP & Auto CPAP">Oxymed CPAP &amp; Auto CPAP</option>
+            <option value="BMC CPAP & Auto CPAP">BMC CPAP &amp; Auto CPAP</option>
+            <option value="Philips BiPAP — Auto, ST & AVAPS">Philips BiPAP &mdash; Auto, ST &amp; AVAPS</option>
+            <option value="ResMed BiPAP / VPAP — Lumis 150 VPAP ST & VPAP Auto">ResMed BiPAP / VPAP &mdash; Lumis 150</option>
+            <option value="Nidek BiPAP & BiPAP ST">Nidek BiPAP &amp; BiPAP ST</option>
+            <option value="Oxymed BiPAP & BiPAP ST">Oxymed BiPAP &amp; BiPAP ST</option>
+            <option value="BMC BiPAP & BiPAP ST">BMC BiPAP &amp; BiPAP ST</option>
+            <option value="CPAP / BiPAP Masks & Accessories">CPAP / BiPAP Masks &amp; Accessories</option>
+            <option value="Philips Trilogy ICU-Grade Ventilator">Philips Trilogy ICU-Grade Ventilator</option>
+            <option value="ResMed Stellar 150 / Astral 150 Ventilator">ResMed Stellar 150 / Astral 150 Ventilator</option>
+            <option value="Mechanical Ventilator — Home & ICU Care">Mechanical Ventilator &mdash; Home &amp; ICU Care</option>
+            <option value="HFNC — High-Flow Nasal Cannula @ Home">HFNC &mdash; High-Flow Nasal Cannula @ Home</option>
+            <option value="Home ICU Respiratory Setup">Home ICU Respiratory Setup</option>
+            <option value="Sleep Study (Polysomnography) at Home">Sleep Study (Polysomnography) at Home</option>
+            <option value="Sleep Apnea Care Program">Sleep Apnea Care Program</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="clientNotes">Special Care Requirements (Optional)</label>
-          <textarea class="form-textarea" id="clientNotes" name="notes"
+          <label class="form-label" for="patientNotes">Special Care Requirements (Optional)</label>
+          <textarea class="form-control" id="patientNotes" name="notes" rows="3"
             placeholder="Tell us about the patient's medical history or mobility needs..."></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 6px;">
+        <button type="submit" class="btn btn-primary btn-block btn-submit-flip">
           <span class="btn-flip-label" aria-hidden="true">
             <span>Confirm Booking Request</span>
             <span>Confirm Booking Request</span>
           </span>
-          <span class="btn-arrow">→</span>
+          <span class="btn-arrow">&rarr;</span>
         </button>
       </form>
     </div>
@@ -1943,7 +1983,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="assets/js/main.js?v=43.0"></script>
+  <script src="assets/js/main.js?v=45.0"></script>
 </body>
 
 </html>
