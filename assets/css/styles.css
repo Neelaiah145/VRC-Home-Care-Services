@@ -8736,7 +8736,7 @@ p,
 .sd-related-title {
   font-family: var(--font-main);
   font-size: clamp(1.4rem, 2.5vw, 1.85rem);
-  font-weight: 800;
+  font-weight: 600;
   color: #0A2540;
   line-height: 1.25;
   margin: 0;
