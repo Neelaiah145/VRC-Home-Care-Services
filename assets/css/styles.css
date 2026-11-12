@@ -820,9 +820,9 @@ button.btn:hover .btn-flip-label span {
 }
 
 .brand-img-logo {
-  height: 52px;
+  height: 58px;
   width: auto;
-  max-width: 280px;
+  max-width: 310px;
   object-fit: contain;
   display: block;
   transition: transform 0.3s ease;
@@ -832,7 +832,7 @@ button.btn:hover .btn-flip-label span {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 52px;
+  height: 58px;
   line-height: 1.25;
   border-left: none;
   padding-left: 0;
@@ -864,8 +864,8 @@ button.btn:hover .btn-flip-label span {
 
 @media (max-width: 1200px) {
   .brand-img-logo {
-    height: 48px;
-    max-width: 250px;
+    height: 52px;
+    max-width: 275px;
   }
 }
 
@@ -880,12 +880,12 @@ button.btn:hover .btn-flip-label span {
 
   .brand-img-logo {
     height: 48px;
-    max-width: 105px;
+    max-width: 110px;
   }
 
   .mobile-drawer .brand-img-logo {
-    height: 48px;
-    max-width: 240px;
+    height: 50px;
+    max-width: 250px;
   }
 }
 
@@ -896,7 +896,7 @@ button.btn:hover .btn-flip-label span {
 
   .brand-img-logo {
     height: 44px;
-    max-width: 95px;
+    max-width: 100px;
   }
 }
 
